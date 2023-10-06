@@ -1,0 +1,166 @@
+.modal{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 300px;
+	padding: 16px 12px 40px 12px;
+	background-color: #0F0F0F;
+	border-radius: 12;
+	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+	@media (min-width: 834px){
+		max-width: 676px;
+		padding: 24px;
+	}
+}
+
+.title_container{
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+	width: 100%;
+}
+.title_container h1{
+	font-size: 18px;
+	line-height: 1.44;
+	font-weight: 400;
+}
+
+.title_image_container{
+	width: 32px;
+	height: 32px;
+}
+
+
+.form_container {
+	width: 100%;
+	max-height: 556px;
+	overflow-y: auto;
+}
+
+.inner_form {
+	width: 100%;
+	padding: 16px 0;
+	@media (min-width: 834px){
+		display: flex;
+		align-items: center;
+		column-gap: 12px;
+	}
+}
+
+.form_container > div {
+	width: 100%;
+	
+}
+
+.title,
+.carbohydrates,
+.protein,
+.fat,
+.calories{
+	width: 100%;
+	max-width: 276px;
+	padding: 8px 10px;
+	border-radius: 12px;
+	border: 1px solid var(--color-primary-green-lite);
+	background: var(--color-primary-black-2);
+
+	font-size: 14px;
+	line-height: 1.43;
+	font-weight: 400;
+	color: var(--color-primary-grey);
+}
+
+
+.add_more {
+	display: flex;
+	align-items: center;
+	column-gap: 6px;
+	margin-top: 24px;
+	border: none;
+	background-color: transparent;
+
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.43;
+	color: var(--color-primary-green-lite);
+}
+
+.btn_container {
+	@media (min-width: 834px) {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		margin-top: 136px;
+	}
+}
+
+.button_submit{
+	width: 100%;
+	max-width: 276px;
+	margin-top: 40px;
+	padding: 8px 10px;
+	border: none;
+	border-radius: 12px;
+	background: var(--color-primary-green-lite);
+
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.43;
+	@media (min-width: 834px){
+		max-width: 192px;
+		margin-top: 0;
+	}
+}
+
+.button_cancel{
+	display: block;
+	width: 100%;
+	max-width: 276px;
+	margin-top: 16px;
+	border: none;
+	background-color: transparent;
+	
+	font-weight: 400;
+	line-height: 1.43;
+	color: var(--color-primary-grey);
+	@media (min-width: 834px){
+		max-width: 192px;
+		margin-top: 0;
+	}
+}
+
+
+
+
+.title{
+	@media (min-width: 834px){
+	width: 100vw;
+	max-width: 255px;
+	}
+}
+.carbohydrates{
+	@media (min-width: 834px){
+	width: 100%;
+	max-width: 100px;
+	}
+}
+.protein{
+	@media (min-width: 834px){
+	width: 100%;
+	max-width: 86px;
+	}
+}
+.fat{
+	@media (min-width: 834px){
+	width: 100%;
+	max-width: 61px;
+	}
+}
+.calories{
+	@media (min-width: 834px){
+	width: 100%;
+	max-width: 78px;
+	}
+}

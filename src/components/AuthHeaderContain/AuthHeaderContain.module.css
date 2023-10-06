@@ -1,0 +1,31 @@
+.header_logo {
+	display: inline-block;
+}
+
+.nav_auth {
+	display: inline-block;
+	margin-left: auto;
+}
+
+.header_logo_link {
+	color: var(--color-primary-grey);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.header_link {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	height: 100%;
+	vertical-align: super;
+}
+
+.userIcon {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	margin-left: 6px;
+}

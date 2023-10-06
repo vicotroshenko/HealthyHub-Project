@@ -1,0 +1,73 @@
+.modal{
+	position: fixed;
+	top: 100px;
+	right: 150px;
+	width: 100%;
+	max-width: 392px;
+	padding: 20px 24px 40px 24px;
+	background-color: #0F0F0F;
+	border-radius: 12;
+	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+
+}
+
+.modal_title {
+	font-size: 18px;
+	line-height: 1.33;
+	font-weight: 500;
+}
+.modal_desc {
+	margin-top: 8px;
+	font-size: 14px;
+	line-height: 1.43;
+	color: var(--color-primary-grey);
+
+}
+.modal_day {
+	margin: 16px 0;
+	font-size: 14px;
+	line-height: 1.43;
+	color: var(--color-primary-white);
+}
+
+.close_button {
+	position: absolute;
+	top: 20px;
+	right: 32px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background-color: transparent;
+}
+.close_button svg:hover {
+	border-radius: 50%;
+	transform: scale(1.1);
+	box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+
+.modal_form input[type="number"] {
+	display: inline-block;
+	width: 100%;
+	max-width: 166px;
+	padding: 7px 10px;
+	border-radius: 12px;
+	border: 1px solid var(--color-primary-green-lite);
+	background: var(--color-primary-black-2);
+
+	font-size: 14px;
+	line-height: 1.43;
+	color: var(--color-primary-grey);
+}
+
+.modal_form button {
+	margin-left: 12px;
+	width: 100%;
+	max-width: 166px;
+	padding: 8px 10px;
+	border: none;
+	border-radius: 12px;
+	background: var(--color-primary-green-lite);
+	font-size: 14px;
+	line-height: 1.43;
+	font-weight: 500;
+}
