@@ -192,6 +192,50 @@ const getStatistic = createAsyncThunk(
   }
 );
 
+const updateDish = createAsyncThunk(
+  'user/updateDish',
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+    set(persistedToken);
+    const dishName = credentials.name.toLowerCase();
+    try {
+      const respose = await axios.put(
+        `/api/user/food-intake/${dishName}/${credentials.id}`,
+        credentials.dish
+      );
+      return respose.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+const deleteDishFromCurrentDay = createAsyncThunk(
+  'user/deletDish',
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+    set(persistedToken);
+    const dishName = credentials.name.toLowerCase();
+
+    try {
+      await axios.delete(`/api/user/food-intake/${dishName}/${credentials.id}`);
+
+      return { name: dishName, id: credentials.id };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const operations = {
   addNewDay,
   getUserDay,
@@ -202,6 +246,8 @@ const operations = {
   addDinner,
   addSnack,
   getStatistic,
+  updateDish,
+  deleteDishFromCurrentDay,
 };
 
 export default operations;

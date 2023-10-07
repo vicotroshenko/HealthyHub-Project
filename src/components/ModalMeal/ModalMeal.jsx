@@ -10,6 +10,7 @@ export const ModalMeal = ({
   toggle,
   numberColection,
   addColection,
+  change = null,
 }) => {
   const dispatch = useDispatch();
 
@@ -64,6 +65,13 @@ export const ModalMeal = ({
       : (dishes[0].calories = calories.value);
 
     for (const dish of dishes) {
+      if (change) {
+        dispatch(
+          operations.updateDish({ name: data.name, id: change.dish._id, dish })
+        );
+        return;
+      }
+
       switch (data.name) {
         case 'Breakfast':
           dispatch(operations.addBreakfast(dish));
@@ -82,6 +90,15 @@ export const ModalMeal = ({
       }
     }
 
+    toggle();
+  };
+  const deletCurrentDish = () => {
+    dispatch(
+      operations.deleteDishFromCurrentDay({
+        name: data.name,
+        id: change.dish._id,
+      })
+    );
     toggle();
   };
 
@@ -104,6 +121,7 @@ export const ModalMeal = ({
                     type="text"
                     name="title"
                     placeholder="The name of the product or dish"
+                    defaultValue={change ? change.dish.title : ''}
                     className={style.title}
                   />
                 </label>
@@ -112,6 +130,7 @@ export const ModalMeal = ({
                     type="number"
                     name="carbohydrates"
                     placeholder="Carbonoh."
+                    defaultValue={change ? change.dish.carbohydrates : ''}
                     className={style.carbohydrates}
                   />
                 </label>
@@ -120,6 +139,7 @@ export const ModalMeal = ({
                     type="number"
                     name="protein"
                     placeholder="Protein"
+                    defaultValue={change ? change.dish.protein : ''}
                     className={style.protein}
                   />
                 </label>
@@ -128,6 +148,7 @@ export const ModalMeal = ({
                     type="number"
                     name="fat"
                     placeholder="Fat"
+                    defaultValue={change ? change.dish.fat : ''}
                     className={style.fat}
                   />
                 </label>
@@ -136,20 +157,32 @@ export const ModalMeal = ({
                     type="number"
                     name="calories"
                     placeholder="Calories"
+                    defaultValue={change ? change.dish.calories : ''}
                     className={style.calories}
                   />
                 </label>
               </div>
             ))}
 
-            <button
-              type="button"
-              onClick={addColection}
-              className={style.add_more}
-            >
-              <Plus />
-              Add more
-            </button>
+            {!change && (
+              <button
+                type="button"
+                onClick={addColection}
+                className={style.add_more}
+              >
+                <Plus />
+                Add more
+              </button>
+            )}
+            {change && (
+              <button
+                type="button"
+                onClick={deletCurrentDish}
+                className={style.add_more}
+              >
+                Delete
+              </button>
+            )}
 
             <div className={style.btn_container}>
               <button type="submit" className={style.button_submit}>

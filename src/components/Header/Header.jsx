@@ -8,7 +8,7 @@ import style from './Header.module.css';
 export const Header = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector(selectAuthInform);
-
+  
   const handleLogOut = () => {
     dispatch(operations.logOut());
   };

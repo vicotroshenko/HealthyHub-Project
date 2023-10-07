@@ -38,6 +38,24 @@ const mealsSlice = createSlice({
       state.isLoadError = true;
       state.isLoading = false;
     },
+    [operations.getUserDay.pending](state, _action) {
+      state.isLoading = true;
+    },
+    [operations.getUserDay.fulfilled](state, action) {
+      state.breakfast = action.payload.breakfast;
+      state.lunch = action.payload.lunch;
+      state.dinner = action.payload.dinner;
+      state.snack = action.payload.snack;
+      state.weight = action.payload.weight;
+      state.date = action.payload.date;
+      state.water = action.payload.water;
+      state.isLoading = false;
+      state.isLoadError = false;
+    },
+    [operations.getUserDay.rejected](state, _action) {
+      state.isLoadError = true;
+      state.isLoading = false;
+    },
 
     [operations.updateWeight.pending](state, _action) {
       state.isLoading = true;
@@ -61,6 +79,21 @@ const mealsSlice = createSlice({
       state.isLoadError = false;
     },
     [operations.updateWater.rejected](state, _action) {
+      state.isLoadError = true;
+      state.isLoading = false;
+    },
+    [operations.updateDish.pending](state, _action) {
+      state.isLoading = true;
+    },
+    [operations.updateDish.fulfilled](state, action) {
+      state.breakfast = action.payload.breakfast;
+      state.lunch = action.payload.lunch;
+      state.dinner = action.payload.dinner;
+      state.snack = action.payload.snack;
+      state.isLoading = false;
+      state.isLoadError = false;
+    },
+    [operations.updateDish.rejected](state, _action) {
       state.isLoadError = true;
       state.isLoading = false;
     },
@@ -126,6 +159,20 @@ const mealsSlice = createSlice({
       state.isLoadError = false;
     },
     [operations.getStatistic.rejected](state, _action) {
+      state.isLoadError = true;
+      state.isLoading = false;
+    },
+    [operations.deleteDishFromCurrentDay.pending](state, _action) {
+      state.isLoading = true;
+    },
+    [operations.deleteDishFromCurrentDay.fulfilled](state, action) {
+      state[action.payload.name] = state[action.payload.name].filter(
+        item => item._id === action.payload.id
+      );
+      state.isLoading = false;
+      state.isLoadError = false;
+    },
+    [operations.deleteDishFromCurrentDay.rejected](state, _action) {
       state.isLoadError = true;
       state.isLoading = false;
     },

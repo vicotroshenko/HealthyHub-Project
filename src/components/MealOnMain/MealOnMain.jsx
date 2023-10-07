@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as Plus } from '../../images/svg/main-page/add.svg';
 import breakfastImage from '../../images/png/main/breakfast_image.png';
 import lunchImage from '../../images/png/main/lunch_image.png';
 import dinnerImage from '../../images/png/main/dinner_image.png';
 import snacktImage from '../../images/png/main/snack_image.png';
 import { ModalMeal } from 'components/ModalMeal/ModalMeal';
-import { selectStatisticsForCurrentDay } from 'redux/meals/selectors';
+import {
+  selectStatisticBreakfast,
+  selectStatisticDinner,
+  selectStatisticLunch,
+  selectStatisticSnack,
+} from 'redux/meals/selectors';
 import style from './MealOnMain.module.css';
+import operations from 'redux/meals/operations';
+import { NavLink } from 'react-router-dom';
 
 export const MealOnMain = () => {
   const [nameHover, setNameHover] = useState('');
@@ -15,12 +22,17 @@ export const MealOnMain = () => {
   const [modalData, setModalData] = useState({});
   const [numberOfMeals, setNumberOfMeals] = useState(['1']);
 
-  const {
-    breakfast = [{}],
-    lunch = [{}],
-    dinner = [{}],
-    snack = [{}],
-  } = useSelector(selectStatisticsForCurrentDay);
+  const breakfast = useSelector(selectStatisticBreakfast);
+  const lunch = useSelector(selectStatisticLunch);
+  const dinner = useSelector(selectStatisticDinner);
+  const snack = useSelector(selectStatisticSnack);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(operations.getStatistic());
+    
+  }, [dispatch, modalData]);
 
   const toggle = data => {
     setShowModal(!showModal);
@@ -31,6 +43,7 @@ export const MealOnMain = () => {
   const hoveron = e => {
     setNameHover(e.currentTarget.dataset.hovername);
   };
+
   const hoveroff = () => {
     setNameHover('');
   };
@@ -38,6 +51,7 @@ export const MealOnMain = () => {
   const addNewDish = () => {
     setNumberOfMeals(() => [...numberOfMeals, '1']);
   };
+  
 
   return (
     <>
@@ -51,7 +65,7 @@ export const MealOnMain = () => {
       <div>
         <div className={style.namebox}>
           <h2>Diary</h2>
-          <a href="/">See more</a>
+          <NavLink to={"/diary"} >See more</NavLink>
         </div>
         <ul className={style.list}>
           <li
@@ -71,13 +85,13 @@ export const MealOnMain = () => {
               }
             >
               <p>
-                Carbonohidrates: <span>{breakfast[0].carbohydrates || 0}</span>
+                Carbonohidrates: <span>{breakfast.carbohydrates || 0}</span>
               </p>
               <p>
-                Protein: <span>{breakfast[0].protein || 0}</span>
+                Protein: <span>{breakfast.protein || 0}</span>
               </p>
               <p>
-                Fat: <span>{breakfast[0].fat || 0}</span>
+                Fat: <span>{breakfast.fat || 0}</span>
               </p>
             </div>
             <button
@@ -108,13 +122,13 @@ export const MealOnMain = () => {
               className={nameHover === 'lunch' ? style.hidden : style.meal_info}
             >
               <p>
-                Carbonohidrates: <span>{lunch[0].carbohydrates || 0}</span>
+                Carbonohidrates: <span>{lunch.carbohydrates || 0}</span>
               </p>
               <p>
-                Protein: <span>{lunch[0].protein || 0}</span>
+                Protein: <span>{lunch.protein || 0}</span>
               </p>
               <p>
-                Fat: <span>{lunch[0].fat || 0}</span>
+                Fat: <span>{lunch.fat || 0}</span>
               </p>
             </div>
             <button
@@ -143,13 +157,13 @@ export const MealOnMain = () => {
               }
             >
               <p>
-                Carbonohidrates: <span>{dinner[0].carbohydrates || 0}</span>
+                Carbonohidrates: <span>{dinner.carbohydrates || 0}</span>
               </p>
               <p>
-                Protein: <span>{dinner[0].protein || 0}</span>
+                Protein: <span>{dinner.protein || 0}</span>
               </p>
               <p>
-                Fat: <span>{dinner[0].fat || 0}</span>
+                Fat: <span>{dinner.fat || 0}</span>
               </p>
             </div>
             <button
@@ -176,13 +190,13 @@ export const MealOnMain = () => {
               className={nameHover === 'snack' ? style.hidden : style.meal_info}
             >
               <p>
-                Carbonohidrates: <span>{snack[0].carbohydrates || 0}</span>
+                Carbonohidrates: <span>{snack.carbohydrates || 0}</span>
               </p>
               <p>
-                Protein: <span>{snack[0].protein || 0}</span>
+                Protein: <span>{snack.protein || 0}</span>
               </p>
               <p>
-                Fat: <span>{snack[0].fat || 0}</span>
+                Fat: <span>{snack.fat || 0}</span>
               </p>
             </div>
             <button

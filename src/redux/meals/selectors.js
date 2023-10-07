@@ -1,6 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 import dateConvertor from 'helpers/dateConvertor';
 
+const daysElementPattern = {
+  calories: 0,
+  carbohydrates: 0,
+  fat: 0,
+  protein: 0,
+};
+
 export const selectUserData = state => state.user;
 export const selectUserStatistic = state => state.user.statistic;
 
@@ -17,6 +24,74 @@ export const selectStatisticsForCurrentDay = createSelector(
       }
     }, {});
     return statisticForCurrentDay;
+  }
+);
+
+export const selectStatisticBreakfast = createSelector(
+  [selectStatisticsForCurrentDay],
+  ({ breakfast }) => {
+    if (!breakfast) {
+      return daysElementPattern;
+    }
+
+    return breakfast?.reduce((acc, item) => {
+      if (item) {
+        return item;
+      } else {
+        return acc;
+      }
+    }, daysElementPattern);
+  }
+);
+
+export const selectStatisticLunch = createSelector(
+  [selectStatisticsForCurrentDay],
+  ({ lunch }) => {
+    if (!lunch) {
+      return daysElementPattern;
+    }
+
+    return lunch?.reduce((acc, item) => {
+      if (item) {
+        return item;
+      } else {
+        return acc;
+      }
+    }, daysElementPattern);
+  }
+);
+
+export const selectStatisticDinner = createSelector(
+  [selectStatisticsForCurrentDay],
+  ({ dinner }) => {
+    if (!dinner) {
+      return daysElementPattern;
+    }
+
+    return dinner?.reduce((acc, item) => {
+      if (item) {
+        return item;
+      } else {
+        return acc;
+      }
+    }, daysElementPattern);
+  }
+);
+
+export const selectStatisticSnack = createSelector(
+  [selectStatisticsForCurrentDay],
+  ({ snack }) => {
+    if (!snack) {
+      return daysElementPattern;
+    }
+
+    return snack?.reduce((acc, item) => {
+      if (item) {
+        return item;
+      } else {
+        return acc;
+      }
+    }, daysElementPattern);
   }
 );
 
@@ -44,9 +119,10 @@ export const selectStatisticsForCurrentDayAllElem = createSelector(
           dinnerElem[elemenet] +
           snackElem[elemenet];
         return sum;
+      } else {
+        return 0;
       }
     }
-
     return {
       calories: summarize('calories'),
       carbohydrates: summarize('carbohydrates'),

@@ -17,10 +17,12 @@ import dateConvertor from '../../helpers/dateConvertor';
 import operations from 'redux/meals/operations';
 import { selectUserData } from 'redux/meals/selectors';
 import { selectAuthInform } from 'redux/auth/selectors';
+import Diary from 'pages/Diary';
 
 export const App = () => {
+
   const { isLoggedIn, user } = useSelector(selectAuthInform);
-  const { date } = useSelector(selectUserData);
+  const { date, isLoadError } = useSelector(selectUserData);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,7 +34,8 @@ export const App = () => {
   useEffect(() => {
     if (
       (isLoggedIn && pathname === '/singin') ||
-      (isLoggedIn && pathname.includes('singup'))
+      (isLoggedIn && pathname.includes('singup')) ||
+      (isLoggedIn && pathname === '/')
     ) {
       navigate('/user');
     }
@@ -42,7 +45,10 @@ export const App = () => {
     if (mealDay !== currentDate) {
       dispatch(operations.addNewDay({ weight: user.weight }));
     }
-  }, [mealDay, user, currentDate, dispatch]);
+    if(isLoadError){
+      dispatch(operations.getUserDay());
+    }
+  }, [mealDay, user, currentDate, dispatch, isLoadError]);
 
   return (
     <Routes>
@@ -79,6 +85,15 @@ export const App = () => {
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <Setting />
+            </ProtectedRout>
+          }
+        />
+
+        <Route
+          path="/diary"
+          element={
+            <ProtectedRout isLoggedIn={isLoggedIn}>
+              <Diary />
             </ProtectedRout>
           }
         />
