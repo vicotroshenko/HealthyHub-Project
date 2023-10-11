@@ -10,6 +10,8 @@ const daysElementPattern = {
 
 export const selectUserData = state => state.user;
 export const selectUserStatistic = state => state.user.statistic;
+export const selectUserDashboardStatMonth = state => state.user.dashboardStatMonth;
+export const selectUserDashboardStatYear = state => state.user.dashboardStatYear;
 
 export const selectStatisticsForCurrentDay = createSelector(
   [selectUserStatistic],
@@ -129,5 +131,75 @@ export const selectStatisticsForCurrentDayAllElem = createSelector(
       fat: summarize('fat'),
       protein: summarize('protein'),
     };
+  }
+);
+
+export const selectStatisticDataForDashboardMonth = createSelector(
+  [selectUserDashboardStatMonth],
+  items => {
+    const data = items.reduce(
+      (acc, { date, weight, water, breakfast, lunch, dinner, snack }) => {
+        const calories = sumCalories(
+          sumCaloriesForMeal(breakfast),
+          sumCaloriesForMeal(lunch),
+          sumCaloriesForMeal(dinner),
+          sumCaloriesForMeal(snack)
+        );
+        const dataForDay = {
+          water,
+          weight,
+          date,
+          calories,
+        };
+        acc.push(dataForDay);
+
+        return acc;
+      },
+      []
+    );
+
+    function sumCaloriesForMeal(meal) {
+      return meal.reduce((acc, element) => (acc += element.calories), 0);
+    }
+    function sumCalories(firstM, secondM, thirdM, fourthM) {
+      return firstM + secondM + thirdM + fourthM;
+    }
+
+    return data;
+  }
+);
+
+export const selectStatisticDataForDashboardYear = createSelector(
+  [selectUserDashboardStatYear],
+  items => {
+    const data = items.reduce(
+      (acc, { date, weight, water, breakfast, lunch, dinner, snack }) => {
+        const calories = sumCalories(
+          sumCaloriesForMeal(breakfast),
+          sumCaloriesForMeal(lunch),
+          sumCaloriesForMeal(dinner),
+          sumCaloriesForMeal(snack)
+        );
+        const dataForDay = {
+          water,
+          weight,
+          date,
+          calories,
+        };
+        acc.push(dataForDay);
+
+        return acc;
+      },
+      []
+    );
+
+    function sumCaloriesForMeal(meal) {
+      return meal.reduce((acc, element) => (acc += element.calories), 0);
+    }
+    function sumCalories(firstM, secondM, thirdM, fourthM) {
+      return firstM + secondM + thirdM + fourthM;
+    }
+
+    return data;
   }
 );

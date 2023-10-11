@@ -18,6 +18,7 @@ import operations from 'redux/meals/operations';
 import { selectUserData } from 'redux/meals/selectors';
 import { selectAuthInform } from 'redux/auth/selectors';
 import Diary from 'pages/Diary';
+import Statistic from 'pages/Statistic';
 
 export const App = () => {
 
@@ -94,6 +95,15 @@ export const App = () => {
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <Diary />
+            </ProtectedRout>
+          }
+        />
+
+        <Route
+          path="/statistic"
+          element={
+            <ProtectedRout isLoggedIn={isLoggedIn}>
+              <Statistic />
             </ProtectedRout>
           }
         />

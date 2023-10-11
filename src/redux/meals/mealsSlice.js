@@ -11,6 +11,8 @@ const initialState = {
   dinner: [],
   snack: [],
   statistic: [],
+  dashboardStatMonth: [],
+  dashboardStatYear: [],
   isLoading: null,
   isLoadError: null,
 };
@@ -162,6 +164,33 @@ const mealsSlice = createSlice({
       state.isLoadError = true;
       state.isLoading = false;
     },
+    [operations.getStatisticForMonth.pending](state, _action) {
+      state.isLoading = true;
+    },
+    [operations.getStatisticForMonth.fulfilled](state, action) {
+      state.dashboardStatMonth = action.payload;
+      state.isLoading = false;
+      state.isLoadError = false;
+    },
+    [operations.getStatisticForMonth.rejected](state, _action) {
+      state.isLoadError = true;
+      state.isLoading = false;
+    },
+
+    [operations.getStatisticForYear.pending](state, _action) {
+      state.isLoading = true;
+    },
+    [operations.getStatisticForYear.fulfilled](state, action) {
+      state.dashboardStatYear = action.payload;
+      state.isLoading = false;
+      state.isLoadError = false;
+    },
+    [operations.getStatisticForYear.rejected](state, _action) {
+      state.isLoadError = true;
+      state.isLoading = false;
+    },
+
+
     [operations.deleteDishFromCurrentDay.pending](state, _action) {
       state.isLoading = true;
     },
