@@ -31,9 +31,11 @@
 	flex-direction: row;
 	align-items: center;
 }
+
 .drop_container svg {
 	transition: transform 250ms ease-out;
 }
+
 .drop_button{
 	border: none;
 	border-radius: 8px;
@@ -91,21 +93,21 @@
 .calories_element{
 	overflow-x: auto;
 	@media (min-width: 834px){
-		overflow-x: initial;
+		overflow-x:visible;
 	}
 }
 
 .water_element{
 	overflow-x: auto;
 	@media (min-width: 834px){
-		overflow-x: initial;
+		overflow-x: visible;
 	}
 }
 
 .weight_element {
 	overflow-x: auto;
 	@media (min-width: 834px){
-		overflow-y: initial;
+		overflow-y: visible;
 	}
 	@media (min-width: 1440px){
 	grid-column-start: 1;
