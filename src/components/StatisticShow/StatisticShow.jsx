@@ -1,6 +1,6 @@
 import { LineChart } from 'components/LineChart/LineChart';
 import style from './StatisticShow.module.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import operations from 'redux/meals/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -40,7 +40,7 @@ export const StatisticShow = ({ containerRef }) => {
     return () => {
       container.removeEventListener('click', closeDropDown);
     };
-  }, []);
+  }, [containerRef]);
 
   const toggle = e => {
     if (e.target.name === 'drop button') setVissible(!vissible);
