@@ -1,10 +1,17 @@
 .line_container {
 	position: relative;
-	width: 780px;
+	width: 676px;
 	height: 382px;
+	@media (min-width: 834px){
+		width: 780px;
+	}
+	@media (min-width: 1440px){
+		width: 676px;
+	}
 	
 }
 .line_container canvas {
+	width: 780px;
 	padding-bottom: 8px;
 }
 .title_container{
@@ -33,13 +40,12 @@
 	color: var(--color-primary-grey);
 }
 .chart_block{
-	width: 100%;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
 }
 
 .weight_container{
-	width: 782px;
+	width: 780px;
 	padding: 24px 20px 44px 16px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);

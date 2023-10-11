@@ -1,9 +1,12 @@
 .container{
+	padding: 0 10px;
 	max-width: 320px;
 	@media (min-width: 834px){
+		padding: 0 27px;
 		max-width: 834px
 	}
 	@media (min-width: 1440px){
+		padding: 0 34px;
 		max-width: 1440px
 	}
 }
@@ -76,17 +79,19 @@
 }
 
 .chart_container{
-	display: grid;
+	/* display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 414px 414px 142px;
+	grid-template-rows: 414px 414px 142px; */
+	display: flex;
+	flex-wrap: wrap;
 	row-gap: 27px;
 	@media (min-width: 834px){
-		grid-template-rows: 420px 420px 148px;
+		/* grid-template-rows: 420px 420px 148px; */
 		row-gap: 40px;
 	}
 	@media (min-width: 1440px){
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 420px 148px;
+		/* grid-template-columns: 1fr 1fr;
+		grid-template-rows: 420px 148px; */
 		gap: 20px;
 	}
 }
@@ -116,8 +121,8 @@
 		overflow-y: visible;
 	}
 	@media (min-width: 1440px){
-	grid-column-start: 1;
-	grid-column-end: 3;
+		/* grid-column-start: 1;
+		grid-column-end: 3; */
 	}
 }
 
