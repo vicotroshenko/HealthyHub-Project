@@ -6,7 +6,7 @@ import style from './SettingSelect.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserSettings } from 'redux/auth/selectors';
 import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import operations from 'redux/auth/operations';
 
 const schema = yup.object().shape({
