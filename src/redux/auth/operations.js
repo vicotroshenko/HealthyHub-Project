@@ -46,6 +46,27 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+const getCurrentUser = createAsyncThunk(
+  'auth/currentUser',
+  async (credentials, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        console.log('You need enter in your account');
+        return thunkAPI.rejectWithValue();
+      }
+      set(persistedToken);
+      const response = await axios.get('/api/auth/current');
+      
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const updateSetting = createAsyncThunk(
   'auth/setting',
   async (credentials, thunkAPI) => {
@@ -123,9 +144,11 @@ const updateAvatars = createAsyncThunk(
         console.log('You need enter in your account');
         return thunkAPI.rejectWithValue();
       }
+      set(persistedToken);
+      console.log(credentials);
+
       const response = await axios.patch('/api/settings/avatars', credentials);
 
-      set(persistedToken);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -135,6 +158,7 @@ const updateAvatars = createAsyncThunk(
 const operations = {
   singup,
   logIn,
+  getCurrentUser,
   logOut,
   updateSetting,
   updateWeight,
