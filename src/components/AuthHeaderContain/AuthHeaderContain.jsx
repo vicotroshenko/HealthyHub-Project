@@ -6,7 +6,7 @@ export const AuthHeaderContain = () => {
   return (
     <>
       <div className={style.header_logo}>
-        <NavLink to={"/"} className={style.header_logo_link}>
+        <NavLink to={"/home"} className={style.header_logo_link}>
           HealthyHub
         </NavLink>
       </div>

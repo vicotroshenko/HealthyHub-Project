@@ -9,12 +9,12 @@
 	@media (min-width: 834px){
 		max-width: 100%;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		max-width: 676px;
 	}
 }
 .diary_container > div{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		display: flex;
 		justify-content: space-between;
 	}
@@ -29,7 +29,7 @@
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
 	overflow-y: auto;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		margin-top: 10px;
 	}
 }
@@ -63,7 +63,7 @@
 	column-gap: 20px;
 	max-width: 178px;
 	margin-top: 12px;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		row-gap: 0;
 		max-width: 100%;
 		margin-right: 85px;
@@ -88,7 +88,7 @@
 
 .dish_container ~ .dish_container {
 	margin-top: 16px;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		margin-top: 32px;
 	}
 }
@@ -98,14 +98,14 @@
 	margin-left: 16px;
 }
 .wrapper > div {
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		display: flex;
 	}
 }
 
 .dish_name {
 	width: 100%;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		width: auto;
 		margin-right: auto;
 	}

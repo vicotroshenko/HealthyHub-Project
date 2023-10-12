@@ -1,11 +1,11 @@
 .container{
 	padding: 0 10px;
 	max-width: 320px;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		padding: 0 27px;
 		max-width: 834px
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		padding: 0 34px;
 		max-width: 1440px
 	}
@@ -85,11 +85,11 @@
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 27px;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		/* grid-template-rows: 420px 420px 148px; */
 		row-gap: 40px;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		/* grid-template-columns: 1fr 1fr;
 		grid-template-rows: 420px 148px; */
 		gap: 20px;
@@ -97,30 +97,30 @@
 }
 .calories_element{
 	overflow-x: auto;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		overflow-x:visible;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		max-width: 780px;
 	}
 }
 
 .water_element{
 	overflow-x: auto;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		overflow-x: visible;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		max-width: 780px;
 	}
 }
 
 .weight_element {
 	overflow-x: auto;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		overflow-y: visible;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		/* grid-column-start: 1;
 		grid-column-end: 3; */
 	}

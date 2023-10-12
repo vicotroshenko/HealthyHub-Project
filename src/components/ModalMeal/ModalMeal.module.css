@@ -10,7 +10,7 @@
 	border-radius: 12;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
 
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		max-width: 676px;
 		padding: 24px;
 	}
@@ -43,7 +43,7 @@
 .inner_form {
 	width: 100%;
 	padding: 16px 0;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		display: flex;
 		align-items: center;
 		column-gap: 12px;
@@ -89,7 +89,7 @@
 }
 
 .btn_container {
-	@media (min-width: 834px) {
+	@media screen and (min-width: 834px) {
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
@@ -109,7 +109,7 @@
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.43;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		max-width: 192px;
 		margin-top: 0;
 	}
@@ -126,7 +126,7 @@
 	font-weight: 400;
 	line-height: 1.43;
 	color: var(--color-primary-grey);
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		max-width: 192px;
 		margin-top: 0;
 	}
@@ -136,31 +136,31 @@
 
 
 .title{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 	width: 100vw;
 	max-width: 255px;
 	}
 }
 .carbohydrates{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 	width: 100%;
 	max-width: 100px;
 	}
 }
 .protein{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 	width: 100%;
 	max-width: 86px;
 	}
 }
 .fat{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 	width: 100%;
 	max-width: 61px;
 	}
 }
 .calories{
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 	width: 100%;
 	max-width: 78px;
 	}

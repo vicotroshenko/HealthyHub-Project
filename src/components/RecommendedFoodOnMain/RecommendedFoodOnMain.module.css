@@ -1,11 +1,11 @@
 .recommendedFood {
 	display: none;
-	@media (min-width: 834px) {
+	@media screen and (min-width: 834px) {
 		display: block;
 		width: 100%;
 		max-width: 780px;
 	}
-	@media (min-width: 1440px) {
+	@media screen and  (min-width: 1440px) {
 		max-width: 676px;
 	}
 }
@@ -37,7 +37,7 @@
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
 
-	@media (min-width: 1440px) {
+	@media screen and (min-width: 1440px) {
 		max-width: 328px;
 	}
 }

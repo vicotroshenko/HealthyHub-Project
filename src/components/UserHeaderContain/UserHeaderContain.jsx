@@ -53,7 +53,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
 
       <div className={style.header_logo}>
-        <NavLink to={'/user'} className={style.header_logo_link}>
+        <NavLink to={'/'} className={style.header_logo_link}>
           HealthyHub
         </NavLink>
       </div>

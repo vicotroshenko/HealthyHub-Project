@@ -21,7 +21,6 @@ import Diary from 'pages/Diary';
 import Statistic from 'pages/Statistic';
 
 export const App = () => {
-
   const { isLoggedIn, user } = useSelector(selectAuthInform);
   const { date, isLoadError } = useSelector(selectUserData);
 
@@ -38,15 +37,15 @@ export const App = () => {
       (isLoggedIn && pathname.includes('singup')) ||
       (isLoggedIn && pathname === '/')
     ) {
-      navigate('/user');
-    }
+      navigate('/');
+    } 
   }, [isLoggedIn, navigate, pathname]);
 
   useEffect(() => {
     if (mealDay !== currentDate) {
       dispatch(operations.addNewDay({ weight: user.weight }));
     }
-    if(isLoadError){
+    if (isLoadError) {
       dispatch(operations.getUserDay());
     }
   }, [mealDay, user, currentDate, dispatch, isLoadError]);
@@ -54,24 +53,23 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/singup" element={<SingUp />}>
-          <Route path="goal" element={<Goal />} />
-          <Route path="age" element={<Age />} />
-          <Route path="body-parameters" element={<BodyParameters />} />
-          <Route path="activity" element={<Activity />} />
-        </Route>
-        <Route path="/singin" element={<SignIn />} />
 
-        <Route
-          path="/user"
-          element={
-            <ProtectedRout isLoggedIn={isLoggedIn}>
-              <Main />
-            </ProtectedRout>
-          }
-        />
-
+      <Route
+        index
+        element={
+          <ProtectedRout isLoggedIn={isLoggedIn}>
+            <Main />
+          </ProtectedRout>
+        }
+      />
+      <Route path="/singup" element={<SingUp />}>
+        <Route path="goal" element={<Goal />} />
+        <Route path="age" element={<Age />} />
+        <Route path="body-parameters" element={<BodyParameters />} />
+        <Route path="activity" element={<Activity />} />
+      </Route>
+      <Route path="/singin" element={<SignIn />} />
+      <Route path="/home" element={<Home />} />
         <Route
           path="/recommended"
           element={
@@ -111,4 +109,3 @@ export const App = () => {
     </Routes>
   );
 };
-

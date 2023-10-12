@@ -2,10 +2,10 @@
 	position: relative;
 	width: 676px;
 	height: 382px;
-	@media (min-width: 834px){
+	@media screen and (min-width: 834px){
 		width: 780px;
 	}
-	@media (min-width: 1440px){
+	@media screen and (min-width: 1440px){
 		width: 676px;
 	}
 	
@@ -49,7 +49,7 @@
 	padding: 24px 20px 44px 16px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	@media (min-width: 1440px) {
+	@media screen and (min-width: 1440px) {
 		width: 100%;
 	}
 }
@@ -64,7 +64,7 @@
 .weight_container > ul> li {
 	width: 18px;
 	text-align: center;
-	@media (min-width: 834px) {
+	@media screen and (min-width: 834px) {
 		width: 58px;
 	}
 }
