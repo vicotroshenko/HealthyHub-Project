@@ -57,6 +57,7 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [operations.logOut.fulfilled](state, _action) {
+      state.isLoggedIn = false;
       state.user = initialState.user;
       state.token = null;
       state.isLoggedIn = false;

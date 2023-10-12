@@ -51,7 +51,11 @@ export const MealOnMain = () => {
   const addNewDish = () => {
     setNumberOfMeals(() => [...numberOfMeals, '1']);
   };
-  
+
+  const showBtnBreakfast = showButtonAdd(breakfast);
+  const showBtnLunch = showButtonAdd(lunch);
+  const showBtnDinner = showButtonAdd(dinner);
+  const showBtnSnack = showButtonAdd(snack);
 
   return (
     <>
@@ -79,7 +83,7 @@ export const MealOnMain = () => {
 
             <div
               className={
-                showButtonAdd(breakfast) ? style.hidden : style.meal_info
+                showBtnBreakfast ? style.hidden : style.meal_info
               }
             >
               <p>
@@ -98,7 +102,7 @@ export const MealOnMain = () => {
                 toggle({ name: 'Breakfast', image: breakfastImage })
               }
               className={
-                !showButtonAdd(breakfast) ? style.hidden : style.button
+                !showBtnBreakfast ? style.hidden : style.button
               }
             >
               <Plus fill="#E3FFA8" />
@@ -115,7 +119,7 @@ export const MealOnMain = () => {
               <h3>Lunch</h3>
             </div>
             <div
-              className={showButtonAdd(lunch) ? style.hidden : style.meal_info}
+              className={showBtnLunch ? style.hidden : style.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{lunch.carbohydrates || 0}</span>
@@ -130,7 +134,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Lunch', image: lunchImage })}
-              className={!showButtonAdd(lunch) ? style.hidden : style.button}
+              className={!showBtnLunch ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
@@ -147,7 +151,7 @@ export const MealOnMain = () => {
             </div>
             <div
               className={
-                showButtonAdd(dinner) ? style.hidden : style.meal_info
+                showBtnDinner ? style.hidden : style.meal_info
               }
             >
               <p>
@@ -163,7 +167,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Dinner', image: dinnerImage })}
-              className={!showButtonAdd(dinner) ? style.hidden : style.button}
+              className={!showBtnDinner ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
@@ -179,7 +183,7 @@ export const MealOnMain = () => {
               <h3>Dinner</h3>
             </div>
             <div
-              className={showButtonAdd(snack) ? style.hidden : style.meal_info}
+              className={showBtnSnack ? style.hidden : style.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{snack.carbohydrates || 0}</span>
@@ -194,7 +198,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Snack', image: snacktImage })}
-              className={!showButtonAdd(snack) ? style.hidden : style.button}
+              className={!showBtnSnack ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
