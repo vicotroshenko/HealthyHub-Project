@@ -5,6 +5,7 @@ import style from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ children, onClose, styles }) => {
+
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {

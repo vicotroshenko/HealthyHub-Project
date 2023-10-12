@@ -14,6 +14,7 @@ export const ModalMeal = ({
 }) => {
   const dispatch = useDispatch();
 
+
   const handleMealInform = event => {
     const { title, carbohydrates, protein, fat, calories } = event.target;
     event.preventDefault();
@@ -64,6 +65,8 @@ export const ModalMeal = ({
         })
       : (dishes[0].calories = calories.value);
 
+    toggle();
+
     for (const dish of dishes) {
       if (change) {
         dispatch(
@@ -90,8 +93,9 @@ export const ModalMeal = ({
       }
     }
 
-    toggle();
+   
   };
+
   const deletCurrentDish = () => {
     dispatch(
       operations.deleteDishFromCurrentDay({
@@ -101,6 +105,7 @@ export const ModalMeal = ({
     );
     toggle();
   };
+
 
   if (showModal) {
     return (

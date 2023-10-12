@@ -9,6 +9,7 @@
 	background-color: #0F0F0F;
 	border-radius: 12;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+
 	@media (min-width: 834px){
 		max-width: 676px;
 		padding: 24px;

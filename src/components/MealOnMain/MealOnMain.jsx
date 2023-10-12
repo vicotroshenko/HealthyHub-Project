@@ -17,7 +17,6 @@ import operations from 'redux/meals/operations';
 import { NavLink } from 'react-router-dom';
 
 export const MealOnMain = () => {
-  const [nameHover, setNameHover] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
   const [numberOfMeals, setNumberOfMeals] = useState(['1']);
@@ -27,11 +26,19 @@ export const MealOnMain = () => {
   const dinner = useSelector(selectStatisticDinner);
   const snack = useSelector(selectStatisticSnack);
 
+
+  const showButtonAdd = (data) => {
+    if(typeof data !== "object") return;
+
+    const values = Object.values(data)
+    const maxValue = values.reduce((a, b) => a + b, 0)
+    return maxValue === 0;
+  }
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(operations.getStatistic());
-    
   }, [dispatch, modalData]);
 
   const toggle = data => {
@@ -40,13 +47,6 @@ export const MealOnMain = () => {
     setNumberOfMeals(['1']);
   };
 
-  const hoveron = e => {
-    setNameHover(e.currentTarget.dataset.hovername);
-  };
-
-  const hoveroff = () => {
-    setNameHover('');
-  };
 
   const addNewDish = () => {
     setNumberOfMeals(() => [...numberOfMeals, '1']);
@@ -70,8 +70,6 @@ export const MealOnMain = () => {
         <ul className={style.list}>
           <li
             className={style.item}
-            onMouseEnter={hoveron}
-            onMouseLeave={hoveroff}
             data-hovername="breakfast"
           >
             <div className={style.title_container}>
@@ -81,7 +79,7 @@ export const MealOnMain = () => {
 
             <div
               className={
-                nameHover === 'breakfast' ? style.hidden : style.meal_info
+                showButtonAdd(breakfast) ? style.hidden : style.meal_info
               }
             >
               <p>
@@ -100,7 +98,7 @@ export const MealOnMain = () => {
                 toggle({ name: 'Breakfast', image: breakfastImage })
               }
               className={
-                nameHover !== 'breakfast' ? style.hidden : style.button
+                !showButtonAdd(breakfast) ? style.hidden : style.button
               }
             >
               <Plus fill="#E3FFA8" />
@@ -110,8 +108,6 @@ export const MealOnMain = () => {
 
           <li
             className={style.item}
-            onMouseEnter={hoveron}
-            onMouseLeave={hoveroff}
             data-hovername="lunch"
           >
             <div className={style.title_container}>
@@ -119,7 +115,7 @@ export const MealOnMain = () => {
               <h3>Lunch</h3>
             </div>
             <div
-              className={nameHover === 'lunch' ? style.hidden : style.meal_info}
+              className={showButtonAdd(lunch) ? style.hidden : style.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{lunch.carbohydrates || 0}</span>
@@ -134,7 +130,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Lunch', image: lunchImage })}
-              className={nameHover !== 'lunch' ? style.hidden : style.button}
+              className={!showButtonAdd(lunch) ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
@@ -143,8 +139,6 @@ export const MealOnMain = () => {
 
           <li
             className={style.item}
-            onMouseEnter={hoveron}
-            onMouseLeave={hoveroff}
             data-hovername="dinner"
           >
             <div className={style.title_container}>
@@ -153,7 +147,7 @@ export const MealOnMain = () => {
             </div>
             <div
               className={
-                nameHover === 'dinner' ? style.hidden : style.meal_info
+                showButtonAdd(dinner) ? style.hidden : style.meal_info
               }
             >
               <p>
@@ -169,7 +163,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Dinner', image: dinnerImage })}
-              className={nameHover !== 'dinner' ? style.hidden : style.button}
+              className={!showButtonAdd(dinner) ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
@@ -178,8 +172,6 @@ export const MealOnMain = () => {
 
           <li
             className={style.item}
-            onMouseEnter={hoveron}
-            onMouseLeave={hoveroff}
             data-hovername="snack"
           >
             <div className={style.title_container}>
@@ -187,7 +179,7 @@ export const MealOnMain = () => {
               <h3>Dinner</h3>
             </div>
             <div
-              className={nameHover === 'snack' ? style.hidden : style.meal_info}
+              className={showButtonAdd(snack) ? style.hidden : style.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{snack.carbohydrates || 0}</span>
@@ -202,7 +194,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Snack', image: snacktImage })}
-              className={nameHover !== 'snack' ? style.hidden : style.button}
+              className={!showButtonAdd(snack) ? style.hidden : style.button}
             >
               <Plus />
               Record your meal
