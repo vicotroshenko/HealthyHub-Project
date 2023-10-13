@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/HealthyHub-Project/static/css/main.5f6973cd.css",
+    "main.css": "/HealthyHub-Project/static/css/main.7c0c5ffa.css",
     "main.js": "/HealthyHub-Project/static/js/main.66619c6e.js",
     "static/media/setting.png": "/HealthyHub-Project/static/media/setting.de4ca4acb584f98c2c1d.png",
     "static/media/recommended-food.png": "/HealthyHub-Project/static/media/recommended-food.8c77d65703a0356c4a42.png",
@@ -21,11 +21,11 @@
     "static/media/arrow-right.svg": "/HealthyHub-Project/static/media/arrow-right.d0c0c26f156afde714dd6305bb874a9a.svg",
     "static/media/add.svg": "/HealthyHub-Project/static/media/add.3549f83e53c7836e8602dd5b93eb076d.svg",
     "static/media/arrow-down.svg": "/HealthyHub-Project/static/media/arrow-down.c79f967044a00f8a0003190675c28b42.svg",
-    "main.5f6973cd.css.map": "/HealthyHub-Project/static/css/main.5f6973cd.css.map",
+    "main.7c0c5ffa.css.map": "/HealthyHub-Project/static/css/main.7c0c5ffa.css.map",
     "main.66619c6e.js.map": "/HealthyHub-Project/static/js/main.66619c6e.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f6973cd.css",
+    "static/css/main.7c0c5ffa.css",
     "static/js/main.66619c6e.js"
   ]
 }
