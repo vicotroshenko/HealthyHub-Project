@@ -1,11 +1,17 @@
 .recommendedFood {
 	display: none;
-	/* @media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.recommendedFood {
 		display: block;
 		width: 100%;
 		max-width: 780px;
-	} */
-	@media screen and  (min-width: 1440px) {
+	}
+}
+
+@media screen and(min-width: 1440px) {
+	.recommendedFood {
 		max-width: 676px;
 	}
 }
@@ -36,11 +42,14 @@
 	padding: 20px 0 20px 24px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
+}
 
-	@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
+	.item {
 		max-width: 328px;
 	}
 }
+
 
 .item h3 {
 	font-size: 18px;
