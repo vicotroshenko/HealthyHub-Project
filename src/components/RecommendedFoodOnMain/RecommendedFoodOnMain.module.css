@@ -1,10 +1,10 @@
 .recommendedFood {
 	display: none;
-	@media screen and (min-width: 834px) {
+	/* @media screen and (min-width: 834px) {
 		display: block;
 		width: 100%;
 		max-width: 780px;
-	}
+	} */
 	@media screen and  (min-width: 1440px) {
 		max-width: 676px;
 	}
