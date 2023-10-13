@@ -1,14 +1,22 @@
 .modal{
 	position: fixed;
 	top: 100px;
-	right: 300px;
+	right: 0;
 	width: 100%;
-	max-width: 392px;
-	height: 352px;
-	padding: 20px 0 40px 24px;
+	height: 100vh;
+	padding: 24px 10px 40px 10px;
 	background-color: #0F0F0F;
 	border-radius: 12;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+	overflow-y: hidden;
+}
+@media screen and (min-width: 834px) {
+	.modal {
+		right: 300px;
+		max-width: 392px;
+		height: 352px;
+		padding: 20px 0 40px 24px;
+	}
 }
 
 .modal_title {
@@ -28,12 +36,20 @@
 .close_button {
 	position: absolute;
 	top: 20px;
+	display: none;
 	right: 32px;
 	width: 16px;
 	height: 16px;
 	border: none;
 	background-color: transparent;
 }
+
+@media screen and (min-width: 834px) {
+	.close_button {
+		display: block;
+	}
+}
+
 .close_button svg:hover {
 	border-radius: 50%;
 	transform: scale(1.1);
@@ -76,9 +92,8 @@
 	border: 1px solid var(--secondary-color-grey-1);
 	cursor: pointer;
 }
-.checkbox button[type="submit"] {
+.submit_btn  {
 	width: 100%;
-	max-width: 166px;
 	padding: 8px 10px;
 	border: none;
 	border-radius: 12px;
@@ -87,4 +102,22 @@
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 500;
+	color: var(--color-primary-black);
+}
+
+@media screen and (min-widht: 834px){
+	.submit_btn {
+		max-width: 166px;
+	}
+}
+
+.cancel_btn {
+	width: 100%;
+	line-height: 1.43;
+	color: var(--color-primary-grey);
+}
+@media screen and (min-widht: 834px){
+	.cancel_btn {
+		display: none;
+	}
 }

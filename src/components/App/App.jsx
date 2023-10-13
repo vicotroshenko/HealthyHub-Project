@@ -39,6 +39,12 @@ export const App = () => {
     ) {
       navigate('/');
     } 
+    if (
+      (!isLoggedIn && pathname === '/') ||
+      (!isLoggedIn && pathname.includes('user'))
+      ){
+      navigate('/home');
+    }
   }, [isLoggedIn, navigate, pathname]);
 
   useEffect(() => {
@@ -71,7 +77,7 @@ export const App = () => {
       <Route path="/singin" element={<SignIn />} />
       <Route path="/home" element={<Home />} />
         <Route
-          path="/recommended"
+          path="user/recommended"
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <RecommendedFood />
@@ -80,7 +86,7 @@ export const App = () => {
         />
 
         <Route
-          path="/setting"
+          path="user/setting"
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <Setting />
@@ -89,7 +95,7 @@ export const App = () => {
         />
 
         <Route
-          path="/diary"
+          path="user/diary"
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <Diary />
@@ -98,7 +104,7 @@ export const App = () => {
         />
 
         <Route
-          path="/statistic"
+          path="user/statistic"
           element={
             <ProtectedRout isLoggedIn={isLoggedIn}>
               <Statistic />

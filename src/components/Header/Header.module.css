@@ -1,9 +1,11 @@
 .header {
-	position: relative;
+	position: fixed;
+	top: 0;
 	display: flex;
 	justify-content: center;
 	width: 100%;
 	background-color: var(--color-primary-black-2);	
+	z-index: 45;
 }
 
 .container {

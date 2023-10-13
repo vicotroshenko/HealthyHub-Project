@@ -14,11 +14,13 @@ import { NavLink } from 'react-router-dom';
 import { ModalGoal } from 'components/ModalGoal/ModalGoal';
 import { ModalWeight } from 'components/ModalWeight/ModalWeight';
 import { selectUserSettings } from 'redux/auth/selectors';
+import { MobilModal } from 'components/MobilModal/MobilModal';
 
 export const UserHeaderContain = ({ handleSubmit }) => {
   const [visible, setVisible] = useState(false);
   const [showGoalModal, setShowGoalModal] = useState(false);
   const [showWeightModal, setShowWeightModal] = useState(false);
+  const [showMobileModal, setShowMobileModal] = useState(false);
 
   const { goal, weight, name, avatarURL } = useSelector(selectUserSettings);
 
@@ -32,6 +34,9 @@ export const UserHeaderContain = ({ handleSubmit }) => {
 
   const toggleWeight = () => {
     setShowWeightModal(!showWeightModal);
+  };
+  const toggleMobile = () => {
+    setShowMobileModal(!showMobileModal);
   };
 
   const choseImage = () => {
@@ -47,10 +52,12 @@ export const UserHeaderContain = ({ handleSubmit }) => {
     }
   };
   const image = choseImage();
+
   return (
     <>
       <ModalGoal showModal={showGoalModal} toggle={toggleGoal} />
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
+      <MobilModal showModal={showMobileModal} toggle={toggleMobile}/>
 
       <div className={css.header_logo}>
         <NavLink to={'/'} className={css.header_logo_link}>
@@ -85,7 +92,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
           </button>
         </div>
         <div className={css.tablet_hidden}>
-          <button>
+          <button type='button' onClick={toggleMobile}>
             <MenuIcon />
           </button>
         </div>
@@ -100,7 +107,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
 
         {visible && (
           <div className={css.drop_menu}>
-            <NavLink to={'/setting'} className={css.drop_button}>
+            <NavLink to={'user/setting'} className={css.drop_button}>
               <SettingIcon />
               Setting
             </NavLink>

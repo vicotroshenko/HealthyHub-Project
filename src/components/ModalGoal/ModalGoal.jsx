@@ -4,7 +4,7 @@ import gainMuscleIcon from '../../images/png/header/goal-gain-muscle.png';
 import { ReactComponent as CloseIcon } from '../../images/svg/modal/close-circle.svg';
 import { Modal } from 'components/Modal/Modal';
 import { Field, Formik, Form } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectUserGoal } from 'redux/auth/selectors';
@@ -18,6 +18,9 @@ const initialValues = {
 export const ModalGoal = ({ showModal, toggle }) => {
   const [checked, setChecked] = useState(useSelector(selectUserGoal));
   const dispatch = useDispatch();
+
+
+  
 
   const handleGoal = () => {
     dispatch(operations.updateGoal({ goal: checked }));
@@ -92,7 +95,8 @@ export const ModalGoal = ({ showModal, toggle }) => {
               </div>
               Gain muscle
             </label>
-            <button type="submit">Confirm</button>
+            <button type="submit" className={css.submit_btn}>Confirm</button>
+            <button type="button" onClick={toggle} className={css.cancel_btn}>Cancel</button>
           </Form>
         </Formik>
       </Modal>

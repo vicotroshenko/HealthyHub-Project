@@ -38,7 +38,7 @@ export const RecommendedFoodOnMain = () => {
           </li>
         ))}
       </ul>
-      <Link to="/recommended" className={css.see_more_link}>
+      <Link to="user/recommended" className={css.see_more_link}>
         See more
         <Arrow style={{ verticalAlign: 'middle', marginLeft: 6 }} />
       </Link>

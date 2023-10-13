@@ -11,7 +11,7 @@ export const MainInformation = () => {
       <div className={css.inner_container}>
         <div className={css.up_page_main}>
           <h1>Today</h1>
-          <NavLink to={"/statistic"}>
+          <NavLink to={"user/statistic"}>
             On the way to the goal
             <Arrow style={{ marginLeft: 6, verticalAlign: 'top' }} />
           </NavLink>

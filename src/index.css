@@ -68,3 +68,10 @@ label:hover,
 label:focus {
   color: var(--color-primary-green-lite);
 }
+
+button {
+  border: none;
+  background-color: transparent;
+
+  color: var(--color-primary-white);
+}

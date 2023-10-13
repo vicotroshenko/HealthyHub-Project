@@ -38,7 +38,8 @@ export const ModalWeight = ({ showModal, toggle }) => {
                 placeholder="Enter your weight"
               />
             </label>
-            <button type="submit">Confirm</button>
+            <button type="submit" className={css.submit_btn}>Confirm</button>
+            <button type="button" onClick={toggle}  className={css.cancel_btn}>Cancel</button>
           </Form>
         </Formik>
       </Modal>
