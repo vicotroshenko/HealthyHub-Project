@@ -53,9 +53,9 @@
 	line-height: 1.42;
 	color: var(--color-primary-white);
 	cursor: pointer;
-	/* @media screen and (min-width: 834px){
+	@media screen and (min-width: 834px){
 		display: flex;
-	} */
+	}
 }
 
 
@@ -88,6 +88,6 @@
 	fill: var(--color-primary-green-lite);
 }
 
-.hidden {
+.list .hidden {
 	display: none;
 }
