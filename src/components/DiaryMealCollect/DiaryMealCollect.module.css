@@ -9,10 +9,16 @@
 	width: 100%;
 	text-align: left;
 	max-width: 320px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.container h1{
 		max-width: 834px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.container h1{
 		max-width: 1440px;
 	}
 }
@@ -25,10 +31,16 @@
 	row-gap: 27px;
 	width: 100%;
 	max-width: 320px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.inner_container {
 		max-width: 834px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.inner_container {
 		max-width: 1440px;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr 1fr;

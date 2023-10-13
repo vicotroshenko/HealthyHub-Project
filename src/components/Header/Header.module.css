@@ -15,10 +15,16 @@
 	margin-left: 10px;
 	margin-right: 10px;
 	max-width: 320px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.container {
 		max-width: 834px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.container {
 		max-width: 1440px;
 	}
 }

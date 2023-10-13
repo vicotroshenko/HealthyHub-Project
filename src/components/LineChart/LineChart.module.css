@@ -2,19 +2,26 @@
 	position: relative;
 	width: 676px;
 	height: 382px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.line_container {
 		width: 780px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px) {
+	.line_container {
 		width: 676px;
 	}
-	
 }
+
 .line_container canvas {
 	width: 780px;
 	padding-bottom: 8px;
 }
-.title_container{
+
+.title_container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -22,49 +29,57 @@
 	margin-bottom: 6px;
 }
 
-.title_container>h3{
+.title_container>h3 {
 	font-size: 18px;
 	line-height: 1.44;
 	font-weight: 400;
 }
 
-.title_container > p{
+.title_container>p {
 	line-height: 1.43;
 }
 
-.title_container>p>span{
+.title_container>p>span {
 	display: inline-block;
 	margin-left: 8px;
 	line-height: 1.43;
 	font-weight: 500;
 	color: var(--color-primary-grey);
 }
-.chart_block{
+
+.chart_block {
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
 }
 
-.weight_container{
+.weight_container {
 	width: 780px;
 	padding: 24px 20px 44px 16px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.weight_container {
 		width: 100%;
 	}
 }
 
-.weight_container > ul{
+.weight_container>ul {
 	display: flex;
 	justify-content: space-between;
 	list-style-type: none;
 	font-size: 10px;
 }
 
-.weight_container > ul> li {
+.weight_container>ul>li {
 	width: 18px;
 	text-align: center;
-	@media screen and (min-width: 834px) {
+
+}
+
+@media screen and (min-width: 834px) {
+	.weight_container>ul>li {
 		width: 58px;
 	}
 }
@@ -76,16 +91,17 @@
 
 .weight_num {
 	margin-top: 12px;
-	line-height: 1.4; 
+	line-height: 1.4;
 	color: var(--color-primary-grey);
 }
 
-.drag_title{
+.drag_title {
 	font-size: 32px;
-	line-height:1.19;
+	line-height: 1.19;
 	font-weight: 500;
 }
-.drag_desc{
+
+.drag_desc {
 	font-size: 14px;
 	line-height: 1.43;
 	color: var(--color-primary-grey);

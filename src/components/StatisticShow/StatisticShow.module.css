@@ -1,24 +1,31 @@
-.container{
+.container {
 	padding: 0 10px;
 	max-width: 320px;
-	@media screen and (min-width: 834px){
+
+}
+
+@media screen and (min-width: 834px) {
+	.container {
 		padding: 0 27px;
 		max-width: 834px
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px) {
+	.container {
 		padding: 0 34px;
-		max-width: 1440px
+		max-width: 1440px;
 	}
 }
-.select_menu_container{
+
+.select_menu_container {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 0 16px 0;
 }
 
-
-.select_menu{
+.select_menu {
 	background: var(--color-primary-black);
 	outline: none;
 	font-size: 30px;
@@ -28,8 +35,7 @@
 	cursor: pointer;
 }
 
-
-.drop_container{
+.drop_container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -39,7 +45,7 @@
 	transition: transform 250ms ease-out;
 }
 
-.drop_button{
+.drop_button {
 	border: none;
 	border-radius: 8px;
 	background-color: transparent;
@@ -53,7 +59,7 @@
 	transition: border-bottom 2s ease-out;
 }
 
-.drop_button:hover{
+.drop_button:hover {
 	border-bottom: 1px solid var(--color-primary-white);
 }
 
@@ -78,60 +84,73 @@
 	color: var(--color-primary-white);
 }
 
-.chart_container{
-	/* display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 414px 414px 142px; */
+.chart_container {
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 27px;
-	@media screen and (min-width: 834px){
-		/* grid-template-rows: 420px 420px 148px; */
+}
+
+@media screen and (min-width: 834px) {
+	.chart_container {
 		row-gap: 40px;
 	}
-	@media screen and (min-width: 1440px){
-		/* grid-template-columns: 1fr 1fr;
-		grid-template-rows: 420px 148px; */
+}
+
+@media screen and (min-width: 1440px) {
+	.chart_container {
 		gap: 20px;
 	}
 }
-.calories_element{
+
+.calories_element {
 	overflow-x: auto;
-	@media screen and (min-width: 834px){
-		overflow-x:visible;
+}
+
+@media screen and (min-width: 834px) {
+	.calories_element {
+		overflow-x: visible;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px) {
+	.calories_element {
 		max-width: 780px;
 	}
 }
 
-.water_element{
+.water_element {
 	overflow-x: auto;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.water_element {
 		overflow-x: visible;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px) {
+	.water_element {
 		max-width: 780px;
 	}
 }
 
 .weight_element {
 	overflow-x: auto;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.weight_element {
 		overflow-y: visible;
-	}
-	@media screen and (min-width: 1440px){
-		/* grid-column-start: 1;
-		grid-column-end: 3; */
 	}
 }
 
 
 @keyframes slide-top {
-  0% {
-            transform: translateY(30px);
-  }
-  100% {
-            transform: translateY(0);
-  }
+	0% {
+		transform: translateY(30px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
 }

@@ -14,15 +14,22 @@
 	width: 100vw;
 	max-width: 320px;
 	padding: 0 10px 0 10px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.inner_container{
 		max-width: 834px;
 		padding: 0 27px 0 27px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.inner_container{
 		max-width: 1440px;
 		padding: 0 34px 0 34px;
 	}
 }
+
 .up_page_main{
 	display: flex;
 	justify-content: space-between;
@@ -31,7 +38,10 @@
 	font-size: 24px;
 	line-height: 1.2;
 	font-weight: 500;
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.up_page_main{
 		font-size: 30px;
 	}
 }

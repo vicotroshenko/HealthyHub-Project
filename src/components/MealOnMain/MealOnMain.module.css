@@ -1,4 +1,4 @@
-.namebox{
+.namebox {
 	display: flex;
 	align-items: center;
 	column-gap: 16px;
@@ -6,13 +6,13 @@
 
 .namebox h2 {
 	font-size: 22px;
-	line-height: 1.45; 
+	line-height: 1.45;
 	font-weight: 400;
 }
 
 .namebox a {
 	font-size: 16px;
-	line-height: 1.37; 
+	line-height: 1.37;
 	font-weight: 500;
 	color: var(--color-primary-grey);
 }
@@ -20,19 +20,23 @@
 .list {
 	margin-top: 16px;
 	list-style-type: none;
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.list {
 		width: 100%;
 		max-width: 518px;
 	}
 }
 
-.item {
-	@media screen and (min-width: 834px){
+@media screen and (min-width: 834px) {
+	.item {
 		display: flex;
 		column-gap: 10px;
 	}
 }
-.item ~ .item {
+
+.item~.item {
 	padding-top: 28px;
 }
 
@@ -42,26 +46,32 @@
 	column-gap: 12px;
 	width: 148px;
 }
+
 .title_container img {
 	width: 43px;
 	height: 43px;
 }
 
-.meal_info{
+.meal_info {
 	margin-top: 8px;
 	font-size: 14px;
 	line-height: 1.42;
 	color: var(--color-primary-white);
 	cursor: pointer;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.meal_info {
 		display: flex;
 	}
 }
 
-
-.meal_info > p ~ p {
+.meal_info>p~p {
 	margin-top: 20px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.meal_info>p~p {
 		margin-top: 0;
 		margin-left: 20px;
 	}
@@ -69,11 +79,12 @@
 
 .meal_info span {
 	font-size: 14px;
-	line-height: 1.42; 
+	line-height: 1.42;
 	font-weight: 500;
 	color: var(--color-primary-grey);
 }
-.button{
+
+.button {
 	display: flex;
 	align-items: center;
 	column-gap: 8px;
@@ -84,6 +95,7 @@
 	color: var(--color-primary-green-lite);
 	cursor: pointer;
 }
+
 .button svg {
 	fill: var(--color-primary-green-lite);
 }

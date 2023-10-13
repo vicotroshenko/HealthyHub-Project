@@ -14,11 +14,17 @@
 	width: 100%;
 	max-width: 320px;
 	padding: 0 10px 60px 10px;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.inner_container{
 		max-width: 834px;
 		padding: 0 27px 40px 27px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.inner_container{
 		flex-direction: row;
 		row-gap: 0;
 		justify-content: space-between;

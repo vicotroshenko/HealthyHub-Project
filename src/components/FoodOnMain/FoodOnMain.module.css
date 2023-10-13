@@ -4,24 +4,31 @@
 	padding: 26px 72px 16px 12px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.food_container {
 		display: flex;
 		align-items: center;
 		column-gap: 40px;
-
+	
 		width: 100vw;
 		max-width: 780px;
 		min-width: 424px;
 		height: 100%;
 		max-height: 240px;
 		min-height: 168px;
-
+	
 		padding: 36px 20px 36px 40px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.food_container {
 		max-width: 560px;
 	}
 }
+
 .food_title{
 	font-size: 22px;
 	line-height: 1.45;

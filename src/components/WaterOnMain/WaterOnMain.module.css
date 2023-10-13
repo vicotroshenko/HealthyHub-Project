@@ -16,18 +16,23 @@
 	padding: 16px 22px 16px 12px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.water_container {
 		column-gap: 40px;
 		max-width: 380px;
 		height: 240px;
 		padding: 24px 22px 24px 12px;
 	}
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.water_container {
 		max-width: 444px;
 		padding: 24px 68px 24px 40px;
 	}
 }
-
 
 
 .water_chart {
@@ -78,7 +83,10 @@
 	font-size: 16px;
 	line-height: 1.34;
 	font-weight: 500;
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.water_info h3 {
 		font-size: 18px;
 	}
 }
@@ -88,7 +96,10 @@
 	font-size: 28px;
 	line-height: 1.21;
 	font-weight: 500;
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.water_amount {
 		display: inline;
 		font-size: 32px;
 		line-height: 1.18;
@@ -108,7 +119,10 @@
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 400;
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.water_amount ~ p {
 		display: inline-block;
 		margin-left: 40px;
 		height: 28px;

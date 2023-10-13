@@ -9,8 +9,10 @@
 	background-color: #0F0F0F;
 	border-radius: 12;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+}
 
-	@media screen and (min-width: 834px){
+@media screen and (min-width: 834px){
+	.modal{
 		max-width: 676px;
 		padding: 24px;
 	}
@@ -43,16 +45,19 @@
 .inner_form {
 	width: 100%;
 	padding: 16px 0;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.inner_form {
 		display: flex;
 		align-items: center;
 		column-gap: 12px;
 	}
 }
 
+
 .form_container > div {
 	width: 100%;
-	
 }
 
 .title,
@@ -88,8 +93,9 @@
 	color: var(--color-primary-green-lite);
 }
 
-.btn_container {
-	@media screen and (min-width: 834px) {
+
+@media screen and (min-width: 834px) {
+	.btn_container {
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
@@ -109,7 +115,10 @@
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.43;
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.button_submit {
 		max-width: 192px;
 		margin-top: 0;
 	}
@@ -126,42 +135,45 @@
 	font-weight: 400;
 	line-height: 1.43;
 	color: var(--color-primary-grey);
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.button_cancel{
 		max-width: 192px;
 		margin-top: 0;
 	}
 }
 
+@media screen and (min-width: 834px){
+	.title{
+		width: 100vw;
+		max-width: 255px;
+	}
+}
 
+@media screen and (min-width: 834px){
+	.carbohydrates{
+		width: 100%;
+		max-width: 100px;
+	}
+}
 
+@media screen and (min-width: 834px) {
+	.protein {
+		width: 100%;
+		max-width: 86px;
+	}
+}
+@media screen and (min-width: 834px){
+	.fat{
+		width: 100%;
+		max-width: 61px;
+	}
+}
 
-.title{
-	@media screen and (min-width: 834px){
-	width: 100vw;
-	max-width: 255px;
-	}
-}
-.carbohydrates{
-	@media screen and (min-width: 834px){
-	width: 100%;
-	max-width: 100px;
-	}
-}
-.protein{
-	@media screen and (min-width: 834px){
-	width: 100%;
-	max-width: 86px;
-	}
-}
-.fat{
-	@media screen and (min-width: 834px){
-	width: 100%;
-	max-width: 61px;
-	}
-}
-.calories{
-	@media screen and (min-width: 834px){
-	width: 100%;
-	max-width: 78px;
+@media screen and (min-width: 834px){
+	.calories{
+		width: 100%;
+		max-width: 78px;
 	}
 }

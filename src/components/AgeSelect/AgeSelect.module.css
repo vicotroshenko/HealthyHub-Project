@@ -2,40 +2,51 @@
 	display: flex;
 	flex-direction: column;
 	max-width: 320px;
-	@media screen and (min-width: 834px) {
-		max-width: 360px;
-	}
-
 }
 
-.age h1{
+@media screen and (min-width: 834px) {
+	.age {
+		max-width: 360px;
+	}
+}
+
+.age h1 {
 	margin-top: 24px;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 30px;
 	line-height: 1.2;
-	font-weight: 500; 
+	font-weight: 500;
 	text-align: left;
 	color: var(--color-primary-white);
 
-	@media screen and (min-width: 834px) {
+
+}
+
+@media screen and (min-width: 834px) {
+	.age h1 {
 		margin-top: 60px;
 		font-size: 30px;
 	}
 }
+
 .age p {
 	margin-top: 16px;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 22px;
-	line-height: 1.45; 
+	line-height: 1.45;
 	text-align: left;
 	color: var(--color-primary-grey);
 
-	@media screen and (min-width: 834px) {
+}
+
+@media screen and (min-width: 834px) {
+	.age p {
 		font-size: 22px;
 	}
 }
+
 .gender_container {
 	display: flex;
 	justify-content: space-between;
@@ -44,41 +55,48 @@
 	margin-top: 12px;
 	padding-left: 10px;
 	padding-right: 10px;
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.gender_container {
 		flex-direction: column;
 		row-gap: 16px;
 		column-gap: 0;
 	}
 }
+
 .gender_input {
 	width: 13px;
-  height: 13px;
+	height: 13px;
 	margin-right: 8px;
 	border: 1px solid var(--color-primary-white);
 	outline: none;
 	border-radius: 50%;
 
 	-webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 
 	cursor: pointer;
-  transition: 0.2s all linear;
+	transition: 0.2s all linear;
 
 }
+
 .gender_input:checked {
 	border: 2px solid var(--color-primary-black);
 	outline: 1px solid var(--color-primary-white);
 	background-color: var(--color-primary-green-lite);
 }
+
 .age_form h4 {
-	margin-top: 24px; 
+	margin-top: 24px;
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 500;
 	color: var(--color-primary-white);
 }
-.age_form{
+
+.age_form {
 	width: 100%;
 }
 
@@ -92,18 +110,29 @@
 	background: var(--color-primary-black-2);
 	color: var(--color-primary-grey);
 	box-sizing: border-box;
-	@media screen and (min-width: 834px) {
+
+}
+
+@media screen and (min-width: 834px) {
+	.age_form input[type="number"] {
 		max-width: 360px;
 	}
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.age_form input[type="number"] {
 		max-width: 192px;
 	}
 }
+
 .age_field {
-	display: flex;  
+	display: flex;
 	justify-content: center;
-	width: 100%; 
-	@media screen and (min-width: 1440px) {
+	width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+	.age_field {
 		justify-content: flex-start;
 	}
 }
@@ -112,10 +141,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.age_button_container {
 		align-items: flex-start;
 	}
 }
+
 .age_button_container button[type="submit"] {
 	width: 100vw;
 	max-width: 280px;
@@ -125,18 +158,24 @@
 	border-radius: 12px;
 	background: var(--color-primary-green-lite);
 	font-size: 14px;
-	line-height: 1.43; 
+	line-height: 1.43;
 	font-weight: 500;
 	color: var(--color-primary-black-2);
 	text-align: center;
+}
 
-	@media screen and (min-width: 834px) {
+@media screen and (min-width: 834px) {
+	.age_button_container button[type="submit"] {
 		max-width: 360px;
 	}
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.age_button_container button[type="submit"] {
 		max-width: 192px;
 	}
 }
+
 .age_button_container button[type="button"] {
 	width: 100%;
 	max-width: 280px;
@@ -144,15 +183,20 @@
 	border: none;
 	background: var(--color-primary-black);
 	font-size: 14px;
-	line-height: 1.43; 
+	line-height: 1.43;
 	color: var(--color-primary-grey);
 	text-align: center;
+}
 
-	@media screen and (min-width: 834px) {
+@media screen and (min-width: 834px) {
+	.age_button_container button[type="button"] {
 		margin-top: 20px;
 		max-width: 360px;
 	}
-	@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1440px) {
+	.age_button_container button[type="button"] {
 		max-width: 192px;
 	}
 }

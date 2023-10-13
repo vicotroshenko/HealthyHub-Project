@@ -9,17 +9,24 @@
 	padding: 16px 86px 16px 12px;
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px){
+	.goals_container {
 		row-gap: 32px;
 		max-width: 380px;
 		max-height: 240px;
 		padding: 24px 138px 24px 40px;
 	}
-	@media screen and (min-width: 1440px){
+}
+
+@media screen and (min-width: 1440px){
+	.goals_container {
 		max-width: 328px;
 		padding: 24px 86px 24px 40px;
 	}
 }
+
 
 .goal_title{
 	font-size: 22px;

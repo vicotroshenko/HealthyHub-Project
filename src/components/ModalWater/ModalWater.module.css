@@ -1,4 +1,4 @@
-.modal{
+.modal {
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -9,42 +9,55 @@
 	background: var(--color-primary-black-2);
 	padding: 24px 40px 40px 40px;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.modal {
 		max-width: 338px;
 	}
 }
-.water_title{
+
+.water_title {
 	font-size: 24px;
 	line-height: 1.2;
 	font-weight: 500;
 	color: var(--color-primary-white);
-	@media screen and (min-width: 834px){
+}
+
+@media screen and (min-width: 834px) {
+	.water_title {
 		font-size: 30px;
 	}
 }
-.water_desc{
+
+.water_desc {
 	margin-top: 24px;
+
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 500;
 }
-.water_input{
+
+.water_input {
 	width: 100%;
 	margin-top: 12px;
 	padding: 8px 10px;
 	border-radius: 12px;
 	border: 1px solid var(--color-primary-green-lite);
 	background: var(--color-primary-black-2);
+
 	color: var(--color-primary-grey);
 }
-.water_submit{
+
+.water_submit {
 	width: 100%;
 	margin-top: 16px;
 	padding: 8px 10px;
 	border-radius: 12px;
 	background: var(--color-primary-green-lite);
 }
-.water_cansel{
+
+.water_cansel {
 	width: 100%;
 	margin-top: 16px;
 	padding: 8px 10px;
