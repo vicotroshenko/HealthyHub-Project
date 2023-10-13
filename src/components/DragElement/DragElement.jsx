@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import css from "./DrageElement.module.css"
+import css from "./DragElement.module.css"
 
 export const DragElement = ({ children }) => {
 
