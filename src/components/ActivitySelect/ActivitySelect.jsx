@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik';
-import style from './ActivitySelect.module.css';
+import css from './ActivitySelect.module.css';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -8,7 +8,7 @@ const schema = yup.object().shape({
 
 export const ActivitySelect = ({ handleSubmit }) => {
   return (
-    <div className={style.activity}>
+    <div className={css.activity}>
       <h1>Your Activity</h1>
       <p>To correctly calculate calorie and water intake</p>
       <Formik
@@ -19,7 +19,7 @@ export const ActivitySelect = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={style.activity_form}>
+          <div role="group" className={css.activity_form}>
             <label>
               <Field type="radio" name="activity" value="1.25" />
               <span>
@@ -55,7 +55,7 @@ export const ActivitySelect = ({ handleSubmit }) => {
                 program
               </span>
             </label>
-            <div className={style.activity_button_container}>
+            <div className={css.activity_button_container}>
               <button type="submit">Next</button>
               <button type="button">Back</button>
             </div>

@@ -3,7 +3,7 @@ import { ReactComponent as CloseIcon } from '../../images/svg/modal/close-circle
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
-import style from './ModalWeight.module.css';
+import css from './ModalWeight.module.css';
 
 const initialValues = {
   weight: '',
@@ -18,19 +18,19 @@ export const ModalWeight = ({ showModal, toggle }) => {
 
   if (showModal) {
     return (
-      <Modal onClose={toggle} styles={style.modal}>
-        <button onClick={toggle} className={style.close_button}>
+      <Modal onClose={toggle} styles={css.modal}>
+        <button onClick={toggle} className={css.close_button}>
           <CloseIcon />
         </button>
-        <h1 className={style.modal_title}>Enter your current weight</h1>
-        <p className={style.modal_desc}>
+        <h1 className={css.modal_title}>Enter your current weight</h1>
+        <p className={css.modal_desc}>
           You can record your weight once a day
         </p>
-        <p className={style.modal_day}>
+        <p className={css.modal_day}>
           Today <span></span>
         </p>
         <Formik initialValues={initialValues} onSubmit={handelWeight}>
-          <Form className={style.modal_form}>
+          <Form className={css.modal_form}>
             <label>
               <Field
                 type="number"

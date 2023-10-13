@@ -1,4 +1,4 @@
-import style from './UserHeaderContain.module.css';
+import css from './UserHeaderContain.module.css';
 import loseFatIcon from '../../images/png/header/goal-lose-fat.png';
 import maintainIcon from '../../images/png/header/goal-maintain.png';
 import gainMuscleIcon from '../../images/png/header/goal-gain-muscle.png';
@@ -52,62 +52,62 @@ export const UserHeaderContain = ({ handleSubmit }) => {
       <ModalGoal showModal={showGoalModal} toggle={toggleGoal} />
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
 
-      <div className={style.header_logo}>
-        <NavLink to={'/'} className={style.header_logo_link}>
+      <div className={css.header_logo}>
+        <NavLink to={'/'} className={css.header_logo_link}>
           HealthyHub
         </NavLink>
       </div>
-      <div className={style.data_container}>
-        <div className={style.mobile_hidden}>
-          <button className={style.data} onClick={toggleGoal}>
-            <div className={style.data_image_wrapper}>
+      <div className={css.data_container}>
+        <div className={css.mobile_hidden}>
+          <button className={css.data} onClick={toggleGoal}>
+            <div className={css.data_image_wrapper}>
               <img src={image} alt="goal" />
             </div>
-            <div className={style.data_desc}>
+            <div className={css.data_desc}>
               <p>Goal</p>
-              <div className={style.data_desc_wrapper}>
+              <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
                 <ArrowIcon />
               </div>
             </div>
           </button>
-          <button className={style.data} onClick={toggleWeight}>
-            <div className={style.data_image_wrapper}>
+          <button className={css.data} onClick={toggleWeight}>
+            <div className={css.data_image_wrapper}>
               <img src={weightIcon} alt="weight" />
             </div>
-            <div className={style.data_desc}>
+            <div className={css.data_desc}>
               <p>Weight</p>
-              <div className={style.data_desc_wrapper}>
+              <div className={css.data_desc_wrapper}>
                 <p>{weight}</p>
                 <EditIcon />
               </div>
             </div>
           </button>
         </div>
-        <div className={style.tablet_hidden}>
+        <div className={css.tablet_hidden}>
           <button>
             <MenuIcon />
           </button>
         </div>
 
-        <button className={style.user_block} onClick={toggle}>
+        <button className={css.user_block} onClick={toggle}>
           <p>{name}</p>
-          <div className={style.user_avatar}>
+          <div className={css.user_avatar}>
             <img src={avatarURL} alt="User avatar" />
           </div>
           <ArrowIcon />
         </button>
 
         {visible && (
-          <div className={style.drop_menu}>
-            <NavLink to={'/setting'} className={style.drop_button}>
+          <div className={css.drop_menu}>
+            <NavLink to={'/setting'} className={css.drop_button}>
               <SettingIcon />
               Setting
             </NavLink>
             <button
               type="button"
               onClick={handleSubmit}
-              className={style.drop_button}
+              className={css.drop_button}
             >
               <LogOutIcon />
               Log out

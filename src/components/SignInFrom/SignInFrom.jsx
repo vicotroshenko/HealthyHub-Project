@@ -1,4 +1,4 @@
-import style from './SignInFrom.module.css';
+import css from './SignInFrom.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
@@ -14,9 +14,9 @@ const initialValues = {
 
 export const SignInFrom = ({ handleSubmit }) => {
   return (
-    <div className={style.container_sing_in}>
+    <div className={css.container_sing_in}>
       <h1>Sign up</h1>
-      <p className={style.sign_in_desc}>
+      <p className={css.sign_in_desc}>
         You need to register to use the service
       </p>
 
@@ -26,16 +26,16 @@ export const SignInFrom = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={style.sign_in_form}>
+          <div role="group" className={css.sign_in_form}>
             <label htmlFor="email">
               <Field
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                className={style.sign_in_input}
+                className={css.sign_in_input}
               />
               <ErrorMessage name="email">
-                {msg => <p className={style.error}>{msg}</p>}
+                {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
             <label htmlFor="password">
@@ -43,10 +43,10 @@ export const SignInFrom = ({ handleSubmit }) => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                className={style.sign_in_input}
+                className={css.sign_in_input}
               />
               <ErrorMessage name="password">
-                {msg => <p className={style.error}>{msg}</p>}
+                {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
             <button type="submit">Sign In</button>
@@ -54,7 +54,7 @@ export const SignInFrom = ({ handleSubmit }) => {
         </Form>
       </Formik>
 
-      <div className={style.sing_up_box}>
+      <div className={css.sing_up_box}>
         <span>If you don't have an account yet</span>
         <a href="/">Sing up</a>
       </div>

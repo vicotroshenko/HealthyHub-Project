@@ -1,5 +1,5 @@
 import foodList from '../../json/RecommendedFood.json';
-import style from './RecomendedFoodView.module.css';
+import css from './RecomendedFoodView.module.css';
 
 export const RecommendedFoodView = () => {
   function shuffle() {
@@ -20,13 +20,13 @@ export const RecommendedFoodView = () => {
 
   return (
     <div>
-      <ul className={style.list}>
+      <ul className={css.list}>
         {shuffledFood.map((item, index) => (
-          <li key={index} className={style.item}>
-            <div className={style.image_container}>
+          <li key={index} className={css.item}>
+            <div className={css.image_container}>
               <img src={item.img} alt={item.name}/>
             </div>
-            <div className={style.desc_container}>
+            <div className={css.desc_container}>
               <h3>{item.name}</h3>
               <p>
                 {item.amount} <span>{item.calories}calories</span>

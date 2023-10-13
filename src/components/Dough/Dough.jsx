@@ -1,5 +1,5 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
-import style from './Dough.module.css';
+import css from './Dough.module.css';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -61,9 +61,9 @@ export const Dough = ({
         options={options}
         plugins={[backgroundCircle]}
       ></Doughnut>
-      <div className={style.titleBox}>
+      <div className={css.titleBox}>
         <h5 style={styles.title}>{text.title || `${percent}%`}</h5>
-        <span style={style.describe || {}}>{text.describe || ''}</span>
+        <span style={styles.describe || {}}>{text.describe || ''}</span>
       </div>
     </div>
   );

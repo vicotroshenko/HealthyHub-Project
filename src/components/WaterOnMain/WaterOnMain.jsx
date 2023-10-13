@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { ModalWater } from 'components/ModalWater/ModalWater';
 import { selectUserData } from 'redux/meals/selectors';
-import style from './WaterOnMain.module.css';
+import css from './WaterOnMain.module.css';
 
 export const WaterOnMain = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,24 +21,24 @@ export const WaterOnMain = () => {
   return (
     <>
       <ModalWater toggle={toggle} showModal={showModal} />
-      <h2 className={style.water_title}>Water</h2>
-      <div className={style.water_container}>
-        <div className={style.water_chart}>
+      <h2 className={css.water_title}>Water</h2>
+      <div className={css.water_container}>
+        <div className={css.water_chart}>
           <p
             style={percent >= 85 ? { display: 'none' } : { display: 'block' }}
-            className={style.water_percent}
+            className={css.water_percent}
           >{`${percent}%`}</p>
-          <div style={{ height: `${percent}%` }} className={style.water_anim}>
+          <div style={{ height: `${percent}%` }} className={css.water_anim}>
             <p
               style={percent < 85 ? { display: 'none' } : { display: 'block' }}
-              className={style.water_percent_inner}
+              className={css.water_percent_inner}
             >{`${percent}%`}</p>
           </div>
         </div>
 
-        <div className={style.water_info}>
+        <div className={css.water_info}>
           <h3>Water consumption</h3>
-          <p className={style.water_amount}>
+          <p className={css.water_amount}>
             {water || 0}
             <span> ml</span>
           </p>

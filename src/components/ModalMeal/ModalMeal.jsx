@@ -2,7 +2,7 @@ import { Modal } from 'components/Modal/Modal';
 import { ReactComponent as Plus } from '../../images/svg/main-page/add.svg';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/meals/operations';
-import style from './ModalMeal.module.css';
+import css from './ModalMeal.module.css';
 
 export const ModalMeal = ({
   showModal,
@@ -109,25 +109,25 @@ export const ModalMeal = ({
 
   if (showModal) {
     return (
-      <Modal onClose={toggle} styles={style.modal}>
-        <div className={style.title_container}>
-          <div className={style.title_image_container}>
+      <Modal onClose={toggle} styles={css.modal}>
+        <div className={css.title_container}>
+          <div className={css.title_image_container}>
             <img src={data.image} alt={data.name} />
           </div>
           <h1>{data.name}</h1>
         </div>
 
-        <form className={style.form_container} onSubmit={handleMealInform}>
+        <form className={css.form_container} onSubmit={handleMealInform}>
           <div role="group" style={{ width: '100%' }}>
             {numberColection.map((item, index) => (
-              <div key={index} className={style.inner_form}>
+              <div key={index} className={css.inner_form}>
                 <label>
                   <input
                     type="text"
                     name="title"
                     placeholder="The name of the product or dish"
                     defaultValue={change ? change.dish.title : ''}
-                    className={style.title}
+                    className={css.title}
                   />
                 </label>
                 <label>
@@ -136,7 +136,7 @@ export const ModalMeal = ({
                     name="carbohydrates"
                     placeholder="Carbonoh."
                     defaultValue={change ? change.dish.carbohydrates : ''}
-                    className={style.carbohydrates}
+                    className={css.carbohydrates}
                   />
                 </label>
                 <label>
@@ -145,7 +145,7 @@ export const ModalMeal = ({
                     name="protein"
                     placeholder="Protein"
                     defaultValue={change ? change.dish.protein : ''}
-                    className={style.protein}
+                    className={css.protein}
                   />
                 </label>
                 <label>
@@ -154,7 +154,7 @@ export const ModalMeal = ({
                     name="fat"
                     placeholder="Fat"
                     defaultValue={change ? change.dish.fat : ''}
-                    className={style.fat}
+                    className={css.fat}
                   />
                 </label>
                 <label>
@@ -163,7 +163,7 @@ export const ModalMeal = ({
                     name="calories"
                     placeholder="Calories"
                     defaultValue={change ? change.dish.calories : ''}
-                    className={style.calories}
+                    className={css.calories}
                   />
                 </label>
               </div>
@@ -173,7 +173,7 @@ export const ModalMeal = ({
               <button
                 type="button"
                 onClick={addColection}
-                className={style.add_more}
+                className={css.add_more}
               >
                 <Plus />
                 Add more
@@ -183,20 +183,20 @@ export const ModalMeal = ({
               <button
                 type="button"
                 onClick={deletCurrentDish}
-                className={style.add_more}
+                className={css.add_more}
               >
                 Delete
               </button>
             )}
 
-            <div className={style.btn_container}>
-              <button type="submit" className={style.button_submit}>
+            <div className={css.btn_container}>
+              <button type="submit" className={css.button_submit}>
                 Confirm
               </button>
               <button
                 type="button"
                 onClick={toggle}
-                className={style.button_cancel}
+                className={css.button_cancel}
               >
                 Cancel
               </button>

@@ -1,11 +1,11 @@
 import { MealOnMain } from 'components/MealOnMain/MealOnMain';
 import { RecommendedFoodOnMain } from 'components/RecommendedFoodOnMain/RecommendedFoodOnMain';
-import style from './MainMealAndRecommendedFood.module.css';
+import css from './MainMealAndRecommendedFood.module.css';
 
 export const MainMealAndRecommendedFood = () => {
   return (
-    <div className={style.container}>
-      <div className={style.inner_container}>
+    <div className={css.container}>
+      <div className={css.inner_container}>
         <MealOnMain />
         <RecommendedFoodOnMain />
       </div>

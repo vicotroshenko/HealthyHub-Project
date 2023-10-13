@@ -1,9 +1,9 @@
 import { Field, Form, Formik } from 'formik';
-import style from './GoalSelect.module.css';
+import css from './GoalSelect.module.css';
 
 export const GoalSelect = ({ handleSubmit }) => {
   return (
-    <div className={style.goal}>
+    <div className={css.goal}>
       <h1>Your goal</h1>
       <p>Choose a goal so that we can help you effectively</p>
       <Formik
@@ -13,7 +13,7 @@ export const GoalSelect = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={style.goal_form}>
+          <div role="group" className={css.goal_form}>
             <label>
               <Field type="radio" id="lostfat" name="goal" value="Lose fat" />
               <span>Lose Fat</span>
@@ -32,7 +32,7 @@ export const GoalSelect = ({ handleSubmit }) => {
               <span>Gain Muscle</span>
             </label>
           </div>
-          <div className={style.goat_btn_container}>
+          <div className={css.goat_btn_container}>
             <button type="submit">Next</button>
           </div>
         </Form>

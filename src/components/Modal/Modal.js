@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import style from './Modal.module.css';
+import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -25,7 +25,7 @@ export const Modal = ({ children, onClose, styles }) => {
   };
 
   return createPortal(
-    <div className={style.backdrop} onClick={handleBackdropClick}>
+    <div className={css.backdrop} onClick={handleBackdropClick}>
       <div className={styles}>{children}</div>
     </div>,
     modalRoot

@@ -2,7 +2,7 @@ import { Modal } from 'components/Modal/Modal';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/meals/operations';
-import style from './ModalWater.module.css';
+import css from './ModalWater.module.css';
 
 const inititalValues = {
   water: '',
@@ -19,26 +19,26 @@ export const ModalWater = ({ toggle, showModal }) => {
 
   if (showModal) {
     return (
-      <Modal onClose={toggle} styles={style.modal}>
-        <h1 className={style.water_title}>Add water intake</h1>
-        <p className={style.water_desc}>How much water</p>
+      <Modal onClose={toggle} styles={css.modal}>
+        <h1 className={css.water_title}>Add water intake</h1>
+        <p className={css.water_desc}>How much water</p>
         <Formik initialValues={inititalValues} onSubmit={handleWater}>
           <Form>
             <label>
               <Field
                 type="number"
                 name="water"
-                className={style.water_input}
+                className={css.water_input}
                 placeholder="Enter milliliters"
               />
             </label>
-            <button type="submit" className={style.water_submit}>
+            <button type="submit" className={css.water_submit}>
               Confirm
             </button>
             <button
               type="button"
               onClick={toggle}
-              className={style.water_cansel}
+              className={css.water_cansel}
             >
               Cancel
             </button>

@@ -1,5 +1,5 @@
 import { LineChart } from 'components/LineChart/LineChart';
-import style from './StatisticShow.module.css';
+import css from './StatisticShow.module.css';
 import { useEffect, useState } from 'react';
 import operations from 'redux/meals/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -176,17 +176,17 @@ export const StatisticShow = ({ containerRef }) => {
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.select_menu_container}>
+    <div className={css.container}>
+      <div className={css.select_menu_container}>
         <div>
-          <div className={style.drop_container}>
-            <Link to={'/user'}>
+          <div className={css.drop_container}>
+            <Link to={'/'}>
               {' '}
               <Arrow style={{ transform: 'rotate(180deg)' }} />
             </Link>
             <button
               type="button"
-              className={style.drop_button}
+              className={css.drop_button}
               name="drop button"
               onClick={toggle}
             >
@@ -201,7 +201,7 @@ export const StatisticShow = ({ containerRef }) => {
             />
           </div>
           {vissible && (
-            <div className={style.drop_menu}>
+            <div className={css.drop_menu}>
               <button
                 type="button"
                 onClick={handleSelect}
@@ -214,8 +214,8 @@ export const StatisticShow = ({ containerRef }) => {
         </div>
         <p>{period === 'month' ? nameOfMonth : year}</p>
       </div>
-      <div className={style.chart_container}>
-        <div className={style.calories_element}>
+      <div className={css.chart_container}>
+        <div className={css.calories_element}>
           {period === 'month' && (
             <LineChart
               nameElement={'Calories'}
@@ -233,7 +233,7 @@ export const StatisticShow = ({ containerRef }) => {
             />
           )}
         </div>
-        <div className={style.water_element}>
+        <div className={css.water_element}>
           {period === 'month' && (
             <LineChart
               nameElement={'Water'}
@@ -251,7 +251,7 @@ export const StatisticShow = ({ containerRef }) => {
             />
           )}
         </div>
-        <div className={style.weight_element}>
+        <div className={css.weight_element}>
           <LineChart
             nameElement={'Weight'}
             getStatisticMonth={getStatFromMonth}

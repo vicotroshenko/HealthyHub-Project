@@ -8,7 +8,7 @@ import {
   selectUserGoal,
 } from 'redux/auth/selectors';
 import { useEffect, useState } from 'react';
-import style from './FoodOnMain.module.css';
+import css from './FoodOnMain.module.css';
 import { selectStatisticsForCurrentDayAllElem } from 'redux/meals/selectors';
 
 export const FoodOnMain = () => {
@@ -39,8 +39,8 @@ export const FoodOnMain = () => {
 
   return (
     <>
-      <h2 className={style.food_title}>Food</h2>
-      <div className={style.food_container}>
+      <h2 className={css.food_title}>Food</h2>
+      <div className={css.food_container}>
         <div>
           <Dough
             dayAmount={dayCalories}
@@ -56,7 +56,7 @@ export const FoodOnMain = () => {
         </div>
 
         <div>
-          <div className={style.stat_wrapper}>
+          <div className={css.stat_wrapper}>
             <Dough
               dayAmount={goal.carbonohidrates}
               currentAmount={statistic.carbohydrates}
@@ -68,7 +68,7 @@ export const FoodOnMain = () => {
                 bold: 18,
               }}
             />
-            <div className={style.food_info}>
+            <div className={css.food_info}>
               <h3>Carbonohidrates</h3>
               <p>
                 Goal<span>{goal.carbonohidrates || 0}</span>
@@ -84,7 +84,7 @@ export const FoodOnMain = () => {
             </div>
           </div>
 
-          <div className={style.stat_wrapper}>
+          <div className={css.stat_wrapper}>
             <Dough
               dayAmount={goal.protein}
               currentAmount={statistic.protein}
@@ -96,7 +96,7 @@ export const FoodOnMain = () => {
                 bold: 18,
               }}
             />
-            <div className={style.food_info}>
+            <div className={css.food_info}>
               <h3>Protein</h3>
               <p>
                 Goal<span>{goal.protein || 0}</span>
@@ -110,7 +110,7 @@ export const FoodOnMain = () => {
             </div>
           </div>
 
-          <div className={style.stat_wrapper}>
+          <div className={css.stat_wrapper}>
             <Dough
               dayAmount={goal.fat}
               currentAmount={statistic.fat}
@@ -122,7 +122,7 @@ export const FoodOnMain = () => {
                 bold: 18,
               }}
             />
-            <div className={style.food_info}>
+            <div className={css.food_info}>
               <h3>Fat</h3>
               <p>
                 Goal<span>{goal.fat || 0}</span>

@@ -12,7 +12,7 @@ import {
   selectStatisticLunch,
   selectStatisticSnack,
 } from 'redux/meals/selectors';
-import style from './MealOnMain.module.css';
+import css from './MealOnMain.module.css';
 import operations from 'redux/meals/operations';
 import { NavLink } from 'react-router-dom';
 
@@ -67,23 +67,23 @@ export const MealOnMain = () => {
         numberColection={numberOfMeals}
       />
       <div>
-        <div className={style.namebox}>
+        <div className={css.namebox}>
           <h2>Diary</h2>
           <NavLink to={"/diary"} >See more</NavLink>
         </div>
-        <ul className={style.list}>
+        <ul className={css.list}>
           <li
-            className={style.item}
+            className={css.item}
             data-hovername="breakfast"
           >
-            <div className={style.title_container}>
+            <div className={css.title_container}>
               <img src={breakfastImage} alt="breakfast logo" />
               <h3>Breakfast</h3>
             </div>
 
             <div
               className={
-                showBtnBreakfast ? style.hidden : style.meal_info
+                showBtnBreakfast ? css.hidden : css.meal_info
               }
             >
               <p>
@@ -102,7 +102,7 @@ export const MealOnMain = () => {
                 toggle({ name: 'Breakfast', image: breakfastImage })
               }
               className={
-                !showBtnBreakfast ? style.hidden : style.button
+                !showBtnBreakfast ? css.hidden : css.button
               }
             >
               <Plus fill="#E3FFA8" />
@@ -111,15 +111,15 @@ export const MealOnMain = () => {
           </li>
 
           <li
-            className={style.item}
+            className={css.item}
             data-hovername="lunch"
           >
-            <div className={style.title_container}>
+            <div className={css.title_container}>
               <img src={lunchImage} alt="lunch logo" />
               <h3>Lunch</h3>
             </div>
             <div
-              className={showBtnLunch ? style.hidden : style.meal_info}
+              className={showBtnLunch ? css.hidden : css.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{lunch.carbohydrates || 0}</span>
@@ -134,7 +134,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Lunch', image: lunchImage })}
-              className={!showBtnLunch ? style.hidden : style.button}
+              className={!showBtnLunch ? css.hidden : css.button}
             >
               <Plus />
               Record your meal
@@ -142,16 +142,16 @@ export const MealOnMain = () => {
           </li>
 
           <li
-            className={style.item}
+            className={css.item}
             data-hovername="dinner"
           >
-            <div className={style.title_container}>
+            <div className={css.title_container}>
               <img src={dinnerImage} alt="dinner logo" />
               <h3>Dinner</h3>
             </div>
             <div
               className={
-                showBtnDinner ? style.hidden : style.meal_info
+                showBtnDinner ? css.hidden : css.meal_info
               }
             >
               <p>
@@ -167,7 +167,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Dinner', image: dinnerImage })}
-              className={!showBtnDinner ? style.hidden : style.button}
+              className={!showBtnDinner ? css.hidden : css.button}
             >
               <Plus />
               Record your meal
@@ -175,15 +175,15 @@ export const MealOnMain = () => {
           </li>
 
           <li
-            className={style.item}
+            className={css.item}
             data-hovername="snack"
           >
-            <div className={style.title_container}>
+            <div className={css.title_container}>
               <img src={snacktImage} alt="snack logo" />
               <h3>Dinner</h3>
             </div>
             <div
-              className={showBtnSnack ? style.hidden : style.meal_info}
+              className={showBtnSnack ? css.hidden : css.meal_info}
             >
               <p>
                 Carbonohidrates: <span>{snack.carbohydrates || 0}</span>
@@ -198,7 +198,7 @@ export const MealOnMain = () => {
             <button
               type="button"
               onClick={() => toggle({ name: 'Snack', image: snacktImage })}
-              className={!showBtnSnack ? style.hidden : style.button}
+              className={!showBtnSnack ? css.hidden : css.button}
             >
               <Plus />
               Record your meal

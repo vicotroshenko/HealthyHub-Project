@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik';
-import style from './BodySelect.module.css';
+import css from './BodySelect.module.css';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -9,7 +9,7 @@ const schema = yup.object().shape({
 
 export const BodySelect = ({ handleSubmit }) => {
   return (
-    <div className={style.body}>
+    <div className={css.body}>
       <h1>Body parameters</h1>
       <p>Enter your parameters for correct performance tracking</p>
       <Formik
@@ -21,7 +21,7 @@ export const BodySelect = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={style.body_form}>
+          <div role="group" className={css.body_form}>
             <label>
               Height
               <Field type="number" name="height" max="300" />
@@ -32,7 +32,7 @@ export const BodySelect = ({ handleSubmit }) => {
               <Field type="number" name="weight" max="350" />
             </label>
 
-            <div className={style.body_button_container}>
+            <div className={css.body_button_container}>
               <button type="submit">Next</button>
               <button type="button">Back</button>
             </div>

@@ -11,7 +11,7 @@ import {
   selectStatisticSnack,
   selectUserData,
 } from 'redux/meals/selectors';
-import style from './DiaryMealCollect.module.css';
+import css from './DiaryMealCollect.module.css';
 
 export const DiaryMealCollect = () => {
   const { breakfast, lunch, dinner, snack } = useSelector(selectUserData);
@@ -22,9 +22,9 @@ export const DiaryMealCollect = () => {
 
   return (
     <>
-      <div className={style.container}>
+      <div className={css.container}>
         <h1>Diary</h1>
-        <div className={style.inner_container}>
+        <div className={css.inner_container}>
           <DiaryMeal
             meal={breakfast}
             name={'Breakfast'}

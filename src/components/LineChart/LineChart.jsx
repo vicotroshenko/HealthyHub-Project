@@ -9,7 +9,7 @@ import {
   Title,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import style from './LineChart.module.css';
+import css from './LineChart.module.css';
 import { DragElement } from 'components/DragElement/DragElement';
 
 ChartJS.register(
@@ -144,8 +144,8 @@ export const LineChart = ({
   return (
     <>
       {nameElement !== 'Weight' && (
-        <div className={style.line_container}>
-          <div className={style.title_container}>
+        <div className={css.line_container}>
+          <div className={css.title_container}>
             <h3>{nameElement}</h3>
             <p>
               Average value:<span>{avaregeNumbers}</span>
@@ -156,25 +156,25 @@ export const LineChart = ({
               data={data}
               options={options}
               plugins={plugins}
-              className={style.chart_block}
+              className={css.chart_block}
             ></Line>
             <DragElement>
-              <h3 className={style.drag_title}>{maxNumber}</h3>
-              <p className={style.drag_desc}>{nameElement}</p>
+              <h3 className={css.drag_title}>{maxNumber}</h3>
+              <p className={css.drag_desc}>{nameElement}</p>
             </DragElement>
           </div>
         </div>
       )}
       {nameElement === 'Weight' && (
-        <div className={style.weight}>
-          <div className={style.title_container}>
+        <div className={css.weight}>
+          <div className={css.title_container}>
             <h3>{nameElement}</h3>
             <p>
               Average value:<span>{avaregeNumbers}</span>
             </p>
           </div>
-          <div className={style.weight_container}>
-            <ul className={style.weight_days}>
+          <div className={css.weight_container}>
+            <ul className={css.weight_days}>
               {checkBoolean &&
                 statisticObject.period?.map((item, index) => (
                   <li key={`${index}`}>{item}</li>
@@ -186,7 +186,7 @@ export const LineChart = ({
                   </li>
                 ))}
             </ul>
-            <ul className={style.weight_num}>
+            <ul className={css.weight_num}>
               {checkBoolean &&
                 statisticObject.sum?.map((item, index) => (
                   <li key={`${index}`}>{item}</li>

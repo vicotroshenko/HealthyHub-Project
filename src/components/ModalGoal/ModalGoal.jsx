@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectUserGoal } from 'redux/auth/selectors';
-import style from './ModalGoal.module.css';
+import css from './ModalGoal.module.css';
 
 
 const initialValues = {
@@ -25,16 +25,16 @@ export const ModalGoal = ({ showModal, toggle }) => {
 
   if (showModal) {
     return (
-      <Modal onClose={toggle} styles={style.modal}>
-        <button type="button" onClick={toggle} className={style.close_button}>
+      <Modal onClose={toggle} styles={css.modal}>
+        <button type="button" onClick={toggle} className={css.close_button}>
           <CloseIcon />
         </button>
-        <h1 className={style.modal_title}>Target selection</h1>
-        <p className={style.modal_desc}>
+        <h1 className={css.modal_title}>Target selection</h1>
+        <p className={css.modal_desc}>
           The service will adjust your calorie intake to your goal
         </p>
         <Formik initialValues={initialValues} onSubmit={handleGoal}>
-          <Form className={style.checkbox}>
+          <Form className={css.checkbox}>
             <label
               style={
                 'Lose fat' === checked
@@ -49,7 +49,7 @@ export const ModalGoal = ({ showModal, toggle }) => {
                 onClick={() => setChecked('Lose fat')}
                 checked={checked === 'Lose fat'}
               />
-              <div className={style.new_checkbox}>
+              <div className={css.new_checkbox}>
                 <img src={loseFatIcon} alt="goal check lose fat" />
               </div>
               Lose Fat
@@ -68,7 +68,7 @@ export const ModalGoal = ({ showModal, toggle }) => {
                 onClick={() => setChecked('Maintain')}
                 checked={checked === 'Maintain'}
               />
-              <div className={style.new_checkbox}>
+              <div className={css.new_checkbox}>
                 <img src={maintainIcon} alt="goal check maintain" />
               </div>
               Maintain
@@ -87,7 +87,7 @@ export const ModalGoal = ({ showModal, toggle }) => {
                 onClick={() => setChecked('Gain Muscle')}
                 checked={checked === 'Gain Muscle'}
               />
-              <div className={style.new_checkbox}>
+              <div className={css.new_checkbox}>
                 <img src={gainMuscleIcon} alt="goal check gain muscle" />
               </div>
               Gain muscle

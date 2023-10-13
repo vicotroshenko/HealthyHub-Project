@@ -1,4 +1,4 @@
-import style from './RecommendedFoodOnMain.module.css';
+import css from './RecommendedFoodOnMain.module.css';
 import foodList from '../../json/RecommendedFood.json';
 import { ReactComponent as Arrow } from '../../images/svg/main-page/arrow-right.svg';
 import { Link } from 'react-router-dom';
@@ -21,15 +21,15 @@ export const RecommendedFoodOnMain = () => {
 	const shuffleFood = shuffle();
 
   return (
-    <div className={style.recommendedFood}>
-      <h2 className={style.rec_food_title}>Recommended food</h2>
-      <ul className={style.list}>
+    <div className={css.recommendedFood}>
+      <h2 className={css.rec_food_title}>Recommended food</h2>
+      <ul className={css.list}>
         {shuffleFood.map((item, index) => (
-          <li key={index} className={style.item}>
-            <div className={style.image_container}>
+          <li key={index} className={css.item}>
+            <div className={css.image_container}>
               {/* <img src={item.img} alt={item.name}/> */}
             </div>
-            <div className={style.desc_container}>
+            <div className={css.desc_container}>
               <h3>{item.name}</h3>
               <p>
                 {item.amount} <span>{item.calories}calories</span>
@@ -38,7 +38,7 @@ export const RecommendedFoodOnMain = () => {
           </li>
         ))}
       </ul>
-      <Link to="/recommended" className={style.see_more_link}>
+      <Link to="/recommended" className={css.see_more_link}>
         See more
         <Arrow style={{ verticalAlign: 'middle', marginLeft: 6 }} />
       </Link>

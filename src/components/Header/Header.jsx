@@ -3,7 +3,7 @@ import { UserHeaderContain } from 'components/UserHeaderContain/UserHeaderContai
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectAuthInform } from 'redux/auth/selectors';
-import style from './Header.module.css';
+import css from './Header.module.css';
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -14,8 +14,8 @@ export const Header = () => {
   };
 
   return (
-    <header className={style.header}>
-      <div className={style.container}>
+    <header className={css.header}>
+      <div className={css.container}>
         {!isLoggedIn ? (
           <AuthHeaderContain />
         ) : (

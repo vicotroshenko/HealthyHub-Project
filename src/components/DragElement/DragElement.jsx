@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import style from "./DrageElement.module.css"
+import css from "./DrageElement.module.css"
 
 export const DragElement = ({ children }) => {
 
@@ -58,8 +58,8 @@ export const DragElement = ({ children }) => {
 	
 
 	return (
-		<div ref={ containerRef } className={style.container}>
-			<div ref={ dragRef } className={style.drag_element}>
+		<div ref={ containerRef } className={css.container}>
+			<div ref={ dragRef } className={css.drag_element}>
 				{children}
 			</div>
 		</div>
