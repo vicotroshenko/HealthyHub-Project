@@ -3,6 +3,7 @@ import { ReactComponent as Plus } from '../../images/svg/main-page/add.svg';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/meals/operations';
 import css from './ModalMeal.module.css';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 export const ModalMeal = ({
   showModal,
@@ -92,8 +93,6 @@ export const ModalMeal = ({
           return console.log('Error');
       }
     }
-
-   
   };
 
   const deletCurrentDish = () => {
@@ -190,9 +189,9 @@ export const ModalMeal = ({
             )}
 
             <div className={css.btn_container}>
-              <button type="submit" className={css.button_submit}>
-                Confirm
-              </button>
+            <ButtonSubmit size={{SWidth: 276, MWidth: 212}}>
+              <span>Confirm</span>
+            </ButtonSubmit>
               <button
                 type="button"
                 onClick={toggle}

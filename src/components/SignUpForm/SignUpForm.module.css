@@ -72,13 +72,6 @@
 	color: var(--color-primary-grey)
 }
 
-.sign_up_form button[type="submit"] {
-	width: 100%;
-	padding: 8px 10px;
-	border: none;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
-}
 
 .sing_in_box {
 	display: flex;

@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import css from './AgeSelect.module.css';
 import * as yup from 'yup';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const schema = yup.object().shape({
   gender: yup.string().required(),
@@ -50,7 +51,7 @@ export const AgeSelect = ({ handleSubmit }) => {
               <Field type="number" name="age" max="100" />
             </label>
             <div className={css.age_button_container}>
-              <button type="submit">Next</button>
+              <ButtonSubmit size={{SWidth: 300, MWidth: 380, LWidth: 212,}}>Next</ButtonSubmit>
               <button type="button">Back</button>
             </div>
           </div>

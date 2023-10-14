@@ -1,3 +1,4 @@
+import { Container } from "components/Container/Container";
 import { StatisticShow } from "components/StatisticShow/StatisticShow";
 import { useRef } from "react";
 
@@ -5,9 +6,11 @@ import { useRef } from "react";
 const Statistic = () => {
 	const containerRef = useRef();
 	return (
-		<section  ref={containerRef} style={{width: "100%", display: "flex", flexDirection: "column", alignItems: "center"}}>
-			<StatisticShow containerRef={containerRef}/>
-		</section>
+		<Container >
+			<div ref={containerRef} style={{width: "100%"}}>
+				<StatisticShow containerRef={containerRef}/>
+			</div>
+		</Container>
 	)
 }
 

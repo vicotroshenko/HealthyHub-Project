@@ -62,7 +62,8 @@
 
 .button_sing_in {
 	padding: 8px 40px;
-	border: none;
+	border-bottom: 1px solid transparent;
+	border-right: 4px solid transparent;
 	border-radius: 12px;
 	background: var(--color-primary-green-lite);
 	font-size: 14px;
@@ -80,8 +81,9 @@
 
 .button_sing_up {
 	padding: 8px 40px;
-	border: none;
+	border-radius: 12px;
 	background-color: transparent;
+	border: none;
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 500;
@@ -89,6 +91,11 @@
 	text-align: center;
 }
 
+.button_sing_in:hover {
+	border: none;
+	box-shadow: rgba(255, 255, 255, 0.24) 0px 5px 8px;
+	font-size: 15px;
+}
 .list {
 	display: grid;
 	grid-template-columns: repeat( auto-fill, 300px);

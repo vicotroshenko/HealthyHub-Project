@@ -4,11 +4,9 @@ import css from './MainMealAndRecommendedFood.module.css';
 
 export const MainMealAndRecommendedFood = () => {
   return (
-    <div className={css.container}>
-      <div className={css.inner_container}>
-        <MealOnMain />
-        <RecommendedFoodOnMain />
-      </div>
+    <div className={css.inner_container}>
+      <MealOnMain />
+      <RecommendedFoodOnMain />
     </div>
   );
 };

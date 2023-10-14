@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import css from './BodySelect.module.css';
 import * as yup from 'yup';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const schema = yup.object().shape({
   height: yup.number().max(300).required(),
@@ -33,7 +34,7 @@ export const BodySelect = ({ handleSubmit }) => {
             </label>
 
             <div className={css.body_button_container}>
-              <button type="submit">Next</button>
+              <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Next</ButtonSubmit>
               <button type="button">Back</button>
             </div>
           </div>

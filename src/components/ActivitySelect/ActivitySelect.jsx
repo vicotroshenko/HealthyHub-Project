@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import css from './ActivitySelect.module.css';
 import * as yup from 'yup';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const schema = yup.object().shape({
   activity: yup.string().required(),
@@ -56,7 +57,7 @@ export const ActivitySelect = ({ handleSubmit }) => {
               </span>
             </label>
             <div className={css.activity_button_container}>
-              <button type="submit">Next</button>
+              <ButtonSubmit size={{SWidth: 300, MWidth: 360, LWidth: 192,}}>Next</ButtonSubmit>
               <button type="button">Back</button>
             </div>
           </div>

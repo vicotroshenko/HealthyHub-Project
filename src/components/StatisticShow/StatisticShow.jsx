@@ -176,7 +176,7 @@ export const StatisticShow = ({ containerRef }) => {
   };
 
   return (
-    <div className={css.container}>
+    <>
       <div className={css.select_menu_container}>
         <div>
           <div className={css.drop_container}>
@@ -262,6 +262,6 @@ export const StatisticShow = ({ containerRef }) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };

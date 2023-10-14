@@ -2,6 +2,7 @@ import breakfastImage from '../../images/png/main/breakfast_image.png';
 import lunchImage from '../../images/png/main/lunch_image.png';
 import dinnerImage from '../../images/png/main/dinner_image.png';
 import snacktImage from '../../images/png/main/snack_image.png';
+import { ReactComponent as Arrow } from '../../images/svg/main-page/arrow-right.svg';
 import { DiaryMeal } from 'components/DiaryMeal/DiaryMeal';
 import { useSelector } from 'react-redux';
 import {
@@ -12,6 +13,7 @@ import {
   selectUserData,
 } from 'redux/meals/selectors';
 import css from './DiaryMealCollect.module.css';
+import { Link } from 'react-router-dom';
 
 export const DiaryMealCollect = () => {
   const { breakfast, lunch, dinner, snack } = useSelector(selectUserData);
@@ -22,34 +24,38 @@ export const DiaryMealCollect = () => {
 
   return (
     <>
-      <div className={css.container}>
-        <h1>Diary</h1>
-        <div className={css.inner_container}>
-          <DiaryMeal
-            meal={breakfast}
-            name={'Breakfast'}
-            image={breakfastImage}
-            statistic={breakfastStat}
-          />
-          <DiaryMeal
-            meal={lunch}
-            name={'Lunch'}
-            image={lunchImage}
-            statistic={lunchStat}
-          />
-          <DiaryMeal
-            meal={dinner}
-            name={'Dinner'}
-            image={dinnerImage}
-            statistic={dinnerStat}
-          />
-          <DiaryMeal
-            meal={snack}
-            name={'Snack'}
-            image={snacktImage}
-            statistic={snackStat}
-          />
-        </div>
+      <div className={css.title_container}>
+        <Link to={'/'}>
+          {' '}
+          <Arrow style={{ transform: 'rotate(180deg)', width: 24, height: 24 }} />
+        </Link>
+        <h1 className={css.title}>Diary</h1>
+      </div>
+      <div className={css.inner_container}>
+        <DiaryMeal
+          meal={breakfast}
+          name={'Breakfast'}
+          image={breakfastImage}
+          statistic={breakfastStat}
+        />
+        <DiaryMeal
+          meal={lunch}
+          name={'Lunch'}
+          image={lunchImage}
+          statistic={lunchStat}
+        />
+        <DiaryMeal
+          meal={dinner}
+          name={'Dinner'}
+          image={dinnerImage}
+          statistic={dinnerStat}
+        />
+        <DiaryMeal
+          meal={snack}
+          name={'Snack'}
+          image={snacktImage}
+          statistic={snackStat}
+        />
       </div>
     </>
   );

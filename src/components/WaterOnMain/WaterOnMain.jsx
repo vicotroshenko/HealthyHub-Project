@@ -1,9 +1,10 @@
-import { ReactComponent as Plus } from '../../images/svg/main-page/add.svg';
+import { HiOutlinePlus } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { ModalWater } from 'components/ModalWater/ModalWater';
 import { selectUserData } from 'redux/meals/selectors';
 import css from './WaterOnMain.module.css';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 export const WaterOnMain = () => {
   const [showModal, setShowModal] = useState(false);
@@ -45,10 +46,10 @@ export const WaterOnMain = () => {
           <p>
             left: <span>{change} ml</span>
           </p>
-          <button onClick={toggle} type="button">
-            <Plus />
-            Add water intake
-          </button>
+          <ButtonSubmit size={{SWidth: 166}} onClick={toggle}>
+            <HiOutlinePlus style={{width: 16, height: 16, color: "#0F0F0F"}} />
+            <span>Add water intake</span>
+          </ButtonSubmit>
         </div>
       </div>
     </>

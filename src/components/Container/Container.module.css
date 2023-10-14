@@ -1,0 +1,28 @@
+.content_section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.container {
+	width: 100%;
+	max-width: 320px;
+	padding: 0 10px 0 10px;
+}
+
+@media screen and (min-width: 834px){
+	.container {
+		max-width: 834px;
+		padding: 0 27px 0 27px;
+	}
+}
+
+@media screen and (min-width: 1440px){
+	.container {
+		max-width: 1440px;
+		padding: 0 34px 0 34px;
+	}
+}

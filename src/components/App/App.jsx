@@ -37,12 +37,14 @@ export const App = () => {
       (isLoggedIn && pathname.includes('singup')) ||
       (isLoggedIn && pathname === '/')
     ) {
+      console.log(0);
       navigate('/');
-    } 
+    }
     if (
       (!isLoggedIn && pathname === '/') ||
       (!isLoggedIn && pathname.includes('user'))
-      ){
+    ) {
+      console.log(1);
       navigate('/home');
     }
   }, [isLoggedIn, navigate, pathname]);
@@ -59,23 +61,21 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-
-      <Route
-        index
-        element={
-          <ProtectedRout isLoggedIn={isLoggedIn}>
-            <Main />
-          </ProtectedRout>
-        }
-      />
-      <Route path="/singup" element={<SingUp />}>
-        <Route path="goal" element={<Goal />} />
-        <Route path="age" element={<Age />} />
-        <Route path="body-parameters" element={<BodyParameters />} />
-        <Route path="activity" element={<Activity />} />
-      </Route>
-      <Route path="/singin" element={<SignIn />} />
-      <Route path="/home" element={<Home />} />
+        <Route
+          index
+          element={
+            <ProtectedRout isLoggedIn={isLoggedIn}>
+              <Main />
+            </ProtectedRout>
+          }
+        />
+        <Route path="/singup" element={<SingUp />}/>
+        <Route path="/singup/goal" element={<Goal />} />
+        <Route path="/singup/age" element={<Age />} />
+        <Route path="/singup/body-parameters" element={<BodyParameters />} />
+        <Route path="/singup/activity" element={<Activity />} />
+        <Route path="/singin" element={<SignIn />} />
+        <Route path="/home" element={<Home />} />
         <Route
           path="user/recommended"
           element={

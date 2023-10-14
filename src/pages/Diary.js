@@ -1,3 +1,4 @@
+import { Container } from 'components/Container/Container';
 import { DiaryMealCollect } from 'components/DiaryMealCollect/DiaryMealCollect';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -12,9 +13,9 @@ const Diary = () => {
 
   return (
     <>
-      <section>
+      <Container>
         <DiaryMealCollect />
-      </section>
+      </Container>
     </>
   );
 };

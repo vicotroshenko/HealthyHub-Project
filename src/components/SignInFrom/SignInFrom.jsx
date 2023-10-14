@@ -1,3 +1,4 @@
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import css from './SignInFrom.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -15,7 +16,7 @@ const initialValues = {
 export const SignInFrom = ({ handleSubmit }) => {
   return (
     <div className={css.container_sing_in}>
-      <h1>Sign up</h1>
+      <h1>Sign in</h1>
       <p className={css.sign_in_desc}>
         You need to register to use the service
       </p>
@@ -49,7 +50,7 @@ export const SignInFrom = ({ handleSubmit }) => {
                 {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
-            <button type="submit">Sign In</button>
+            <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Sign In</ButtonSubmit>
           </div>
         </Form>
       </Formik>

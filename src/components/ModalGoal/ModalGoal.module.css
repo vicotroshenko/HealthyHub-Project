@@ -6,10 +6,14 @@
 	height: 100vh;
 	padding: 24px 10px 40px 10px;
 	background-color: #0F0F0F;
-	border-radius: 12;
+	border-radius: 12px;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
 	overflow-y: hidden;
+
+	animation: modal-fall 0.35s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
+
+
 @media screen and (min-width: 834px) {
 	.modal {
 		right: 300px;
@@ -92,32 +96,31 @@
 	border: 1px solid var(--secondary-color-grey-1);
 	cursor: pointer;
 }
-.submit_btn  {
-	width: 100%;
-	padding: 8px 10px;
-	border: none;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
 
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-black);
-}
 
-@media screen and (min-widht: 834px){
-	.submit_btn {
-		max-width: 166px;
-	}
-}
 
 .cancel_btn {
-	width: 100%;
+	width: 280px;
 	line-height: 1.43;
 	color: var(--color-primary-grey);
 }
-@media screen and (min-widht: 834px){
+
+@media screen and (min-width: 834px){
 	.cancel_btn {
 		display: none;
+	}
+}
+
+@keyframes modal-fall {
+	0% {
+		top: -110%;
+		transform: translateY(-100%) rotateX(-180deg);
+		transform-origin: 50% 100%;
+	}
+
+	100% {
+		top: 100px;
+		transform: translateY(0) rotateX(0);
+		transform-origin: 50% 0%;
 	}
 }

@@ -1,3 +1,4 @@
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import css from './SignUpForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -62,7 +63,7 @@ export const SignUpFrom = ({ handleSubmit }) => {
                 {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
-            <button type="submit">Sign Up</button>
+            <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Sign In</ButtonSubmit>
           </div>
         </Form>
       </Formik>

@@ -1,20 +1,22 @@
 .modal{
 	position: fixed;
 	top: 100px;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	padding: 24px 10px 40px 10px;
 	background-color: #0F0F0F;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+
+	animation: modal-fall 0.35s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
-@media screen and(min-width: 834px) {
+@media screen and (min-width: 834px) {
 	.modal {
-		position: fixed;
 		right: 150px;
+		width: 100%;
 		max-width: 392px;
 		height: auto;
 		padding: 20px 24px 40px 24px;
-		border-radius: 12;
+		border-radius: 12px;
 	}
 }
 
@@ -62,9 +64,15 @@
 	box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
 }
 
+.modal_form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+}
+
 .modal_form input[type="number"] {
-	display: inline-block;
 	width: 100%;
+	max-width: 280px;
 	padding: 7px 10px;
 	border-radius: 12px;
 	border: 1px solid var(--color-primary-green-lite);
@@ -74,36 +82,24 @@
 	line-height: 1.43;
 	color: var(--color-primary-grey);
 }
+
 @media screen and (min-width: 834px) {
+	.modal_form {
+		flex-direction: row;
+		row-gap: 0;
+		column-gap: 12px;
+	}
+
 	.modal_form input[type="number"] {
 		max-width: 166px;
 	}
+
 }
 
-
-.submit_btn {
-	width: 100%;
-	margin-top: 12px;
-	padding: 8px 10px;
-	border: none;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-black-2);
-}
-
-@media screen and (min-width: 834px) {
-	.submit_btn {
-		margin-top: 0;
-		margin-left: 12px;
-		max-width: 166px;
-	}
-}
 
 .cancel_btn {
 	width: 100%;
+	max-width: 280px;
 	padding: 8px 10px;
 	border: none;
 	background: transparent;
@@ -115,5 +111,20 @@
 @media screen and (min-width: 834px) {
 	.cancel_btn {
 		display: none;
+	}
+}
+
+
+@keyframes modal-fall {
+	0% {
+		top: -110%;
+		transform: translateY(-100%) rotateX(-180deg);
+		transform-origin: 50% 100%;
+	}
+
+	100% {
+		top: 100px;
+		transform: translateY(0) rotateX(0);
+		transform-origin: 50% 0%;
 	}
 }

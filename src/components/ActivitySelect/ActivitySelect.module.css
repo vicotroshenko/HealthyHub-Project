@@ -102,32 +102,6 @@
 	}
 }
 
-.activity_button_container button[type="submit"] {
-	width: 100vw;
-	max-width: 280px;
-	margin-top: 24px;
-	padding: 8px 10px;
-	border: none;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-black-2);
-	text-align: center;
-}
-
-@media screen and (min-width: 834px) {
-	.activity_button_container button[type="submit"] {
-		max-width: 360px;
-	}
-}
-
-@media screen and (min-width: 1440px) {
-	.activity_button_container button[type="submit"] {
-		max-width: 192px;
-	}
-}
 
 .activity_button_container button[type="button"] {
 	width: 100%;

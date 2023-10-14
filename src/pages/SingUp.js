@@ -12,7 +12,7 @@ const SingUp = () => {
   const handleSingUp = (values, { resetForm }) => {
     dispatch(updateUser(values));
     resetForm();
-    navigate('/singup/goal');
+    navigate('/goal');
   };
 
   return (

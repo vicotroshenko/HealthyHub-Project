@@ -147,11 +147,11 @@ export const LineChart = ({
         <div className={css.line_container}>
           <div className={css.title_container}>
             <h3>{nameElement}</h3>
-            <p>
+            <p className={css.average}>
               Average value:<span>{avaregeNumbers}</span>
             </p>
           </div>
-          <div>
+          <div className={css.line}>
             <Line
               data={data}
               options={options}
@@ -169,7 +169,7 @@ export const LineChart = ({
         <div className={css.weight}>
           <div className={css.title_container}>
             <h3>{nameElement}</h3>
-            <p>
+            <p className={css.average}>
               Average value:<span>{avaregeNumbers}</span>
             </p>
           </div>

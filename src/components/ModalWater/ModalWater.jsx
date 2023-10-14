@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/meals/operations';
 import css from './ModalWater.module.css';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const inititalValues = {
   water: '',
@@ -23,8 +24,8 @@ export const ModalWater = ({ toggle, showModal }) => {
         <h1 className={css.water_title}>Add water intake</h1>
         <p className={css.water_desc}>How much water</p>
         <Formik initialValues={inititalValues} onSubmit={handleWater}>
-          <Form>
-            <label>
+          <Form className={css.water_form}>
+            <label className={css.water_label}>
               <Field
                 type="number"
                 name="water"
@@ -32,9 +33,9 @@ export const ModalWater = ({ toggle, showModal }) => {
                 placeholder="Enter milliliters"
               />
             </label>
-            <button type="submit" className={css.water_submit}>
-              Confirm
-            </button>
+            <ButtonSubmit size={{SWidth: 276, MWidth: 212}}>
+              <span>Confirm</span>
+            </ButtonSubmit>
             <button
               type="button"
               onClick={toggle}

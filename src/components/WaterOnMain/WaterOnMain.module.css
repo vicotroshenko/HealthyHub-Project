@@ -1,8 +1,8 @@
 .water_title{
 	font-size: 22px;
 	line-height: 1.45;
-	color: var(--color-primary-white);
 	font-weight: 400;
+	color: var(--color-primary-white);
 }
 
 
@@ -42,7 +42,6 @@
 	width: 80px;
 	height: 192px;
 	padding: 8px;
-
 	border-radius: 20px;
 	border: 1px solid var(--secondary-color-grey-1);
 	background: var(--color-primary-black);
@@ -86,13 +85,22 @@
 }
 
 @media screen and (min-width: 834px) {
+	.water_info{
+		height: 126px;
+	}
 	.water_info h3 {
 		font-size: 18px;
 	}
+	.water_info > p {
+		display: inline-block;
+	}
 }
+
+
 
 .water_amount {
 	margin-top: 12px;
+
 	font-size: 28px;
 	line-height: 1.21;
 	font-weight: 500;
@@ -100,7 +108,8 @@
 
 @media screen and (min-width: 834px) {
 	.water_amount {
-		display: inline;
+		margin-top: 12px;
+
 		font-size: 32px;
 		line-height: 1.18;
 	}
@@ -115,7 +124,7 @@
 }
 
 .water_amount ~ p {
-	margin-top: 8px;
+
 	font-size: 14px;
 	line-height: 1.43;
 	font-weight: 400;
@@ -124,9 +133,11 @@
 @media screen and (min-width: 834px) {
 	.water_amount ~ p {
 		display: inline-block;
+		margin-top: 0;
 		margin-left: 40px;
 		height: 28px;
-		vertical-align: top;
+
+		vertical-align: bottom;
 	}
 }
 
@@ -136,18 +147,5 @@
 }
 
 .water_info button {
-	display: flex;
-	align-items: center;
-	column-gap: 10px;
-	width: 100%;
-	margin-top: 16px;
-	padding: 8px 10px;
-	border: none;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
-
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-black-2);
+	margin-top: 12px;
 }

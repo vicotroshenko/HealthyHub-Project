@@ -1,6 +1,9 @@
 .line_container {
 	position: relative;
 	width: 676px;
+}
+
+.line {
 	height: 382px;
 }
 
@@ -18,7 +21,6 @@
 
 .line_container canvas {
 	width: 780px;
-	padding-bottom: 8px;
 }
 
 .title_container {
@@ -35,11 +37,12 @@
 	font-weight: 400;
 }
 
-.title_container>p {
+.average {
+	font-size: 18px;
 	line-height: 1.43;
 }
 
-.title_container>p>span {
+.average > span {
 	display: inline-block;
 	margin-left: 8px;
 	line-height: 1.43;

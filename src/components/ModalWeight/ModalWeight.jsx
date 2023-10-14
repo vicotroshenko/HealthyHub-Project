@@ -4,6 +4,7 @@ import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
 import css from './ModalWeight.module.css';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const initialValues = {
   weight: '',
@@ -38,7 +39,9 @@ export const ModalWeight = ({ showModal, toggle }) => {
                 placeholder="Enter your weight"
               />
             </label>
-            <button type="submit" className={css.submit_btn}>Confirm</button>
+            <ButtonSubmit size={{SWidth: 280, MWidth: 166}}>
+              <span>Confirm</span>
+            </ButtonSubmit>
             <button type="button" onClick={toggle}  className={css.cancel_btn}>Cancel</button>
           </Form>
         </Formik>

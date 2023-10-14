@@ -1,5 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import css from './GoalSelect.module.css';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 export const GoalSelect = ({ handleSubmit }) => {
   return (
@@ -12,7 +13,7 @@ export const GoalSelect = ({ handleSubmit }) => {
         }}
         onSubmit={handleSubmit}
       >
-        <Form>
+        <Form style={{ width: '100%' }}>
           <div role="group" className={css.goal_form}>
             <label>
               <Field type="radio" id="lostfat" name="goal" value="Lose fat" />
@@ -33,7 +34,9 @@ export const GoalSelect = ({ handleSubmit }) => {
             </label>
           </div>
           <div className={css.goat_btn_container}>
-            <button type="submit">Next</button>
+            <ButtonSubmit size={{ SWidth: 300, MWidth: 380, LWidth: 212 }}>
+              Next
+            </ButtonSubmit>
           </div>
         </Form>
       </Formik>
