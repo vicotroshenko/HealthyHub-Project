@@ -78,7 +78,7 @@ export const MealOnMain = () => {
           >
             <div className={css.title_container}>
               <img src={breakfastImage} alt="breakfast logo" />
-              <h3>Breakfast</h3>
+              <h3 className={css.sub_title}>Breakfast</h3>
             </div>
 
             <div
@@ -116,7 +116,7 @@ export const MealOnMain = () => {
           >
             <div className={css.title_container}>
               <img src={lunchImage} alt="lunch logo" />
-              <h3>Lunch</h3>
+              <h3 className={css.sub_title}>Lunch</h3>
             </div>
             <div
               className={showBtnLunch ? css.hidden : css.meal_info}
@@ -147,7 +147,7 @@ export const MealOnMain = () => {
           >
             <div className={css.title_container}>
               <img src={dinnerImage} alt="dinner logo" />
-              <h3>Dinner</h3>
+              <h3 className={css.sub_title}>Dinner</h3>
             </div>
             <div
               className={
@@ -180,7 +180,7 @@ export const MealOnMain = () => {
           >
             <div className={css.title_container}>
               <img src={snacktImage} alt="snack logo" />
-              <h3>Dinner</h3>
+              <h3 className={css.sub_title}>Dinner</h3>
             </div>
             <div
               className={showBtnSnack ? css.hidden : css.meal_info}

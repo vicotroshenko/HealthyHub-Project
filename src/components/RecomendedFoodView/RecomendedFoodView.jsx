@@ -27,7 +27,7 @@ export const RecommendedFoodView = () => {
               <img src={item.img} alt={item.name}/>
             </div>
             <div className={css.desc_container}>
-              <h3>{item.name}</h3>
+              <h3 className={css.sub_title}>{item.name}</h3>
               <p>
                 {item.amount} <span>{item.calories}calories</span>
               </p>

@@ -6,8 +6,8 @@
 	padding: 24px 10px 40px 10px;
 	background-color: #0F0F0F;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
-
-	animation: modal-fall 0.35s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	
+	animation: modal-fall 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 @media screen and (min-width: 834px) {
 	.modal {
@@ -117,14 +117,14 @@
 
 @keyframes modal-fall {
 	0% {
-		top: -110%;
-		transform: translateY(-100%) rotateX(-180deg);
+		transform: translateY(-100%);
 		transform-origin: 50% 100%;
+		opacity: 0.5;
 	}
 
 	100% {
-		top: 100px;
-		transform: translateY(0) rotateX(0);
+		transform: translateY(0);
 		transform-origin: 50% 0%;
+		opacity: 1;
 	}
 }

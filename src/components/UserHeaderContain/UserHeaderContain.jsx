@@ -3,11 +3,11 @@ import loseFatIcon from '../../images/png/header/goal-lose-fat.png';
 import maintainIcon from '../../images/png/header/goal-maintain.png';
 import gainMuscleIcon from '../../images/png/header/goal-gain-muscle.png';
 import weightIcon from '../../images/png/header/weight.png';
-import { ReactComponent as ArrowIcon } from '../../images/svg/header/arrow-down.svg';
-import { ReactComponent as EditIcon } from '../../images/svg/header/edit-2.svg';
+import { RiArrowUpSLine } from 'react-icons/ri';
+import { BiEditAlt } from 'react-icons/bi';
 import { ReactComponent as MenuIcon } from '../../images/svg/header/menu.svg';
-import { ReactComponent as SettingIcon } from '../../images/svg/header/setting-2.svg';
-import { ReactComponent as LogOutIcon } from '../../images/svg/header/logout.svg';
+import { AiOutlineSetting } from 'react-icons/ai';
+import { BiLogOut } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { ModalGoal } from 'components/ModalGoal/ModalGoal';
 import { ModalWeight } from 'components/ModalWeight/ModalWeight';
 import { selectUserSettings } from 'redux/auth/selectors';
 import { MobilModal } from 'components/MobilModal/MobilModal';
+import { Modal } from 'components/Modal/Modal';
 
 export const UserHeaderContain = ({ handleSubmit }) => {
   const [visible, setVisible] = useState(false);
@@ -25,6 +26,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
   const { goal, weight, name, avatarURL } = useSelector(selectUserSettings);
 
   const toggle = () => {
+    console.log(1);
     setVisible(!visible);
   };
 
@@ -74,7 +76,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Goal</p>
               <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
-                <ArrowIcon />
+                <RiArrowUpSLine className={css.goal_arrow}/>
               </div>
             </div>
           </button>
@@ -86,7 +88,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Weight</p>
               <div className={css.data_desc_wrapper}>
                 <p>{weight}</p>
-                <EditIcon />
+                <BiEditAlt className={css.edit_icon}/>
               </div>
             </div>
           </button>
@@ -102,13 +104,13 @@ export const UserHeaderContain = ({ handleSubmit }) => {
           <div className={css.user_avatar}>
             <img src={avatarURL} alt="User avatar" />
           </div>
-          <ArrowIcon />
+          <RiArrowUpSLine className={visible ? `${css.arrow_icon}` : `${css.arrow_icon} ${css.active}`}/>
         </button>
 
         {visible && (
-          <div className={css.drop_menu}>
+          <Modal styles={css.drop_menu} onClose={toggle}>
             <NavLink to={'user/setting'} className={css.drop_button}>
-              <SettingIcon />
+              <AiOutlineSetting style={{width: 16, height: 16}}/>
               Setting
             </NavLink>
             <button
@@ -116,10 +118,10 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               onClick={handleSubmit}
               className={css.drop_button}
             >
-              <LogOutIcon />
+              <BiLogOut style={{width: 16, height: 16}}/>
               Log out
             </button>
-          </div>
+          </Modal>
         )}
       </div>
     </>
