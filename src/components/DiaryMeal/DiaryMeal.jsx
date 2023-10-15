@@ -1,5 +1,5 @@
 import css from './DiaryMeal.module.css';
-import { ReactComponent as Edit } from '../../images/svg/diary/edit-2.svg';
+import { BiEditAlt } from 'react-icons/bi';
 import { ReactComponent as Plus } from '../../images/svg/main-page/add.svg';
 import { useState } from 'react';
 import { ModalMeal } from 'components/ModalMeal/ModalMeal';
@@ -81,7 +81,7 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
                     className={css.btn_edit}
                     onClick={() => handleEdit({ name, dish: item })}
                   >
-                    <Edit />
+                    <BiEditAlt style={{marginRight: 6}}/>
                     <span>Edit</span>
                   </button>
                 </div>

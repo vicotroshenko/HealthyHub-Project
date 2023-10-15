@@ -63,7 +63,6 @@
 	font-size: 14px;
 	line-height: 1.42;
 	color: var(--color-primary-white);
-	cursor: pointer;
 }
 
 @media screen and (min-width: 834px) {
@@ -105,8 +104,8 @@
 }
 
 .button:hover {
-	transform: scale(1.05);
 	color:  var(--secondary-color-yellow);
+	text-decoration: underline;
 }
 
 

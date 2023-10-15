@@ -1,6 +1,6 @@
 :root {
 	--hue: 223;
-	--bg: rgba(255,255, 255, 0.4);
+	--bg: rgba(0,0, 0, 0.4);
 	--fg: #E3FFA8;
 	--primary: #45FFBC;
 	--trans-dur: 0.3s;

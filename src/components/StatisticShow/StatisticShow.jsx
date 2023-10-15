@@ -7,7 +7,7 @@ import {
   selectUserDashboardStatMonth,
   selectUserDashboardStatYear,
 } from 'redux/meals/selectors';
-import { ReactComponent as Arrow } from '../../images/svg/main-page/arrow-right.svg';
+import { BsArrowLeft } from 'react-icons/bs';
 import { ReactComponent as ArrowDown } from '../../images/svg/header/arrow-down.svg';
 import { Link } from 'react-router-dom';
 
@@ -180,9 +180,9 @@ export const StatisticShow = ({ containerRef }) => {
       <div className={css.select_menu_container}>
         <div>
           <div className={css.drop_container}>
-            <Link to={'/'}>
+            <Link to={'/'} data-name="link" >
               {' '}
-              <Arrow style={{ transform: 'rotate(180deg)' }} />
+              <BsArrowLeft style={{ width: 24, height: 24, verticalAlign: "middle" }}/>
             </Link>
             <button
               type="button"

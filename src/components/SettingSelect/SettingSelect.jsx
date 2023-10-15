@@ -1,6 +1,5 @@
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import { AuthContainer } from 'components/AuthContainer/AuthContainer';
 import settinImage from '../../images/png/setting/setting.png';
 import css from './SettingSelect.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -58,18 +57,20 @@ export const SettingSelect = () => {
 
   return (
     <div className={css.container}>
-      <div className={css.up_container}>
-        <h1>Profile setting</h1>
-      </div>
-      <AuthContainer image={settinImage}>
-        <div className={css.from_container}>
+    <div className={css.container_main_image}>
+      <img src={settinImage} alt="describes page" />
+    </div>
+        <div className={css.form_container}>
           <Formik
             initialValues={initialValues}
             validationSchema={schema}
             onSubmit={handleSubmitSetting}
           >
             <Form>
-              <div className={css.btn_container_up}>
+            <div className={css.title_buttons_wrapper}>
+              <h1>Profile setting</h1>
+
+               <div className={css.btn_container_up}>
                 <button type="button" className={css.btn_cancel}>
                   Cancel
                 </button>
@@ -77,6 +78,7 @@ export const SettingSelect = () => {
                   Save
                 </button>
               </div>
+            </div>
               <div role="group" className={css.setting_form}>
                 <div className={css.setting_up}>
                   <label>
@@ -242,7 +244,6 @@ export const SettingSelect = () => {
             </Form>
           </Formik>
         </div>
-      </AuthContainer>
-    </div>
+      </div>
   );
 };

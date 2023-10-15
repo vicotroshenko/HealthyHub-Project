@@ -19,11 +19,7 @@
 	font-weight: 500;
 }
 
-@media screen and (min-width: 834px) {
-	.up_page_main{
-		font-size: 30px;
-	}
-}
+
 
 .up_page_main a {
 	font-size: 16px;
@@ -31,4 +27,18 @@
 	line-height: 1.37; 
 	color: var(--color-primary-grey);
 	text-align: right;
+}
+
+.title{
+	font-size: 24px;
+}
+
+@media screen and (min-width: 834px) {
+	.up_page_main{
+		font-size: 30px;
+	}
+
+	.title{
+		font-size: 30px;
+	}
 }

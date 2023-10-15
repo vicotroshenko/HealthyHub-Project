@@ -109,15 +109,17 @@ export const ModalMeal = ({
   if (showModal) {
     return (
       <Modal onClose={toggle} styles={css.modal}>
-        <div className={css.title_container}>
-          <div className={css.title_image_container}>
+        <h1 className={css.title_page}>Record your meal</h1>
+        <div className={css.name_container}>
+          <div className={css.name_image_container}>
             <img src={data.image} alt={data.name} />
           </div>
-          <h1>{data.name}</h1>
+          <h2>{data.name}</h2>
         </div>
 
         <form className={css.form_container} onSubmit={handleMealInform}>
           <div role="group" style={{ width: '100%' }}>
+          <div className={css.scroll_container}>
             {numberColection.map((item, index) => (
               <div key={index} className={css.inner_form}>
                 <label>
@@ -187,7 +189,7 @@ export const ModalMeal = ({
                 Delete
               </button>
             )}
-
+          </div>
             <div className={css.btn_container}>
             <ButtonSubmit size={{SWidth: 276, MWidth: 212}}>
               <span>Confirm</span>

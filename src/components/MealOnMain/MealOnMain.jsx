@@ -69,7 +69,7 @@ export const MealOnMain = () => {
       <div>
         <div className={css.namebox}>
           <h2>Diary</h2>
-          <NavLink to={"user/diary"} >See more</NavLink>
+          <NavLink to={"user/diary"} data-name="link" >See more</NavLink>
         </div>
         <ul className={css.list}>
           <li

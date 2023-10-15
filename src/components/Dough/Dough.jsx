@@ -63,7 +63,7 @@ export const Dough = ({
       ></Doughnut>
       <div className={css.titleBox}>
         <h5 style={styles.title}>{text.title || `${percent}%`}</h5>
-        <span style={styles.describe || {}}>{text.describe || ''}</span>
+        <span style={styles.desc || {}}>{text.describe || ''}</span>
       </div>
     </div>
   );

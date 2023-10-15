@@ -57,11 +57,17 @@
 	font-weight: 500;
 }
 
+.food_info_results{
+	display: flex;
+}
+
 .food_info p {
-	display: inline-block;
+	min-width: 36px;
+	max-width: 90px;
 	font-size: 14px;
 	line-height: 1.43;
 	text-align: center;
+	text-overflow: ellipsis;
 }
 .food_info p ~ p{
 	margin-left: 12px;

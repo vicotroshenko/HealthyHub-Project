@@ -37,9 +37,9 @@ export const selectCaloriesConsuming = createSelector(
 export const selectLoseFat = createSelector(
   [selectCaloriesConsuming],
   calories => {
-    const protein = Number(((calories / 100) * 25).toFixed(2));
-    const fat = Number(((calories / 100) * 20).toFixed(2));
-    const carbonohidrates = Number(calories - (protein + fat).toFixed(2));
+    const protein = Math.trunc(((calories / 100) * 25) * 100) / 100;
+    const fat = Math.trunc(((calories / 100) * 20) * 100) / 100;
+    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
 
     return {
       protein,
@@ -52,9 +52,9 @@ export const selectLoseFat = createSelector(
 export const selectMaintain = createSelector(
   [selectCaloriesConsuming],
   calories => {
-    const protein = Number(((calories / 100) * 30).toFixed(2));
-    const fat = Number(((calories / 100) * 20).toFixed(2));
-    const carbonohidrates = Number(calories - (protein + fat).toFixed(2));
+    const protein = Math.trunc(((calories / 100) * 30) * 100) / 100;
+    const fat = Math.trunc(((calories / 100) * 20) * 100) / 100;
+    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
 
     return {
       protein,
@@ -67,9 +67,9 @@ export const selectMaintain = createSelector(
 export const selectGainMuscle = createSelector(
   [selectCaloriesConsuming],
   calories => {
-    const protein = Number(((calories / 100) * 20).toFixed(2));
-    const fat = Number(((calories / 100) * 25).toFixed(2));
-    const carbonohidrates = Number(calories - (protein + fat).toFixed(2));
+    const protein = Math.trunc(((calories / 100) * 20) * 100) / 100;
+    const fat = Math.trunc(((calories / 100) * 25) * 100) / 100;
+    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
 
     return {
       protein,

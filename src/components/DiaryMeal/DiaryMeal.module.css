@@ -65,6 +65,23 @@
 .meal_image_wrapper {
 	width: 36px;
 	height: 36px;
+	border-radius: 50%;
+
+	animation: round-pic infinite 18s linear;
+}
+
+@keyframes round-pic {
+	0% {
+		transform: rotate(0deg);
+	}
+	30% {
+		box-shadow: 0px 0px 5px 3px rgba(233, 194, 3, 0.2);
+	}
+	50% {
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .meal_statisic {
@@ -157,6 +174,12 @@
 	line-height: 1;
 	font-weight: 400;
 	color: var(--color-primary-grey);
+	cursor: pointer;
+}
+
+.btn_edit:hover {
+	color: var(--secondary-color-yellow);
+	text-decoration: underline;
 }
 
 @media (min-width: 834px) {
@@ -216,4 +239,12 @@
 	line-height: 1.43;
 	font-weight: 500;
 	color: var(--color-primary-green-lite);
+	cursor: pointer;
+
+	transition: all 250ms ease-out;
+}
+
+.button_add:hover {
+	color:  var(--secondary-color-yellow);
+	text-decoration: underline;
 }

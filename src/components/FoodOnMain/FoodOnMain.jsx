@@ -49,7 +49,8 @@ export const FoodOnMain = () => {
             text={{ title: false, describe: 'calories' }}
             styles={{
               container: { width: 172, height: 172 },
-              title: { fontSize: 32, margin: 0 },
+              title: { fontSize: 32, margin: 0, lineHeight: 1 },
+              desc: {fontSize: 14, color: "#B6B6B6"},
               bold: 65,
             }}
           />
@@ -70,17 +71,19 @@ export const FoodOnMain = () => {
             />
             <div className={css.food_info}>
               <h3>Carbonohidrates</h3>
-              <p>
-                Goal<span>{goal.carbonohidrates || 0}</span>
-              </p>
-              <p>
-                left
-                <span>
-                  {(
-                    goal.carbonohidrates - statistic.carbohydrates || 0
-                  ).toFixed(2)}
-                </span>
-              </p>
+              <div className={css.food_info_results}>
+                <p>
+                  Goal<span>{goal.carbonohidrates || 0}</span>
+                </p>
+                <p>
+                  left
+                  <span>
+                    {(
+                      goal.carbonohidrates - statistic.carbohydrates || 0
+                    ).toFixed(2)}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -98,15 +101,17 @@ export const FoodOnMain = () => {
             />
             <div className={css.food_info}>
               <h3>Protein</h3>
-              <p>
-                Goal<span>{goal.protein || 0}</span>
-              </p>
-              <p>
-                left
-                <span>
-                  {(goal.protein - statistic.protein || 0).toFixed(2)}
-                </span>
-              </p>
+              <div className={css.food_info_results}>
+                <p>
+                  Goal<span>{goal.protein || 0}</span>
+                </p>
+                <p>
+                  left
+                  <span>
+                    {(goal.protein - statistic.protein || 0).toFixed(2)}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -124,12 +129,14 @@ export const FoodOnMain = () => {
             />
             <div className={css.food_info}>
               <h3>Fat</h3>
-              <p>
-                Goal<span>{goal.fat || 0}</span>
-              </p>
-              <p>
-                left<span>{(goal.fat - statistic.fat || 0).toFixed(2)}</span>
-              </p>
+              <div className={css.food_info_results}>
+                <p>
+                  Goal<span>{goal.fat || 0}</span>
+                </p>
+                <p>
+                  left<span>{(goal.fat - statistic.fat || 0).toFixed(2)}</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>

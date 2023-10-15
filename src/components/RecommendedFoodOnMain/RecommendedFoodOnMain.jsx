@@ -1,6 +1,6 @@
 import css from './RecommendedFoodOnMain.module.css';
 import foodList from '../../json/RecommendedFood.json';
-import { ReactComponent as Arrow } from '../../images/svg/main-page/arrow-right.svg';
+import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 export const RecommendedFoodOnMain = () => {
@@ -38,9 +38,9 @@ export const RecommendedFoodOnMain = () => {
           </li>
         ))}
       </ul>
-      <Link to="user/recommended" className={css.see_more_link}>
+      <Link to="user/recommended" data-name="link" className={css.see_more_link}>
         See more
-        <Arrow style={{ verticalAlign: 'middle', marginLeft: 6 }} />
+        <BsArrowRight style={{ verticalAlign: 'middle', marginLeft: 6 }} />
       </Link>
     </div>
   );
