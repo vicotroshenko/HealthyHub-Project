@@ -1,4 +1,4 @@
-import { Dough } from 'components/Dough/Dough';
+import { Dough } from 'components/Main/Dough/Dough';
 import { useSelector } from 'react-redux';
 import {
   selectCaloriesConsuming,

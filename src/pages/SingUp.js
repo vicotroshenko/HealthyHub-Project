@@ -1,5 +1,5 @@
 import { AuthContainer } from 'components/AuthContainer/AuthContainer';
-import { SignUpFrom } from 'components/SignUpForm/SignUpForm';
+import { SignUpFrom } from 'components/Singup/SignUpForm/SignUpForm';
 import homeImage from '../images/png/home/Illustration.png';
 import { updateUser } from 'redux/auth/authSlice';
 import { useDispatch } from 'react-redux';

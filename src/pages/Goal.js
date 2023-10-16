@@ -1,5 +1,5 @@
 import { AuthContainer } from 'components/AuthContainer/AuthContainer';
-import { GoalSelect } from 'components/GoalSelect/GoalSelect';
+import { GoalSelect } from 'components/Singup/GoalSelect/GoalSelect';
 import goalImage from '../images/png/goal/Summer hiking.png';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

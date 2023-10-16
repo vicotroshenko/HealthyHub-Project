@@ -1,4 +1,4 @@
-import { ActivitySelect } from 'components/ActivitySelect/ActivitySelect';
+import { ActivitySelect } from 'components/Singup/ActivitySelect/ActivitySelect';
 import { AuthContainer } from 'components/AuthContainer/AuthContainer';
 import activityImage from '../images/png/activity/activity.png';
 import { useNavigate } from 'react-router-dom';

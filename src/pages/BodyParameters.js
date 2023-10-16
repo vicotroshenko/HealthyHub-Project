@@ -1,6 +1,6 @@
 import { AuthContainer } from 'components/AuthContainer/AuthContainer';
 import bodyImage from '../images/png/bodyParam/body-params.png';
-import { BodySelect } from 'components/BodySelect/BodySelect';
+import { BodySelect } from 'components/Singup/BodySelect/BodySelect';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from 'redux/auth/authSlice';

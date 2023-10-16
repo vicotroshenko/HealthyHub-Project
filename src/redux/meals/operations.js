@@ -81,53 +81,8 @@ const updateWater = createAsyncThunk(
   }
 );
 
-const addBreakfast = createAsyncThunk(
-  'user/addBreakfast',
-  async (credentials, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-    set(persistedToken);
-    try {
-      const respose = await axios.post(
-        '/api/user/food-intake/breakfast',
-        credentials
-      );
-      console.log(respose);
-      return respose.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-const addLunch = createAsyncThunk(
-  'user/addLuch',
-  async (credentials, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-    set(persistedToken);
-    try {
-      const respose = await axios.post(
-        '/api/user/food-intake/lunch',
-        credentials
-      );
-      return respose.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-const addDinner = createAsyncThunk(
-  'user/addDinner',
+const addToMeal = createAsyncThunk(
+  'user/addToMeal',
   async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -137,35 +92,15 @@ const addDinner = createAsyncThunk(
     }
     set(persistedToken);
 
+    const { dish, name } = credentials;
+    console.log(credentials);
     try {
       const respose = await axios.post(
-        '/api/user/food-intake/dinner',
-        credentials
+        `/api/user/food-intake/${name}`,
+        dish
       );
-
-      return respose.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-const addSnack = createAsyncThunk(
-  'user/addSnack',
-  async (credentials, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-    set(persistedToken);
-    try {
-      const respose = await axios.post(
-        '/api/user/food-intake/snack',
-        credentials
-      );
-      return respose.data;
+      console.log(respose.data);
+      return {data: respose.data, name};
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -283,10 +218,7 @@ const operations = {
   getUserDay,
   updateWeight,
   updateWater,
-  addBreakfast,
-  addLunch,
-  addDinner,
-  addSnack,
+  addToMeal,
   getStatistic,
   updateDish,
   deleteDishFromCurrentDay,

@@ -100,54 +100,15 @@ const mealsSlice = createSlice({
       state.isLoading = false;
     },
 
-    [operations.addBreakfast.pending](state, _action) {
+    [operations.addToMeal.pending](state, _action) {
       state.isLoading = true;
     },
-    [operations.addBreakfast.fulfilled](state, action) {
-      state.breakfast = action.payload.breakfast;
+    [operations.addToMeal.fulfilled](state, action) {
+      state[action.payload.name] = action.payload.data[action.payload.name];
       state.isLoading = false;
       state.isLoadError = false;
     },
-    [operations.addBreakfast.rejected](state, _action) {
-      state.isLoadError = true;
-      state.isLoading = false;
-    },
-
-    [operations.addLunch.pending](state, _action) {
-      state.isLoading = true;
-    },
-    [operations.addLunch.fulfilled](state, action) {
-      state.lunch = action.payload.lunch;
-      state.isLoading = false;
-      state.isLoadError = false;
-    },
-    [operations.addLunch.rejected](state, _action) {
-      state.isLoadError = true;
-      state.isLoading = false;
-    },
-
-    [operations.addDinner.pending](state, _action) {
-      state.isLoading = true;
-    },
-    [operations.addDinner.fulfilled](state, action) {
-      state.dinner = action.payload.dinner;
-      state.isLoading = false;
-      state.isLoadError = false;
-    },
-    [operations.addDinner.rejected](state, _action) {
-      state.isLoadError = true;
-      state.isLoading = false;
-    },
-
-    [operations.addSnack.pending](state, _action) {
-      state.isLoading = true;
-    },
-    [operations.addSnack.fulfilled](state, action) {
-      state.snack = action.payload.snack;
-      state.isLoading = false;
-      state.isLoadError = false;
-    },
-    [operations.addSnack.rejected](state, _action) {
+    [operations.addToMeal.rejected](state, _action) {
       state.isLoadError = true;
       state.isLoading = false;
     },
@@ -195,7 +156,7 @@ const mealsSlice = createSlice({
       state.isLoading = true;
     },
     [operations.deleteDishFromCurrentDay.fulfilled](state, action) {
-      state[action.payload.name] = state[action.payload.name].filter(
+      state[action.payload.name].filter(
         item => item._id === action.payload.id
       );
       state.isLoading = false;

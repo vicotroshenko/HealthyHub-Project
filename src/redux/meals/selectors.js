@@ -16,7 +16,6 @@ export const selectUserDashboardStatYear = state => state.user.dashboardStatYear
 export const selectStatisticsForCurrentDay = createSelector(
   [selectUserStatistic],
   statistic => {
-
     const statisticForCurrentDay = statistic?.reduce((acc, item) => {
       const date = dateConvertor(new Date(item.date));
       const dateCurrent = dateConvertor(new Date());
@@ -33,6 +32,7 @@ export const selectStatisticsForCurrentDay = createSelector(
 export const selectStatisticBreakfast = createSelector(
   [selectStatisticsForCurrentDay],
   ({ breakfast }) => {
+    
 
     if (!breakfast) {
       return daysElementPattern;
