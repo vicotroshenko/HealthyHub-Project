@@ -10,7 +10,7 @@
 	border-radius: 12px;
 	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
 
-	animation: modal-come 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
 }
 
 @media screen and (min-width: 834px) {
@@ -205,12 +205,3 @@
 	}
 }
 
-@keyframes modal-come {
-	0% {
-		transform: translateZ(0) translateX(0);
-	}
-
-	100% {
-		transform: translateZ(160px) translate(-50%, -50%);
-	}
-}

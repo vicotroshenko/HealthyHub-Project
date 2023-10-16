@@ -4,29 +4,38 @@ import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ children, onClose, styles }) => {
+export const Modal = ({ 
+  children, 
+  toggle, 
+  styles, 
+  visible=false,
+  }) => {
 
   useEffect(() => {
+
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
-        onClose();
+        toggle();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [toggle]);
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      onClose();
-    }
-  };
+      toggle();
+    };
+  }
+
 
   return createPortal(
-    <div className={css.backdrop} onClick={handleBackdropClick}>
-      <div className={styles}>{children}</div>
+    <div className={visible ? `${css.backdrop} ${css.show}` : css.backdrop} onClick={handleBackdropClick}>
+      <div className={css.fence_container}>
+        <div className={styles}>{children}</div>
+      </div>
     </div>,
     modalRoot
   );

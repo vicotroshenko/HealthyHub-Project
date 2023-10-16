@@ -59,7 +59,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
     <>
       <ModalGoal showModal={showGoalModal} toggle={toggleGoal} />
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
-      <MobilModal showModal={showMobileModal} toggle={toggleMobile}/>
+      <MobilModal showModal={showMobileModal} toggle={toggleMobile} />
 
       <div className={css.header_logo}>
         <NavLink to={'/'} className={css.header_logo_link}>
@@ -76,7 +76,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Goal</p>
               <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
-                <RiArrowUpSLine className={css.goal_arrow}/>
+                <RiArrowUpSLine className={css.goal_arrow} />
               </div>
             </div>
           </button>
@@ -88,13 +88,13 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Weight</p>
               <div className={css.data_desc_wrapper}>
                 <p>{weight}</p>
-                <BiEditAlt className={css.edit_icon}/>
+                <BiEditAlt className={css.edit_icon} />
               </div>
             </div>
           </button>
         </div>
         <div className={css.tablet_hidden}>
-          <button type='button' onClick={toggleMobile}>
+          <button type="button" onClick={toggleMobile}>
             <MenuIcon />
           </button>
         </div>
@@ -104,25 +104,27 @@ export const UserHeaderContain = ({ handleSubmit }) => {
           <div className={css.user_avatar}>
             <img src={avatarURL} alt="User avatar" />
           </div>
-          <RiArrowUpSLine className={visible ? `${css.arrow_icon}` : `${css.arrow_icon} ${css.active}`}/>
+          <RiArrowUpSLine
+            className={
+              visible ? `${css.arrow_icon}` : `${css.arrow_icon} ${css.active}`
+            }
+          />
         </button>
 
-        {visible && (
-          <Modal styles={css.drop_menu} onClose={toggle}>
-            <NavLink to={'user/setting'} className={css.drop_button}>
-              <AiOutlineSetting style={{width: 16, height: 16}}/>
-              Setting
-            </NavLink>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className={css.drop_button}
-            >
-              <BiLogOut style={{width: 16, height: 16}}/>
-              Log out
-            </button>
-          </Modal>
-        )}
+        <Modal styles={css.drop_menu} toggle={toggle} visible={visible}>
+          <NavLink to={'user/setting'} className={css.drop_button}>
+            <AiOutlineSetting style={{ width: 16, height: 16 }} />
+            Setting
+          </NavLink>
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className={css.drop_button}
+          >
+            <BiLogOut style={{ width: 16, height: 16 }} />
+            Log out
+          </button>
+        </Modal>
       </div>
     </>
   );

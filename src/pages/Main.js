@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Main = () => {
   const { isLoading } = useSelector(state => state.user);
-  console.log(isLoading);
+
 
   return (
     <Container>

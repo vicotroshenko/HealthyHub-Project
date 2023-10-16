@@ -6,7 +6,7 @@ import css from './ModalMeal.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 export const ModalMeal = ({
-  showModal,
+  showModal=false,
   data,
   toggle,
   numberColection,
@@ -76,7 +76,7 @@ export const ModalMeal = ({
         return;
       }
 
-      switch (data.name) {
+      switch (data?.name) {
         case 'Breakfast':
           dispatch(operations.addBreakfast(dish));
           break;
@@ -105,16 +105,14 @@ export const ModalMeal = ({
     toggle();
   };
 
-
-  if (showModal) {
     return (
-      <Modal onClose={toggle} styles={css.modal}>
+      <Modal toggle={toggle} styles={css.modal} visible={showModal}>
         <h1 className={css.title_page}>Record your meal</h1>
         <div className={css.name_container}>
           <div className={css.name_image_container}>
-            <img src={data.image} alt={data.name} />
+            <img src={data?.image} alt={data?.name} />
           </div>
-          <h2>{data.name}</h2>
+          <h2>{data?.name}</h2>
         </div>
 
         <form className={css.form_container} onSubmit={handleMealInform}>
@@ -206,5 +204,4 @@ export const ModalMeal = ({
         </form>
       </Modal>
     );
-  }
 };
