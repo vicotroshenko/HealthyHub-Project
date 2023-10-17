@@ -41,7 +41,13 @@
 	width: 16px;
 	height: 16px;
 
+
 	transition: fill 250ms linear;
+	animation: turn-arrow-down 250ms linear;
+}
+
+.goal_arrow {
+	transform: rotate(0.5turn);
 }
 
 .data:hover .data_image_wrapper,
@@ -194,21 +200,34 @@
 	font-weight: 500;
 	color: var(--color-primary-white);
 	cursor: pointer;
+
+	transition: all 250ms linear;
 }
 
-.user_block:hover .arrow_icon.active {
-	animation: bouncy-arrow 0.5s linear;
+.drop_button:hover {
+	color: var(--secondary-color-yellow);
+}
+
+
+.user_block p{
+transition: all 250ms linear;
+}
+
+.user_block:hover > p{
+	text-decoration: underline;
+	color: var(--secondary-color-yellow);
 }
 
 .arrow_icon {
 	width: 16px;
 	height: 16px;
-	animation: turn-arrow-up 250ms linear;
+	transform: rotate(0.5turn);
+	animation: turn-arrow-down 250ms linear;
 }
 
-.arrow_icon.active {
-	transform: rotate(0.5turn);
-	
+.active {
+	transform: rotate(0);
+	animation: turn-arrow-up 250ms linear;
 }
 
 @keyframes turn-arrow-up {
@@ -220,18 +239,12 @@
 	}
 }
 
-@keyframes bouncy-arrow {
+@keyframes turn-arrow-down {
 	0% {
-		transform: translateY(-8px) rotate(0.5turn);
-	}
-	50% {
-		transform: translateY(0) rotate(0.5turn);
-	}
-	75% {
-		transform: translateY(-4px) rotate(0.5turn);
+		transform: rotate(0);
 	}
 	100% {
-		transform: translateY(0) rotate(0.5turn);
+		transform: rotate(0.5turn);
 	}
 }
 

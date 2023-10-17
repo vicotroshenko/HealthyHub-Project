@@ -27,6 +27,7 @@ const singup = createAsyncThunk(
 
 const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
+    console.log(credentials);
     const response = await axios.post('/api/auth/login', credentials);
 
     set(response.data.token);

@@ -1,7 +1,9 @@
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
 import css from './SignUpForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { Link } from 'react-router-dom';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -67,10 +69,10 @@ export const SignUpFrom = ({ handleSubmit }) => {
           </div>
         </Form>
       </Formik>
-
+      <ProgressStepperBasic activeStep={0}/>
       <div className={css.sing_in_box}>
         <span>Do you already have an account?</span>
-        <a href="/">Sing in</a>
+        <Link to={"/singin"}>Sing in</Link>
       </div>
     </div>
   );

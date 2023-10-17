@@ -1,8 +1,12 @@
 import css from './AuthHeaderContain.module.css';
 import userPatternIcon from '../../../images/png/header/profile-circle.png';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 export const AuthHeaderContain = () => {
+
+  const { pathname } = useLocation();
+
   return (
     <>
       <div className={css.header_logo}>
@@ -11,10 +15,11 @@ export const AuthHeaderContain = () => {
         </NavLink>
       </div>
       <nav className={css.nav_auth}>
-        <NavLink to={"/singin"} className={css.header_link}>
-          Sing in /
-        </NavLink>{' '}
-        <NavLink to={"/singup"} className={css.header_link}>
+        <NavLink to={"/singin"} className={pathname !== "/singin" ? css.header_link : `${css.header_link} ${css.isActive}`}>
+          Sing in 
+        </NavLink>
+        <span style={{verticalAlign: "top", lineHeight: 2.2 }}> / </span>
+        <NavLink to={"/singup"} className={pathname !== "/singup" ? css.header_link : `${css.header_link} ${css.isActive}`}>
           Sing up
         </NavLink>
         <img

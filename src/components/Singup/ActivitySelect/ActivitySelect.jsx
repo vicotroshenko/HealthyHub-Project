@@ -2,19 +2,29 @@ import { Field, Form, Formik } from 'formik';
 import css from './ActivitySelect.module.css';
 import * as yup from 'yup';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { NavLink } from 'react-router-dom';
+import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+import { useSelector } from 'react-redux';
+import { selectUserSettings } from 'redux/auth/selectors';
 
 const schema = yup.object().shape({
   activity: yup.string().required(),
 });
 
 export const ActivitySelect = ({ handleSubmit }) => {
+
+  const { activity } = useSelector(selectUserSettings);
+  
+  const activityToString = activity ? activity.toString : "";
+
+
   return (
     <div className={css.activity}>
       <h1>Your Activity</h1>
       <p>To correctly calculate calorie and water intake</p>
       <Formik
         initialValues={{
-          activity: '',
+          activity: activityToString,
         }}
         validationSchema={schema}
         onSubmit={handleSubmit}
@@ -58,11 +68,12 @@ export const ActivitySelect = ({ handleSubmit }) => {
             </label>
             <div className={css.activity_button_container}>
               <ButtonSubmit size={{SWidth: 300, MWidth: 360, LWidth: 192,}}>Next</ButtonSubmit>
-              <button type="button">Back</button>
+              <NavLink to={"/singup/body-parameters"} className={css.back_link}>Back</NavLink>
             </div>
           </div>
         </Form>
       </Formik>
+      <ProgressStepperBasic activeStep={4}/>
     </div>
   );
 };

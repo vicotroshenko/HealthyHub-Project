@@ -23,11 +23,20 @@
 	vertical-align: super;
 }
 
+.header_link:hover {
+	text-decoration: underline;
+}
+
 .userIcon {
 	display: inline-block;
 	width: 26px;
 	height: 26px;
 	margin-left: 6px;
+}
+
+.isActive {
+	font-weight: 600;
+	color: var(--secondary-color-yellow);
 }
 
 @media screen and (min-width: 834px){

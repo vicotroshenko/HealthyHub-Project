@@ -5,6 +5,7 @@ import { updateUser } from 'redux/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+
 const SingUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const SingUp = () => {
   const handleSingUp = (values, { resetForm }) => {
     dispatch(updateUser(values));
     resetForm();
-    navigate('/goal');
+    navigate('/singup/goal');
   };
 
   return (

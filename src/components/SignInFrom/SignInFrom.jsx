@@ -2,6 +2,7 @@ import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import css from './SignInFrom.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { Link } from 'react-router-dom';
 
 const schema = yup.object().shape({
   email: yup.string().email(),
@@ -57,7 +58,7 @@ export const SignInFrom = ({ handleSubmit }) => {
 
       <div className={css.sing_up_box}>
         <span>If you don't have an account yet</span>
-        <a href="/">Sing up</a>
+        <Link to={"/singup"}>Sing up</Link>
       </div>
     </div>
   );

@@ -148,13 +148,24 @@
 	display: block;
 	width: 100%;
 	max-width: 276px;
+	padding: 8px 10px;
 	margin-top: 16px;
+	margin-right: 12px;
 	border: none;
 	background-color: transparent;
 
 	font-weight: 400;
 	line-height: 1.43;
 	color: var(--color-primary-grey);
+
+	cursor: pointer;
+}
+
+.button_cancel:hover,
+.button_cancel:focus {
+	border-radius: 12px;
+	color: var(--secondary-color-yellow);
+	box-shadow: 0 1px 1px rgba(255, 243, 183, 0.12), 0 2px 2px rgba(255, 243, 183,0.12);
 }
 
 @media screen and (min-width: 834px) {

@@ -81,5 +81,13 @@
 	background: transparent;
 
 	color: var(--color-primary-grey);
+
+	cursor: pointer;
 }
 
+.water_cansel:hover,
+.water_cansel:focus {
+	border-radius: 12px;
+	color: var(--secondary-color-yellow);
+	box-shadow: 0 1px 1px rgba(255, 243, 183, 0.12), 0 2px 2px rgba(255, 243, 183,0.12);
+}

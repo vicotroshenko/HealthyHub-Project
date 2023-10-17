@@ -1,10 +1,10 @@
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import settinImage from '../../../images/png/setting/setting.png';
+import settinImage from '../../images/png/setting/setting.png';
 import css from './SettingSelect.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserSettings } from 'redux/auth/selectors';
-import { ReactComponent as DownloadPic } from '../../../images/svg/setting/direct-inbox.svg';
+import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
 import { useEffect } from 'react';
 import operations from 'redux/auth/operations';
 

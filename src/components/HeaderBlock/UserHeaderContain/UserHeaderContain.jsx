@@ -76,7 +76,9 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Goal</p>
               <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
-                <RiArrowUpSLine className={css.goal_arrow} />
+                <RiArrowUpSLine className={
+                  !showGoalModal ? css.goal_arrow : `${css.goal_arrow} ${css.active}`
+                  } />
               </div>
             </div>
           </button>
@@ -106,7 +108,7 @@ export const UserHeaderContain = ({ handleSubmit }) => {
           </div>
           <RiArrowUpSLine
             className={
-              visible ? `${css.arrow_icon}` : `${css.arrow_icon} ${css.active}`
+              !visible ? css.arrow_icon : `${css.arrow_icon} ${css.active}`
             }
           />
         </button>

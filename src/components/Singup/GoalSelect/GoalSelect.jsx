@@ -1,15 +1,22 @@
 import { Field, Form, Formik } from 'formik';
 import css from './GoalSelect.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+import { useSelector } from 'react-redux';
+import { selectUserSettings } from 'redux/auth/selectors';
 
 export const GoalSelect = ({ handleSubmit }) => {
+
+  const { goal } = useSelector(selectUserSettings)
+
+
   return (
     <div className={css.goal}>
       <h1>Your goal</h1>
       <p>Choose a goal so that we can help you effectively</p>
       <Formik
         initialValues={{
-          goal: '',
+          goal,
         }}
         onSubmit={handleSubmit}
       >
@@ -40,6 +47,7 @@ export const GoalSelect = ({ handleSubmit }) => {
           </div>
         </Form>
       </Formik>
+      <ProgressStepperBasic activeStep={1}/>
     </div>
   );
 };

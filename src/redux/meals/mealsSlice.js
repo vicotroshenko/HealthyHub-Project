@@ -150,8 +150,6 @@ const mealsSlice = createSlice({
       state.isLoadError = true;
       state.isLoading = false;
     },
-
-
     [operations.deleteDishFromCurrentDay.pending](state, _action) {
       state.isLoading = true;
     },

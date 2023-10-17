@@ -15,7 +15,8 @@ export const ButtonSubmit = ({ children="", size="", onClick, onSubmit, name="bu
     background: '#E3FFA8',
     borderRadius: 12,
     padding: "8px 10px",
-
+		border: "none",
+		
 		fontSize: 14,
 		fontWeight: 500,
 		color: "#0F0F0F",

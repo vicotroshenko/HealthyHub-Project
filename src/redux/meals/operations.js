@@ -95,12 +95,9 @@ const addToMeal = createAsyncThunk(
     const { dish, name } = credentials;
     console.log(credentials);
     try {
-      const respose = await axios.post(
-        `/api/user/food-intake/${name}`,
-        dish
-      );
+      const respose = await axios.post(`/api/user/food-intake/${name}`, dish);
       console.log(respose.data);
-      return {data: respose.data, name};
+      return { data: respose.data, name };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -126,7 +123,7 @@ const getStatistic = createAsyncThunk(
     }
   }
 );
-const getStatisticForMonth= createAsyncThunk(
+const getStatisticForMonth = createAsyncThunk(
   'user/getStatisticForMonth',
   async ({ month, year }, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -135,8 +132,8 @@ const getStatisticForMonth= createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-    const params = `month=${month}&year=${year}`
-  
+    const params = `month=${month}&year=${year}`;
+
     set(persistedToken);
     try {
       const respose = await axios.get(`/api/user/statistic?${params}`);
@@ -147,7 +144,7 @@ const getStatisticForMonth= createAsyncThunk(
   }
 );
 
-const getStatisticForYear= createAsyncThunk(
+const getStatisticForYear = createAsyncThunk(
   'user/getStatisticForYear',
   async ({ year }, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -156,17 +153,18 @@ const getStatisticForYear= createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-  
+
     set(persistedToken);
     try {
-      const respose = await axios.get(`/api/user/statistic?month=0&year=${year}`);
+      const respose = await axios.get(
+        `/api/user/statistic?month=0&year=${year}`
+      );
       return respose.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 
 const updateDish = createAsyncThunk(
   'user/updateDish',

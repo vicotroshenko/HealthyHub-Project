@@ -11,7 +11,7 @@
   --color-primary-green-lite: #E3FFA8;
   --secondary-color-grey-1: #292928;
   --secondary-color-pink: #FFC4F7;
-  --secondary-color-yellow: #fff3b7;
+  --secondary-color-yellow: rgb(255, 243, 183);
 }
 
 body {
@@ -82,6 +82,7 @@ label:focus {
   color: var(--secondary-color-yellow);
   text-decoration: underline;
 }
+
 
 ::-webkit-scrollbar {
   width: 10px;

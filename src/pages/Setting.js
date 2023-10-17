@@ -1,5 +1,5 @@
 import { Preloader } from 'components/Preloader/Preloader';
-import { SettingSelect } from 'components/Singup/SettingSelect/SettingSelect';
+import { SettingSelect } from 'components/SettingSelect/SettingSelect';
 import { useSelector } from 'react-redux';
 
 const Setting = () => {
