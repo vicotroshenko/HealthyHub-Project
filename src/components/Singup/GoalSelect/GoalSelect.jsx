@@ -1,14 +1,18 @@
 import { Field, Form, Formik } from 'formik';
+import * as yup from 'yup';
 import css from './GoalSelect.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
 import { useSelector } from 'react-redux';
 import { selectUserSettings } from 'redux/auth/selectors';
 
+const schema = yup.object().shape({
+  goal: yup.string().required(),
+});
+
 export const GoalSelect = ({ handleSubmit }) => {
 
-  const { goal } = useSelector(selectUserSettings)
-
+  const { goal } = useSelector(selectUserSettings);
 
   return (
     <div className={css.goal}>
@@ -18,6 +22,7 @@ export const GoalSelect = ({ handleSubmit }) => {
         initialValues={{
           goal,
         }}
+        validationSchema={schema}
         onSubmit={handleSubmit}
       >
         <Form style={{ width: '100%' }}>

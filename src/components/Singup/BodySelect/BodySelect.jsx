@@ -23,8 +23,8 @@ export const BodySelect = ({ handleSubmit }) => {
       <p>Enter your parameters for correct performance tracking</p>
       <Formik
         initialValues={{
-          height,
-          weight,
+          height: height || "",
+          weight: weight || "",
         }}
         validationSchema={schema}
         onSubmit={handleSubmit}

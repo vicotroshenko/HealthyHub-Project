@@ -115,9 +115,33 @@
 }
 
 .error {
-	color: red;
+	color: #E74A3B;
 	font-size: 12px;
-	line-height: 1;
-	text-align: center;
+	line-height: 1.33;
+	text-align: left;
 	font-style: italic;
+}
+
+.hidden{ 
+	display: none;
+}
+
+.showPasswordBtn {
+	position: absolute;
+	appearance: none;
+}
+
+.passwordIcon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+
+	cursor: pointer;
+}
+
+.passwordContainer {
+	position: relative;
+	width: 100%;
 }

@@ -11,6 +11,8 @@ const unset = () => {
   axios.defaults.headers.common.Authorization = ``;
 };
 
+
+
 const singup = createAsyncThunk(
   'auth/singup',
   async (credentials, thunkAPI) => {
@@ -29,8 +31,8 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     console.log(credentials);
     const response = await axios.post('/api/auth/login', credentials);
-
     set(response.data.token);
+
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

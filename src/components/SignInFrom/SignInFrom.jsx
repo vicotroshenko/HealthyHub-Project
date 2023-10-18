@@ -1,8 +1,11 @@
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import css from './SignInFrom.module.css';
+import { BsFillEyeFill } from 'react-icons/bs';
+import { BsFillEyeSlashFill } from 'react-icons/bs';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
 
 const schema = yup.object().shape({
   email: yup.string().email(),
@@ -15,6 +18,20 @@ const initialValues = {
 };
 
 export const SignInFrom = ({ handleSubmit }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const passwordFieldRef = useRef();
+
+  const toggleShowPassword = () => {
+    if (passwordFieldRef.current.children[0].type === 'password') {
+      passwordFieldRef.current.children[0].type = 'text';
+      setShowPassword(true);
+    } else {
+      passwordFieldRef.current.children[0].type = 'password';
+      setShowPassword(false);
+    }
+  };
+
   return (
     <div className={css.container_sing_in}>
       <h1>Sign in</h1>
@@ -40,7 +57,8 @@ export const SignInFrom = ({ handleSubmit }) => {
                 {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
-            <label htmlFor="password">
+            <div className={css.passwordContainer}>
+            <label htmlFor="password" ref={passwordFieldRef}>
               <Field
                 type="password"
                 name="password"
@@ -51,6 +69,20 @@ export const SignInFrom = ({ handleSubmit }) => {
                 {msg => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
+            <label>
+                <input
+                    type="checkbox"
+                    onClick={toggleShowPassword}
+                    className={css.showPasswordBtn}
+                  />
+                  <BsFillEyeFill
+                    className={showPassword ? css.passwordIcon : css.hidden}
+                  />
+                  <BsFillEyeSlashFill
+                    className={!showPassword ? css.passwordIcon : css.hidden}
+                  />
+                </label>
+            </div>
             <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Sign In</ButtonSubmit>
           </div>
         </Form>

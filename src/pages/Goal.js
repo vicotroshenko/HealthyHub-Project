@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from 'redux/auth/authSlice';
 
+
 const Goal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

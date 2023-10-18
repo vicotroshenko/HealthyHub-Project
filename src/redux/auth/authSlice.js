@@ -27,6 +27,9 @@ const authSlice = createSlice({
     updateUser(state, action) {
       state.user = { ...state.user, ...action.payload };
     },
+    deleteError(state, _action) {
+      state.isAuthError = false;
+    }
   },
   extraReducers: {
     [operations.singup.pending](state, _action) {
@@ -138,4 +141,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { updateUser } = authSlice.actions;
+export const { updateUser, deleteError } = authSlice.actions;

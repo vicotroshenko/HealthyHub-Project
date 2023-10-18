@@ -23,8 +23,8 @@ export const AgeSelect = ({ handleSubmit }) => {
       <p>Choose a goal so that we can help you effectively</p>
       <Formik
         initialValues={{
-          gender,
-          age,
+          gender: gender || "",
+          age: age || "",
         }}
         validationSchema={schema}
         onSubmit={handleSubmit}
