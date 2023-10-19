@@ -48,12 +48,12 @@ export const App = () => {
   }, [isLoggedIn, navigate, pathname]);
 
   useEffect(() => {
-    if (mealDay !== currentDate) {
+    if (mealDay !== currentDate && mealDay !== "1970/1/1") {
       dispatch(operations.addNewDay({ weight: user.weight }));
+      return;
     }
-    if (isLoadError) {
-      dispatch(operations.getUserDay());
-    }
+    dispatch(operations.getUserDay());
+
   }, [mealDay, user, currentDate, dispatch, isLoadError]);
 
   return (

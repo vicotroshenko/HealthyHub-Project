@@ -29,10 +29,9 @@ const singup = createAsyncThunk(
 
 const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
-
+   
     const response = await axios.post('/api/auth/login', credentials);
     set(response.data.token);
-
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -40,20 +39,19 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
 });
 
 const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-  try {
+  try {  
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken);
-    
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
+
     set(persistedToken);
     
     await axios.post('/api/auth/logout');
     console.log('logout');
     unset();
-    return;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -61,7 +59,7 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 
 const getCurrentUser = createAsyncThunk(
   'auth/currentUser',
-  async (credentials, thunkAPI) => {
+  async (__, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
       const persistedToken = state.auth.token;
@@ -70,6 +68,7 @@ const getCurrentUser = createAsyncThunk(
         console.log('You need enter in your account');
         return thunkAPI.rejectWithValue();
       }
+
       set(persistedToken);
       const response = await axios.get('/api/auth/current');
       
@@ -158,7 +157,6 @@ const updateAvatars = createAsyncThunk(
         return thunkAPI.rejectWithValue();
       }
       set(persistedToken);
-      console.log(credentials);
 
       const response = await axios.patch('/api/settings/avatars', credentials);
 

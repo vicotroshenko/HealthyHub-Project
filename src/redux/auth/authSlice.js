@@ -63,6 +63,7 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.user = initialState.user;
       state.isAuthError = false;
+      state.token = null;
     },
     [operations.updateGoal.pending](state, _action) {
       state.isLoading = true;
