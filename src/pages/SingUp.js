@@ -4,22 +4,36 @@ import homeImage from '../images/png/home/Illustration.png';
 import { updateUser } from 'redux/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
 
 const SingUp = () => {
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSingUp = (values, { resetForm }) => {
-    dispatch(updateUser(values));
+    const data = { ...values, password };
+    if (
+      password === password.toLowerCase() ||
+      !searchNumber(password) ||
+      password.length <= 5
+    ) {
+      return;
+    }
+
+    dispatch(updateUser(data));
     resetForm();
     navigate('/singup/goal');
   };
 
+  const getPassword = value => setPassword(value);
+  const searchNumber = string =>
+    string.split('').some(element => !isNaN(Number(element)));
+
   return (
     <>
       <AuthContainer image={homeImage}>
-        <SignUpFrom handleSubmit={handleSingUp} />
+        <SignUpFrom handleSubmit={handleSingUp} getPassword={getPassword} />
       </AuthContainer>
     </>
   );

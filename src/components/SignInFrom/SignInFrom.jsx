@@ -58,39 +58,41 @@ export const SignInFrom = ({ handleSubmit }) => {
               </ErrorMessage>
             </label>
             <div className={css.passwordContainer}>
-            <label htmlFor="password" ref={passwordFieldRef}>
-              <Field
-                type="password"
-                name="password"
-                placeholder="Password"
-                className={css.sign_in_input}
-              />
-              <ErrorMessage name="password">
-                {msg => <p className={css.error}>{msg}</p>}
-              </ErrorMessage>
-            </label>
-            <label>
+              <label htmlFor="password" ref={passwordFieldRef}>
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  className={css.sign_in_input}
+                />
+                <ErrorMessage name="password">
+                  {msg => <p className={css.error}>{msg}</p>}
+                </ErrorMessage>
+              </label>
+              <label>
                 <input
-                    type="checkbox"
-                    onClick={toggleShowPassword}
-                    className={css.showPasswordBtn}
-                  />
-                  <BsFillEyeFill
-                    className={showPassword ? css.passwordIcon : css.hidden}
-                  />
-                  <BsFillEyeSlashFill
-                    className={!showPassword ? css.passwordIcon : css.hidden}
-                  />
-                </label>
+                  type="checkbox"
+                  onClick={toggleShowPassword}
+                  className={css.showPasswordBtn}
+                />
+                <BsFillEyeFill
+                  className={showPassword ? css.passwordIcon : css.hidden}
+                />
+                <BsFillEyeSlashFill
+                  className={!showPassword ? css.passwordIcon : css.hidden}
+                />
+              </label>
             </div>
-            <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Sign In</ButtonSubmit>
+            <ButtonSubmit size={{ SWidth: 280, MWidth: 380, LWidth: 212 }}>
+              Sign In
+            </ButtonSubmit>
           </div>
         </Form>
       </Formik>
 
       <div className={css.sing_up_box}>
         <span>If you don't have an account yet</span>
-        <Link to={"/singup"}>Sing up</Link>
+        <Link to={'/singup'}>Sing up</Link>
       </div>
     </div>
   );
