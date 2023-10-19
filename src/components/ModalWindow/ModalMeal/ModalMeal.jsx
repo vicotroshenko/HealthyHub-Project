@@ -1,7 +1,7 @@
 import { Modal } from 'components/ModalWindow/Modal/Modal';
 import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
 import { useDispatch } from 'react-redux';
-import operations from 'redux/meals/operations';
+import operationsMeal from 'redux/meals/operations';
 import css from './ModalMeal.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
@@ -69,18 +69,18 @@ export const ModalMeal = ({
     for (const dish of dishes) {
       if (change) {
         dispatch(
-          operations.updateDish({ name: data.name, id: change.dish._id, dish })
+          operationsMeal.updateDish({ name: data.name, id: change.dish._id, dish })
         );
         return;
       }
 
-      dispatch(operations.addToMeal({dish, name: data.name.toLowerCase()}));
+      dispatch(operationsMeal.addToMeal({dish, name: data.name.toLowerCase()}));
     }
   };
 
   const deletCurrentDish = () => {
     dispatch(
-      operations.deleteDishFromCurrentDay({
+      operationsMeal.deleteDishFromCurrentDay({
         name: data.name,
         id: change.dish._id,
       })

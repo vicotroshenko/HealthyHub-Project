@@ -1,7 +1,7 @@
 import { Modal } from 'components/ModalWindow/Modal/Modal';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import operations from 'redux/meals/operations';
+import operationsMeal from 'redux/meals/operations';
 import css from './ModalWater.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
@@ -13,7 +13,7 @@ export const ModalWater = ({ toggle, showModal }) => {
   const dispatch = useDispatch();
 
   const handleWater = (values, { resetForm }) => {
-    dispatch(operations.updateWater(values));
+    dispatch(operationsMeal.updateWater(values));
     resetForm();
     toggle();
   };

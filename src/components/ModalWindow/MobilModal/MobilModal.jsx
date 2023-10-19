@@ -43,9 +43,9 @@ export const MobilModal = ({ toggle, showModal }) => {
     <>
       <ModalGoal showModal={showGoalModal} toggle={toggleGoal} />
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
-      {showModal && <Modal onClose={toggle} styles={css.modal}>
+      <Modal  visible={showModal} toggle={toggle} styles={css.modal}>
         <div className={css.mobile_inner}>
-          <button className={css.data_button} onClick={toggleGoal}>
+          <button type='button' className={css.data_button} onClick={() => {toggleGoal(); toggle()}} >
             <div className={css.data_image_wrapper}>
               <img src={image} alt="goal" />
             </div>
@@ -57,7 +57,7 @@ export const MobilModal = ({ toggle, showModal }) => {
               </div>
             </div>
           </button>
-          <button className={css.data_button} onClick={toggleWeight}>
+          <button type='button' className={css.data_button} onClick={() => {toggleWeight(); toggle()}}>
             <div className={css.data_image_wrapper}>
               <img src={weightIcon} alt="weight" />
             </div>
@@ -70,7 +70,7 @@ export const MobilModal = ({ toggle, showModal }) => {
             </div>
           </button>
         </div>
-      </Modal>}
+      </Modal>
     </>
   );
 };

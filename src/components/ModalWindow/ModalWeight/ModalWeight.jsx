@@ -3,6 +3,7 @@ import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-cir
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
+import operationsMeal from 'redux/meals/operations';
 import css from './ModalWeight.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
@@ -15,6 +16,7 @@ export const ModalWeight = ({ showModal, toggle }) => {
 
   const handelWeight = values => {
     dispatch(operations.updateWeight(values));
+    dispatch(operationsMeal.updateWeight(values))
   };
 
   return (

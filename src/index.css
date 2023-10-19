@@ -38,7 +38,7 @@ img {
   display: block;
 }
 
-p, ul, li, h1, h2, h3, h4, h5 {
+p, ul, li, h1, h2, h3, h4, h5, button {
   margin: 0;
   padding: 0;
   list-style-type: none;

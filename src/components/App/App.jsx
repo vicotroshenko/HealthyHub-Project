@@ -37,14 +37,12 @@ export const App = () => {
       (isLoggedIn && pathname.includes('singup')) ||
       (isLoggedIn && pathname === '/')
     ) {
-      console.log(0);
       navigate('/');
     }
     if (
       (!isLoggedIn && pathname === '/') ||
       (!isLoggedIn && pathname.includes('user'))
     ) {
-      console.log(1);
       navigate('/home');
     }
   }, [isLoggedIn, navigate, pathname]);

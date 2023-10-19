@@ -29,7 +29,7 @@ const singup = createAsyncThunk(
 
 const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
-    console.log(credentials);
+
     const response = await axios.post('/api/auth/login', credentials);
     set(response.data.token);
 
@@ -41,9 +41,19 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
 
 const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    console.log(persistedToken);
+    
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+    set(persistedToken);
+    
     await axios.post('/api/auth/logout');
     console.log('logout');
     unset();
+    return;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

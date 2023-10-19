@@ -5,6 +5,7 @@ import { Preloader } from 'components/Preloader/Preloader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/meals/operations';
+import operationsRecommended from 'redux/recommended/operations';
 
 
 const Main = () => {
@@ -13,6 +14,7 @@ const Main = () => {
 
   useEffect(() => {
       dispatch(operations.getStatistic());
+      dispatch(operationsRecommended.getRecommendedFood());
   }, [dispatch]);
   
   return (

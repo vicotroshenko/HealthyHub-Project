@@ -71,7 +71,13 @@
 	border: 1px solid var(--color-primary-green-lite);
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
-	color: var(--color-primary-grey)
+	color: var(--color-primary-grey);
+	-webkit-text-fill-color: white;
+}
+
+.sign_in_input:-webkit-autofill, .sign_in_input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px var(--color-primary-black-2) inset;
+  -webkit-text-fill-color: var(--color-primary-grey);
 }
 
 

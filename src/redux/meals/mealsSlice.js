@@ -20,6 +20,23 @@ const initialState = {
 const mealsSlice = createSlice({
   name: 'meals',
   initialState,
+  reducers: {
+    logout(state, _action) {
+      state.isAuthError = false;
+      state.water = 0;
+      state.date = null;
+      state.weight = null;
+      state.breakfast = [];
+      state.lunch = [];
+      state.dinner = [];
+      state.snack = [];
+      state.statistic = [];
+      state.dashboardStatMonth = [];
+      state.dashboardStatYear = [];
+      state.isLoading = null;
+      state.isLoadError = null;
+    }
+  },
   extraReducers: {
     [operations.addNewDay.pending](state, _action) {
       state.isLoading = true;
@@ -168,3 +185,5 @@ const mealsSlice = createSlice({
 });
 
 export const mealsReducer = mealsSlice.reducer;
+
+export const { logout } = mealsSlice.actions;

@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { authReducer } from './auth/authSlice';
 import { mealsReducer } from "./meals/mealsSlice";
+import { recommendedReducer } from "./recommended/recommendedSlice";
 import {
   persistStore,
   persistReducer,
@@ -26,11 +27,17 @@ export const store = configureStore({
 		auth: persistReducer({
 			key: 'auth',
 			storage,
+			blacklist: ["token"],
 		}, authReducer),
 		user: persistReducer({
 			key: 'user',
 			storage,
-		}, mealsReducer)
+		}, mealsReducer),
+		recommended: persistReducer({
+			key: 'recommended',
+			storage,
+			// blacklist: ["recommendedFood", "isLoading", "isLoadError"],
+		}, recommendedReducer),
 	},
 	middleware,
 	devTools: process.env.NODE_ENV === "development",

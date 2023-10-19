@@ -7,6 +7,7 @@ import { selectUserSettings } from 'redux/auth/selectors';
 import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
 import { useEffect } from 'react';
 import operations from 'redux/auth/operations';
+import operationsMeal from 'redux/meals/operations';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -42,6 +43,7 @@ export const SettingSelect = () => {
 
     dispatch(operations.updateSetting(values));
     dispatch(operations.updateWeight({ weight: values.weight }));
+    dispatch(operationsMeal.updateWeight({ weight: values.weight }));
   };
 
   const handleFileUpload = event => {

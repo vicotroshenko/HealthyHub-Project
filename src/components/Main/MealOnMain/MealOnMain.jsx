@@ -14,7 +14,7 @@ import {
   selectUserData,
 } from 'redux/meals/selectors';
 import css from './MealOnMain.module.css';
-import operations from 'redux/meals/operations';
+import operationsMeal from 'redux/meals/operations';
 import { NavLink } from 'react-router-dom';
 
 export const MealOnMain = () => {
@@ -41,7 +41,7 @@ export const MealOnMain = () => {
 
   useEffect(() => {
     if(isLoading){
-      dispatch(operations.getStatistic());
+      dispatch(operationsMeal.getStatistic());
     }
   }, [dispatch, isLoading]);
 

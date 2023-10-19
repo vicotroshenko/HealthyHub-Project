@@ -1,22 +1,27 @@
 import css from './RecommendedFoodOnMain.module.css';
-import foodList from '../../../json/RecommendedFood.json';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useRef } from 'react';
+
 
 export const RecommendedFoodOnMain = () => {
+  const recommendedFood = useSelector(state => state.recommended.recommendedFood);
+  let recFod= useRef([...recommendedFood]);
+
   function shuffle() {
-    let currentIndex = foodList.length,
+    let currentIndex = recFod.current.length,
       randomIndex;
     while (currentIndex > 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      [foodList[currentIndex], foodList[randomIndex]] = [
-        foodList[randomIndex],
-        foodList[currentIndex],
+      [recFod.current[currentIndex], recFod.current[randomIndex]] = [
+        recFod.current[randomIndex],
+        recFod.current[currentIndex],
       ];
     }
-    return foodList;
+    return recFod.current;
   }
 	const shuffleFood = shuffle();
 

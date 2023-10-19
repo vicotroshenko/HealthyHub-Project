@@ -1,22 +1,42 @@
-import foodList from '../../json/RecommendedFood.json';
+import { useSelector } from 'react-redux';
 import css from './RecomendedFoodView.module.css';
+import { useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import operationsRecommended from 'redux/recommended/operations';
+
 
 export const RecommendedFoodView = () => {
+
+
+  const dispatch = useDispatch();
+  const recommendedFood = useSelector(state => state.recommended.recommendedFood);
+  let recFod= useRef([...recommendedFood]);
+
+  useEffect(() => {
+    dispatch(operationsRecommended.getRecommendedFood());
+  }, [dispatch])
+
+
+
+
   function shuffle() {
-    let currentIndex = foodList.length,
+    let currentIndex = recFod.current.length,
       randomIndex;
+
     while (currentIndex > 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      [foodList[currentIndex], foodList[randomIndex]] = [
-        foodList[randomIndex],
-        foodList[currentIndex],
+      [recFod.current[currentIndex], recFod.current[randomIndex]] = [
+        recFod.current[randomIndex],
+        recFod.current[currentIndex],
       ];
     }
-    return foodList;
+    return recFod.current;
   }
+
   const shuffledFood = shuffle();
+
 
   return (
     <div>

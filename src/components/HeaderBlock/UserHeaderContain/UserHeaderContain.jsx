@@ -26,7 +26,6 @@ export const UserHeaderContain = ({ handleSubmit }) => {
   const { goal, weight, name, avatarURL } = useSelector(selectUserSettings);
 
   const toggle = () => {
-    console.log(1);
     setVisible(!visible);
   };
 

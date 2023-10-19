@@ -11,7 +11,7 @@
 	opacity: 0;
 	
 	display: none;
-	animation: close-modal 250ms cubic-bezier(.11,.41,.89,.95) both;
+	animation: close-modal 350ms cubic-bezier(.11,.41,.89,.95) both;
 
 }
 

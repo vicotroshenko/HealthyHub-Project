@@ -146,6 +146,11 @@
 	height: 16px;
 }
 
+.tablet_hidden:active {
+	border: 1px solid red;
+}
+
+
 @media screen and (min-width: 834px) {
 	.tablet_hidden {
 		display: none;
@@ -213,7 +218,8 @@
 transition: all 250ms linear;
 }
 
-.user_block:hover > p{
+.user_block:hover > p,
+.user_block:focus > p{
 	text-decoration: underline;
 	color: var(--secondary-color-yellow);
 }

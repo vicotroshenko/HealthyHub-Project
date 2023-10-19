@@ -177,7 +177,8 @@
 	cursor: pointer;
 }
 
-.btn_edit:hover {
+.btn_edit:hover,
+.btn_edit:focus {
 	color: var(--secondary-color-yellow);
 	text-decoration: underline;
 }
@@ -244,7 +245,8 @@
 	transition: all 250ms ease-out;
 }
 
-.button_add:hover {
+.button_add:hover,
+.button_add:focus {
 	color:  var(--secondary-color-yellow);
 	text-decoration: underline;
 }

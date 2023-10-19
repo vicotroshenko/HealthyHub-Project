@@ -93,10 +93,8 @@ const addToMeal = createAsyncThunk(
     set(persistedToken);
 
     const { dish, name } = credentials;
-    console.log(credentials);
     try {
       const respose = await axios.post(`/api/user/food-intake/${name}`, dish);
-      console.log(respose.data);
       return { data: respose.data, name };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -123,6 +121,7 @@ const getStatistic = createAsyncThunk(
     }
   }
 );
+
 const getStatisticForMonth = createAsyncThunk(
   'user/getStatisticForMonth',
   async ({ month, year }, thunkAPI) => {
@@ -211,7 +210,7 @@ const deleteDishFromCurrentDay = createAsyncThunk(
   }
 );
 
-const operations = {
+const operationsMeal = {
   addNewDay,
   getUserDay,
   updateWeight,
@@ -224,4 +223,4 @@ const operations = {
   getStatisticForYear,
 };
 
-export default operations;
+export default operationsMeal;
