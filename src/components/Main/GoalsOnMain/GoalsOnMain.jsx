@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { ReactComponent as CaloriesImage } from '../../../images/svg/main-page/bubble.svg';
-import { ReactComponent as WaterImage } from '../../../images/svg/main-page/milk.svg';
 import { selectUserData } from 'redux/meals/selectors';
 import { selectCaloriesConsuming } from 'redux/auth/selectors';
 import css from './GoalsOnMain.module.css';
+import { BubbleSVG } from 'components/SVG/BubbleSVG/BubbleSVG';
+import { BottleSVG } from 'components/SVG/BottleSVG/BottleSVG';
 
 export const GoalsOnMain = () => {
   const { waterGoal } = useSelector(selectUserData);
@@ -16,7 +16,7 @@ export const GoalsOnMain = () => {
       <div className={css.goals_container}>
         <div className={css.box}>
           <div className={css.buble_icon_container}>
-            <CaloriesImage />
+            <BubbleSVG />
           </div>
           <div className={css.desc_container}>
             <p>Calories</p>
@@ -25,7 +25,7 @@ export const GoalsOnMain = () => {
         </div>
         <div className={css.box}>
           <div className={css.buble_icon_container}>
-            <WaterImage />
+            <BottleSVG />
           </div>
           <div className={css.desc_container}>
             <p>Water</p>

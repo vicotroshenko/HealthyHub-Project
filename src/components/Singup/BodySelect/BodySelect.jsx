@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 import css from './BodySelect.module.css';
 import * as yup from 'yup';
@@ -52,3 +53,7 @@ export const BodySelect = ({ handleSubmit }) => {
     </div>
   );
 };
+
+BodySelect.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+}

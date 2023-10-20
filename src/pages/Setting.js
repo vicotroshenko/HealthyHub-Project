@@ -9,7 +9,7 @@ const Setting = () => {
 
   return  <>
   {isLoading && <Preloader/>}
-  <SettingSelect />;
+  <SettingSelect />
   </> 
 };
 

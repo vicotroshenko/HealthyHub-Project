@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
 import css from './SignUpForm.module.css';
@@ -178,3 +179,9 @@ export const SignUpFrom = ({ handleSubmit, getPassword }) => {
     </div>
   );
 };
+
+
+SignUpFrom.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  getPassword: PropTypes.func.isRequired,
+}

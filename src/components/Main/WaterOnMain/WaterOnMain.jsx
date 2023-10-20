@@ -46,8 +46,10 @@ export const WaterOnMain = () => {
           <p>
             left: <span>{change} ml</span>
           </p>
-          <ButtonSubmit size={{SWidth: 166}} onClick={toggle}>
-            <HiOutlinePlus style={{width: 16, height: 16, color: "#0F0F0F"}} />
+          <ButtonSubmit size={{ SWidth: 166 }} onClick={toggle}>
+            <HiOutlinePlus
+              style={{ width: 16, height: 16, color: '#0F0F0F' }}
+            />
             <span>Add water intake</span>
           </ButtonSubmit>
         </div>

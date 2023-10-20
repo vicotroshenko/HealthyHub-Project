@@ -1,0 +1,32 @@
+.wheel1, .wheel2 {
+	transform-origin: 50% 50%;
+	transform-box: fill-box;
+}
+
+.wheel1 {
+	animation: wheelRound 10s linear infinite;
+}
+
+.wheel2 {
+	animation: wheelRoundBack 18s linear infinite;
+}
+
+@keyframes wheelRound {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes wheelRoundBack {
+	0% {
+		transform: rotate(360deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}

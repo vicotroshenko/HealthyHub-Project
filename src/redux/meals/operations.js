@@ -19,8 +19,9 @@ const addNewDay = createAsyncThunk(
 
     set(persistedToken);
     try {
-      const respose = await axios.post('/api/user', credentials);
-      return respose.data;
+      const response = await axios.post('/api/user', credentials);
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -36,8 +37,9 @@ const getUserDay = createAsyncThunk('user/getDay', async (_, thunkAPI) => {
   }
   set(persistedToken);
   try {
-    const respose = await axios.get('/api/user');
-    return respose.data;
+    const response = await axios.get('/api/user');
+
+    return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -54,8 +56,9 @@ const updateWeight = createAsyncThunk(
     }
     set(persistedToken);
     try {
-      const respose = await axios.put('/api/user/weight', credentials);
-      return respose.data;
+      const response = await axios.put('/api/user/weight', credentials);
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -73,8 +76,9 @@ const updateWater = createAsyncThunk(
     }
     set(persistedToken);
     try {
-      const respose = await axios.put('/api/user/water-intake', credentials);
-      return respose.data;
+      const response = await axios.put('/api/user/water-intake', credentials);
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -94,8 +98,9 @@ const addToMeal = createAsyncThunk(
 
     const { dish, name } = credentials;
     try {
-      const respose = await axios.post(`/api/user/food-intake/${name}`, dish);
-      return { data: respose.data, name };
+      const response = await axios.post(`/api/user/food-intake/${name}`, dish);
+
+      return { data: response.data, name };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -114,8 +119,9 @@ const getStatistic = createAsyncThunk(
 
     set(persistedToken);
     try {
-      const respose = await axios.get('/api/user/statistic');
-      return respose.data;
+      const response = await axios.get('/api/user/statistic');
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -135,8 +141,9 @@ const getStatisticForMonth = createAsyncThunk(
 
     set(persistedToken);
     try {
-      const respose = await axios.get(`/api/user/statistic?${params}`);
-      return respose.data;
+      const response = await axios.get(`/api/user/statistic?${params}`);
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -155,10 +162,11 @@ const getStatisticForYear = createAsyncThunk(
 
     set(persistedToken);
     try {
-      const respose = await axios.get(
+      const response = await axios.get(
         `/api/user/statistic?month=0&year=${year}`
       );
-      return respose.data;
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -177,11 +185,12 @@ const updateDish = createAsyncThunk(
     set(persistedToken);
     const dishName = credentials.name.toLowerCase();
     try {
-      const respose = await axios.put(
+      const response = await axios.put(
         `/api/user/food-intake/${dishName}/${credentials.id}`,
         credentials.dish
       );
-      return respose.data;
+
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

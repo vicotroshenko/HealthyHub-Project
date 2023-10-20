@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -25,7 +26,6 @@ export const ProgressStepperBasic = ({ activeStep }) => {
     fontSize: '16px',
   };
 
-  
   if (isMobile && isTablet && !isLaptop) {
     boxSxStyles.maxWidth = '834px';
     boxSxStyles.marginLeft = '70px';
@@ -75,3 +75,8 @@ export const ProgressStepperBasic = ({ activeStep }) => {
     </Box>
   );
 };
+
+ProgressStepperBasic.propTypes = {
+  activeStep: PropTypes.number.isRequired,
+
+}

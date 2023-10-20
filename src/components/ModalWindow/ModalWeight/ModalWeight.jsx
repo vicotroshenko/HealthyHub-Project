@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Modal } from 'components/ModalWindow/Modal/Modal';
 import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
 import { Field, Form, Formik } from 'formik';
@@ -36,6 +37,9 @@ export const ModalWeight = ({ showModal, toggle }) => {
               type="number"
               name="weight"
               placeholder="Enter your weight"
+              min="0"
+              max="180"
+              className={css.input_field}
             />
           </label>
           <ButtonSubmit size={{ SWidth: 280, MWidth: 166 }}>
@@ -49,3 +53,8 @@ export const ModalWeight = ({ showModal, toggle }) => {
     </Modal>
   );
 };
+
+ModalWeight.propTypes = {
+  toggle: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+}

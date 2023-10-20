@@ -71,9 +71,10 @@
 	row-gap: 12px;
 }
 
-.modal_form input[type="number"] {
+.modal_form  .input_field[type="number"] {
 	width: 100%;
 	max-width: 280px;
+	min-width: 190px;
 	padding: 7px 10px;
 	border-radius: 12px;
 	border: 1px solid var(--color-primary-green-lite);
@@ -83,6 +84,12 @@
 	line-height: 1.43;
 	color: var(--color-primary-grey);
 }
+
+.input_field:-webkit-autofill, .input_field:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px var(--color-primary-black-2) inset;
+  -webkit-text-fill-color: var(--color-primary-grey);
+}
+
 
 @media screen and (min-width: 834px) {
 	.modal_form {

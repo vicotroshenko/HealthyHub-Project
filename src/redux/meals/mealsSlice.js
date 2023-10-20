@@ -171,7 +171,7 @@ const mealsSlice = createSlice({
       state.isLoading = true;
     },
     [operations.deleteDishFromCurrentDay.fulfilled](state, action) {
-      state[action.payload.name].filter(
+      state[action.payload.name] = state[action.payload.name].filter(
         item => item._id === action.payload.id
       );
       state.isLoading = false;

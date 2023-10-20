@@ -12,7 +12,7 @@ export const Header = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector(selectAuthInform);
   const navigate = useNavigate();
-  
+
   const handleLogOut = () => {
     Swal.fire({
       title: 'Are you sure?',
@@ -21,15 +21,15 @@ export const Header = () => {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, log out!',
-      background: "#0F0F0F",
-      color: "white",
-    }).then((result) => {
+      background: '#0F0F0F',
+      color: 'white',
+    }).then(result => {
       if (result.isConfirmed) {
         dispatch(operations.logOut());
-        dispatch(logout())
-        navigate("/home");
+        dispatch(logout());
+        navigate('/user/diary');
       }
-    })
+    });
   };
 
   return (

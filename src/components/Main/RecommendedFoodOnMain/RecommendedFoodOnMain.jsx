@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRef } from 'react';
 
-
 export const RecommendedFoodOnMain = () => {
-  const recommendedFood = useSelector(state => state.recommended.recommendedFood);
-  let recFod= useRef([...recommendedFood]);
+  const recommendedFood = useSelector(
+    state => state.recommended.recommendedFood
+  );
+  let recFod = useRef([...recommendedFood]);
 
   function shuffle() {
     let currentIndex = recFod.current.length,
@@ -23,7 +24,7 @@ export const RecommendedFoodOnMain = () => {
     }
     return recFod.current;
   }
-	const shuffleFood = shuffle();
+  const shuffleFood = shuffle();
 
   return (
     <div className={css.recommendedFood}>
@@ -43,7 +44,11 @@ export const RecommendedFoodOnMain = () => {
           </li>
         ))}
       </ul>
-      <Link to="user/recommended" data-name="link" className={css.see_more_link}>
+      <Link
+        to="user/recommended"
+        data-name="link"
+        className={css.see_more_link}
+      >
         See more
         <BsArrowRight style={{ verticalAlign: 'middle', marginLeft: 6 }} />
       </Link>

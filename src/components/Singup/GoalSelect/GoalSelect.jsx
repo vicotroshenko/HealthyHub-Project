@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import css from './GoalSelect.module.css';
@@ -56,3 +57,7 @@ export const GoalSelect = ({ handleSubmit }) => {
     </div>
   );
 };
+
+GoalSelect.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+}

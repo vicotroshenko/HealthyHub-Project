@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import operationsMeal from 'redux/meals/operations';
 import css from './ModalWater.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import Swal from 'sweetalert2';
 
 const inititalValues = {
   water: '',
@@ -13,6 +14,25 @@ export const ModalWater = ({ toggle, showModal }) => {
   const dispatch = useDispatch();
 
   const handleWater = (values, { resetForm }) => {
+    if(values.water < 0){
+      Swal.fire({
+        title: 'You entered a negative number. This number will be subtracted from the total amount of water consumed',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, subtract!',
+        background: '#0F0F0F',
+        color: 'white',
+      }).then(result => {
+        if (result.isConfirmed) {
+          dispatch(operationsMeal.updateWater(values));
+          resetForm();
+          toggle();
+        }
+      });
+      return;
+    }
     dispatch(operationsMeal.updateWater(values));
     resetForm();
     toggle();

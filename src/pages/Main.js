@@ -2,24 +2,40 @@ import { Container } from 'components/Container/Container';
 import { MainInformation } from 'components/Main/MainInformation/MainInformation';
 import { MainMealAndRecommendedFood } from 'components/Main/MainMealAndRecommendedFood/MainMealAndRecommendedFood';
 import { Preloader } from 'components/Preloader/Preloader';
+import dateConvertor from 'helpers/dateConvertor';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import operations from 'redux/meals/operations';
+import { selectAuthInform } from 'redux/auth/selectors';
+import operationsMeal from 'redux/meals/operations';
+import { selectUserData } from 'redux/meals/selectors';
 import operationsRecommended from 'redux/recommended/operations';
 
-
 const Main = () => {
-  const { isLoading } = useSelector(state => state.user);
+  const { isLoggedIn, user } = useSelector(selectAuthInform);
+  const { date, isLoadError, isLoading } = useSelector(selectUserData);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(operations.getStatistic());
+    const currentDate = dateConvertor(new Date());
+    const mealDay = dateConvertor(new Date(date));
+    if (mealDay !== currentDate && !isLoadError) {
+      dispatch(operationsMeal.addNewDay({ weight: user.weight }));
+    }
+    if (isLoadError && isLoggedIn) {
+      dispatch(operationsMeal.getUserDay());
+    }
+  }, [date, user, dispatch, isLoadError, isLoggedIn]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
       dispatch(operationsRecommended.getRecommendedFood());
-  }, [dispatch]);
-  
+    }
+  }, [isLoggedIn, dispatch]);
+
   return (
     <Container>
-      {isLoading && <Preloader/>}
+      {isLoading && <Preloader />}
       <MainInformation />
       <MainMealAndRecommendedFood />
     </Container>

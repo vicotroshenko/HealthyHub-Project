@@ -4,8 +4,6 @@ import { RecommendedFoodView } from 'components/RecomendedFoodView/RecomendedFoo
 
 const RecommendedFood = () => {
 
-
-
   return (
     <>
       <h1>Recommended Food</h1>

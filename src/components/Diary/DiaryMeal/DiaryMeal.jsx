@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './DiaryMeal.module.css';
 import { BiEditAlt } from 'react-icons/bi';
 import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
@@ -13,10 +14,10 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
   const [changeDish, setChangeDish] = useState(null);
 
   const dispatch = useDispatch();
-  const { isLoading } = useSelector(state => state.user)
+  const { isLoading } = useSelector(state => state.user);
 
   useEffect(() => {
-    if(isLoading){
+    if (isLoading) {
       dispatch(operations.getUserDay());
     }
   }, [dispatch, isLoading, changeDish]);
@@ -92,7 +93,7 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
                     className={css.btn_edit}
                     onClick={() => handleEdit({ name, dish: item })}
                   >
-                    <BiEditAlt style={{marginRight: 6}}/>
+                    <BiEditAlt style={{ marginRight: 6 }} />
                     <span>Edit</span>
                   </button>
                 </div>
@@ -126,3 +127,11 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
     </>
   );
 };
+
+
+DiaryMeal.propTypes = {
+  meal: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  statistic: PropTypes.object.isRequired,
+}

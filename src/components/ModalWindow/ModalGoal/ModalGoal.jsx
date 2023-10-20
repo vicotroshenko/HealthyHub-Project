@@ -1,15 +1,16 @@
+import PropTypes from 'prop-types';
 import loseFatIcon from '../../../images/png/header/goal-lose-fat.png';
 import maintainIcon from '../../../images/png/header/goal-maintain.png';
 import gainMuscleIcon from '../../../images/png/header/goal-gain-muscle.png';
 import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
 import { Modal } from 'components/ModalWindow/Modal/Modal';
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectUserGoal } from 'redux/auth/selectors';
 import css from './ModalGoal.module.css';
-import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 const initialValues = {
   goal: ['Lose fat'],
@@ -102,3 +103,8 @@ export const ModalGoal = ({ showModal, toggle }) => {
     </Modal>
   );
 };
+
+ModalGoal.propTypes = {
+  toggle: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+}

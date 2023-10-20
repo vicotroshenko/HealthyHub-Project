@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Modal } from 'components/ModalWindow/Modal/Modal';
 import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
 import { useDispatch } from 'react-redux';
@@ -6,7 +7,7 @@ import css from './ModalMeal.module.css';
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
 
 export const ModalMeal = ({
-  showModal=false,
+  showModal = false,
   data,
   toggle,
   numberColection,
@@ -66,15 +67,22 @@ export const ModalMeal = ({
       : (dishes[0].calories = calories.value);
 
     toggle();
+    
     for (const dish of dishes) {
       if (change) {
         dispatch(
-          operationsMeal.updateDish({ name: data.name, id: change.dish._id, dish })
+          operationsMeal.updateDish({
+            name: data.name,
+            id: change.dish._id,
+            dish,
+          })
         );
         return;
       }
 
-      dispatch(operationsMeal.addToMeal({dish, name: data.name.toLowerCase()}));
+      dispatch(
+        operationsMeal.addToMeal({ dish, name: data.name.toLowerCase() })
+      );
     }
   };
 
@@ -88,18 +96,18 @@ export const ModalMeal = ({
     toggle();
   };
 
-    return (
-      <Modal toggle={toggle} styles={css.modal} visible={showModal}>
-        <h1 className={css.title_page}>Record your meal</h1>
-        <div className={css.name_container}>
-          <div className={css.name_image_container}>
-            <img src={data?.image} alt={data?.name} />
-          </div>
-          <h2>{data?.name}</h2>
+  return (
+    <Modal toggle={toggle} styles={css.modal} visible={showModal}>
+      <h1 className={css.title_page}>Record your meal</h1>
+      <div className={css.name_container}>
+        <div className={css.name_image_container}>
+          <img src={data?.image} alt={data?.name} />
         </div>
+        <h2>{data?.name}</h2>
+      </div>
 
-        <form className={css.form_container} onSubmit={handleMealInform}>
-          <div role="group" style={{ width: '100%' }}>
+      <form className={css.form_container} onSubmit={handleMealInform}>
+        <div role="group" style={{ width: '100%' }}>
           <div className={css.scroll_container}>
             {numberColection.map((item, index) => (
               <div key={index} className={css.inner_form}>
@@ -119,6 +127,7 @@ export const ModalMeal = ({
                     placeholder="Carbonoh."
                     defaultValue={change ? change.dish.carbohydrates : ''}
                     className={css.carbohydrates}
+                    min="0"
                   />
                 </label>
                 <label>
@@ -128,6 +137,7 @@ export const ModalMeal = ({
                     placeholder="Protein"
                     defaultValue={change ? change.dish.protein : ''}
                     className={css.protein}
+                    min="0"
                   />
                 </label>
                 <label>
@@ -137,6 +147,7 @@ export const ModalMeal = ({
                     placeholder="Fat"
                     defaultValue={change ? change.dish.fat : ''}
                     className={css.fat}
+                    min="0"
                   />
                 </label>
                 <label>
@@ -146,6 +157,7 @@ export const ModalMeal = ({
                     placeholder="Calories"
                     defaultValue={change ? change.dish.calories : ''}
                     className={css.calories}
+                    min="0"
                   />
                 </label>
               </div>
@@ -171,20 +183,30 @@ export const ModalMeal = ({
               </button>
             )}
           </div>
-            <div className={css.btn_container}>
-            <ButtonSubmit size={{SWidth: 276, MWidth: 212}}>
+          <div className={css.btn_container}>
+            <ButtonSubmit size={{ SWidth: 276, MWidth: 212 }}>
               <span>Confirm</span>
             </ButtonSubmit>
-              <button
-                type="button"
-                onClick={toggle}
-                className={css.button_cancel}
-              >
-                Cancel
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={toggle}
+              className={css.button_cancel}
+            >
+              Cancel
+            </button>
           </div>
-        </form>
-      </Modal>
-    );
+        </div>
+      </form>
+    </Modal>
+  );
 };
+
+
+ModalMeal.propTypes = {
+  toggle: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+  data: PropTypes.object,
+  numberColection: PropTypes.array.isRequired,
+  addColection: PropTypes.func.isRequired,
+  change: PropTypes.object,
+}

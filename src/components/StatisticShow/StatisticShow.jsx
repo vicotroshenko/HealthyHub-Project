@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { LineChart } from 'components/LineChart/LineChart';
 import css from './StatisticShow.module.css';
 import { useEffect, useState } from 'react';
-import operations from 'redux/meals/operations';
+import operationsMeal from 'redux/meals/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectUserDashboardStatMonth,
@@ -10,6 +11,7 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { ReactComponent as ArrowDown } from '../../images/svg/header/arrow-down.svg';
 import { Link } from 'react-router-dom';
+import { selectAuthInform } from 'redux/auth/selectors';
 
 export const StatisticShow = ({ containerRef }) => {
   const [period, setPeriod] = useState('month');
@@ -17,15 +19,18 @@ export const StatisticShow = ({ containerRef }) => {
 
   const statisticMonth = useSelector(selectUserDashboardStatMonth);
   const statisticYear = useSelector(selectUserDashboardStatYear);
+  const { isLoggedIn } = useSelector(selectAuthInform);
   const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
   const dispatch = useDispatch();
   const nameOfMonth = new Date().toLocaleString('en-us', { month: 'long' });
 
   useEffect(() => {
-    dispatch(operations.getStatisticForMonth({ month, year }));
-    dispatch(operations.getStatisticForYear({ year }));
-  }, [dispatch, month, year]);
+    if (isLoggedIn) {
+      dispatch(operationsMeal.getStatisticForMonth({ month, year }));
+      dispatch(operationsMeal.getStatisticForYear({ year }));
+    }
+  }, [dispatch, month, year, isLoggedIn]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -180,9 +185,11 @@ export const StatisticShow = ({ containerRef }) => {
       <div className={css.select_menu_container}>
         <div>
           <div className={css.drop_container}>
-            <Link to={'/'} data-name="link" >
+            <Link to={'/'} data-name="link">
               {' '}
-              <BsArrowLeft style={{ width: 24, height: 24, verticalAlign: "middle" }}/>
+              <BsArrowLeft
+                style={{ width: 24, height: 24, verticalAlign: 'middle' }}
+              />
             </Link>
             <button
               type="button"
@@ -265,3 +272,7 @@ export const StatisticShow = ({ containerRef }) => {
     </>
   );
 };
+
+StatisticShow.propTypes = {
+  containerRef: PropTypes.object.isRequired,
+}

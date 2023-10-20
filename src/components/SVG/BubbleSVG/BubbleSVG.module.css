@@ -1,0 +1,28 @@
+.bubble1 {
+	transform: scale(1);
+	animation: bubbleMove 18s linear infinite;
+}
+
+.bubble2 {
+	animation: bubbleMove 16s linear 2s infinite;
+}
+
+.bubble3 {
+	animation: bubbleMove 15s linear infinite;
+}
+
+.bubble4 {
+	animation: bubbleMove 17s linear 2s infinite;
+}
+
+@keyframes bubbleMove {
+  0% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(-50px) ;
+  }
+	100% {
+    transform: translateY(50px);
+  }
+}

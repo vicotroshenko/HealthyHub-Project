@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Chart as ChartJS,
   LineElement,
@@ -112,9 +113,7 @@ export const LineChart = ({
   const achievementTraker = {
     id: 'achievementTraker',
     afterDatasetsDraw(chart, args, pluginOptions) {
-      const {
-        ctx
-      } = chart;
+      const { ctx } = chart;
       checkBoolean
         ? point(statisticObject.number, statisticObject.number)
         : point(maxNumberIndex, maxNumberIndex);
@@ -204,3 +203,13 @@ export const LineChart = ({
     </>
   );
 };
+
+
+LineChart.propTypes = {
+  period: PropTypes.string.isRequired,
+  nameElement: PropTypes.string.isRequired,
+  getStatisticMonth: PropTypes.func,
+  getAvarageMonth: PropTypes.func,
+  getAvarageYear: PropTypes.func,
+  getStatisticYear: PropTypes.func,
+}

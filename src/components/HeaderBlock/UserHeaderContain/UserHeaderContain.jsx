@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './UserHeaderContain.module.css';
 import loseFatIcon from '../../../images/png/header/goal-lose-fat.png';
 import maintainIcon from '../../../images/png/header/goal-maintain.png';
@@ -75,9 +76,13 @@ export const UserHeaderContain = ({ handleSubmit }) => {
               <p>Goal</p>
               <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
-                <RiArrowUpSLine className={
-                  !showGoalModal ? css.goal_arrow : `${css.goal_arrow} ${css.active}`
-                  } />
+                <RiArrowUpSLine
+                  className={
+                    !showGoalModal
+                      ? css.goal_arrow
+                      : `${css.goal_arrow} ${css.active}`
+                  }
+                />
               </div>
             </div>
           </button>
@@ -113,13 +118,13 @@ export const UserHeaderContain = ({ handleSubmit }) => {
         </button>
 
         <Modal styles={css.drop_menu} toggle={toggle} visible={visible}>
-          <NavLink to={'user/setting'} className={css.drop_button}>
+          <NavLink to={'user/setting'} className={css.drop_button} onClick={toggle}>
             <AiOutlineSetting style={{ width: 16, height: 16 }} />
             Setting
           </NavLink>
           <button
             type="button"
-            onClick={handleSubmit}
+            onClick={() => {handleSubmit(); toggle()}}
             className={css.drop_button}
           >
             <BiLogOut style={{ width: 16, height: 16 }} />
@@ -130,3 +135,8 @@ export const UserHeaderContain = ({ handleSubmit }) => {
     </>
   );
 };
+
+
+UserHeaderContain.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+}

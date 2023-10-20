@@ -7,9 +7,9 @@ import {
   selectMaintain,
   selectUserGoal,
 } from 'redux/auth/selectors';
+import { selectStatisticsForCurrentDayAllElem } from 'redux/meals/selectors';
 import { useEffect, useState } from 'react';
 import css from './FoodOnMain.module.css';
-import { selectStatisticsForCurrentDayAllElem } from 'redux/meals/selectors';
 
 export const FoodOnMain = () => {
   const [goal, setGoal] = useState({});
@@ -50,7 +50,7 @@ export const FoodOnMain = () => {
             styles={{
               container: { width: 172, height: 172 },
               title: { fontSize: 32, margin: 0, lineHeight: 1 },
-              desc: {fontSize: 14, color: "#B6B6B6"},
+              desc: { fontSize: 14, color: '#B6B6B6' },
               bold: 65,
             }}
           />

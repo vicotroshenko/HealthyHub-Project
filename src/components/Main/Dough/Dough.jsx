@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 import css from './Dough.module.css';
 import { Doughnut } from 'react-chartjs-2';
@@ -10,7 +11,6 @@ export const Dough = ({
   text,
   styles,
 }) => {
-
   const percent =
     Math.floor(
       ((currentAmount > dayAmount ? dayAmount : currentAmount) / dayAmount) *
@@ -32,7 +32,7 @@ export const Dough = ({
     borderRadius: percent === 100 ? 0 : 10,
     cutout: styles.bold || 10,
   };
-  
+
   const backgroundCircle = {
     id: 'backgroundCircle',
     beforeDatasetsDraw(chart, args, pluginOptions) {
@@ -68,3 +68,13 @@ export const Dough = ({
     </div>
   );
 };
+
+
+Dough.propTypes = {
+  image: PropTypes.string,
+  dayAmount: PropTypes.number,
+  currentAmount: PropTypes.number,
+  color: PropTypes.string,
+  text: PropTypes.object,
+  styles: PropTypes.object,
+}

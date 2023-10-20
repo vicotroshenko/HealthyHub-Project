@@ -27,7 +27,6 @@ export const store = configureStore({
 		auth: persistReducer({
 			key: 'auth',
 			storage,
-			blacklist: ["token"],
 		}, authReducer),
 		user: persistReducer({
 			key: 'user',
@@ -36,7 +35,6 @@ export const store = configureStore({
 		recommended: persistReducer({
 			key: 'recommended',
 			storage,
-			// blacklist: ["recommendedFood", "isLoading", "isLoadError"],
 		}, recommendedReducer),
 	},
 	middleware,

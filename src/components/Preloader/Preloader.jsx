@@ -1,4 +1,4 @@
-import css from "./Preloader.module.css"
+import css from './Preloader.module.css';
 
 export const Preloader = () => {
   return (
@@ -12,36 +12,56 @@ export const Preloader = () => {
           strokeWidth="1"
         >
           <g transform="translate(9.5,19)">
-            <circle className={css.bike__tire} r="9" strokeDasharray="56.549 56.549" />
+            <circle
+              className={css.bike__tire}
+              r="9"
+              strokeDasharray="56.549 56.549"
+            />
             <g
-              className={css["bike__spokes-spin"]}
+              className={css['bike__spokes-spin']}
               strokeDasharray="31.416 31.416"
               strokeDashoffset="-23.562"
             >
               <circle className={css.bike__spokes} r="5" />
-              <circle className={css.bike__spokes} r="5" transform="rotate(180,0,0)" />
+              <circle
+                className={css.bike__spokes}
+                r="5"
+                transform="rotate(180,0,0)"
+              />
             </g>
           </g>
           <g transform="translate(24,19)">
             <g
-              className={css["bike__pedals-spin"]}
+              className={css['bike__pedals-spin']}
               strokeDasharray="25.133 25.133"
               strokeDashoffset="-21.991"
               transform="rotate(67.5,0,0)"
             >
               <circle className={css.bike__pedals} r="4" />
-              <circle className={css.bike__pedals} r="4" transform="rotate(180,0,0)" />
+              <circle
+                className={css.bike__pedals}
+                r="4"
+                transform="rotate(180,0,0)"
+              />
             </g>
           </g>
           <g transform="translate(38.5,19)">
-            <circle className={css.bike__tire} r="9" strokeDasharray="56.549 56.549" />
+            <circle
+              className={css.bike__tire}
+              r="9"
+              strokeDasharray="56.549 56.549"
+            />
             <g
-              className={css["bike__spokes-spin"]}
+              className={css['bike__spokes-spin']}
               strokeDasharray="31.416 31.416"
               strokeDashoffset="-23.562"
             >
               <circle className={css.bike__spokes} r="5" />
-              <circle className={css.bike__spokes} r="5" transform="rotate(180,0,0)" />
+              <circle
+                className={css.bike__spokes}
+                r="5"
+                transform="rotate(180,0,0)"
+              />
             </g>
           </g>
           <polyline

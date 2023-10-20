@@ -1,5 +1,6 @@
 import { Modal } from 'components/ModalWindow/Modal/Modal';
 import loseFatIcon from '../../../images/png/header/goal-lose-fat.png';
+import PropTypes from 'prop-types';
 import maintainIcon from '../../../images/png/header/goal-maintain.png';
 import gainMuscleIcon from '../../../images/png/header/goal-gain-muscle.png';
 import weightIcon from '../../../images/png/header/weight.png';
@@ -43,9 +44,16 @@ export const MobilModal = ({ toggle, showModal }) => {
     <>
       <ModalGoal showModal={showGoalModal} toggle={toggleGoal} />
       <ModalWeight showModal={showWeightModal} toggle={toggleWeight} />
-      <Modal  visible={showModal} toggle={toggle} styles={css.modal}>
+      <Modal visible={showModal} toggle={toggle} styles={css.modal}>
         <div className={css.mobile_inner}>
-          <button type='button' className={css.data_button} onClick={() => {toggleGoal(); toggle()}} >
+          <button
+            type="button"
+            className={css.data_button}
+            onClick={() => {
+              toggleGoal();
+              toggle();
+            }}
+          >
             <div className={css.data_image_wrapper}>
               <img src={image} alt="goal" />
             </div>
@@ -53,11 +61,18 @@ export const MobilModal = ({ toggle, showModal }) => {
               <p>Goal</p>
               <div className={css.data_desc_wrapper}>
                 <p>{goal}</p>
-                <ArrowIcon fill='#E3FFA8'/>
+                <ArrowIcon fill="#E3FFA8" />
               </div>
             </div>
           </button>
-          <button type='button' className={css.data_button} onClick={() => {toggleWeight(); toggle()}}>
+          <button
+            type="button"
+            className={css.data_button}
+            onClick={() => {
+              toggleWeight();
+              toggle();
+            }}
+          >
             <div className={css.data_image_wrapper}>
               <img src={weightIcon} alt="weight" />
             </div>
@@ -74,3 +89,9 @@ export const MobilModal = ({ toggle, showModal }) => {
     </>
   );
 };
+
+
+MobilModal.propTypes = {
+  toggle: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+}

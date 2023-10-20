@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 import css from './AgeSelect.module.css';
 import * as yup from 'yup';
@@ -13,7 +14,6 @@ const schema = yup.object().shape({
 });
 
 export const AgeSelect = ({ handleSubmit }) => {
-
   const { gender, age } = useSelector(selectUserSettings);
 
 
@@ -69,3 +69,7 @@ export const AgeSelect = ({ handleSubmit }) => {
     </div>
   );
 };
+
+AgeSelect.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+}
