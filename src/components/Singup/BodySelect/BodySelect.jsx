@@ -34,12 +34,12 @@ export const BodySelect = ({ handleSubmit }) => {
           <div role="group" className={css.body_form}>
             <label>
               Height
-              <Field type="number" name="height" max="300" />
+              <Field type="number" name="height" max="300" className={css.body_input} />
             </label>
 
             <label>
               Weight
-              <Field type="number" name="weight" max="350" />
+              <Field type="number" name="weight" max="350" className={css.body_input}/>
             </label>
 
             <div className={css.body_button_container}>

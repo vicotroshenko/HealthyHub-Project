@@ -13,9 +13,10 @@ import operationsRecommended from 'redux/recommended/operations';
 const Main = () => {
   const { isLoggedIn, user } = useSelector(selectAuthInform);
   const { date, isLoadError, isLoading } = useSelector(selectUserData);
+  const { recommendedFood } = useSelector(state => state.recommended);
 
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const currentDate = dateConvertor(new Date());
     const mealDay = dateConvertor(new Date(date));
@@ -28,10 +29,10 @@ const Main = () => {
   }, [date, user, dispatch, isLoadError, isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && recommendedFood.length === 0) {
       dispatch(operationsRecommended.getRecommendedFood());
     }
-  }, [isLoggedIn, dispatch]);
+  }, [isLoggedIn, dispatch, recommendedFood.length]);
 
   return (
     <Container>

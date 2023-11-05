@@ -2,9 +2,7 @@ import { Dough } from 'components/Main/Dough/Dough';
 import { useSelector } from 'react-redux';
 import {
   selectCaloriesConsuming,
-  selectGainMuscle,
-  selectLoseFat,
-  selectMaintain,
+  selectElementsByGoal,
   selectUserGoal,
 } from 'redux/auth/selectors';
 import { selectStatisticsForCurrentDayAllElem } from 'redux/meals/selectors';
@@ -15,11 +13,11 @@ export const FoodOnMain = () => {
   const [goal, setGoal] = useState({});
 
   const dayCalories = useSelector(selectCaloriesConsuming);
-  const loseFatGoal = useSelector(selectLoseFat);
-  const maintainGoal = useSelector(selectMaintain);
-  const gainMusculGoal = useSelector(selectGainMuscle);
   const userGoal = useSelector(selectUserGoal);
   const statistic = useSelector(selectStatisticsForCurrentDayAllElem);
+  const { loseFatGoal, maintainGoal, gainMusculGoal } = useSelector(selectElementsByGoal);
+
+
 
   useEffect(() => {
     switch (userGoal) {
@@ -35,7 +33,9 @@ export const FoodOnMain = () => {
       default:
         setGoal({});
     }
-  }, [userGoal, loseFatGoal, maintainGoal, gainMusculGoal]);
+  }, [loseFatGoal, maintainGoal, gainMusculGoal, userGoal]);
+
+
 
   return (
     <>

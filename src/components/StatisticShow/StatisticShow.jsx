@@ -180,6 +180,7 @@ export const StatisticShow = ({ containerRef }) => {
     setPeriod(name);
   };
 
+
   return (
     <>
       <div className={css.select_menu_container}>

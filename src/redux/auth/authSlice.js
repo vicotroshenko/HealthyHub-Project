@@ -36,7 +36,6 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [operations.singup.fulfilled](state, _action) {
-      state.user = initialState.user;
       state.isLoading = false;
       state.isAuthError = false;
     },

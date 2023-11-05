@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
 import breakfastImage from '../../../images/png/main/breakfast_image.png';
@@ -7,10 +7,7 @@ import dinnerImage from '../../../images/png/main/dinner_image.png';
 import snacktImage from '../../../images/png/main/snack_image.png';
 import { ModalMeal } from 'components/ModalWindow/ModalMeal/ModalMeal';
 import {
-  selectStatisticBreakfast,
-  selectStatisticDinner,
-  selectStatisticLunch,
-  selectStatisticSnack,
+  selectStatistictsForDayByMeal,
 } from 'redux/meals/selectors';
 import css from './MealOnMain.module.css';
 import operationsMeal from 'redux/meals/operations';
@@ -22,19 +19,16 @@ export const MealOnMain = () => {
   const [modalData, setModalData] = useState({});
   const [numberOfMeals, setNumberOfMeals] = useState(['1']);
 
-  const breakfast = useSelector(selectStatisticBreakfast);
-  const lunch = useSelector(selectStatisticLunch);
-  const dinner = useSelector(selectStatisticDinner);
-  const snack = useSelector(selectStatisticSnack);
+  const { breakfast, lunch, dinner, snack } = useSelector(selectStatistictsForDayByMeal)
   const { isLoggedIn } = useSelector(selectAuthInform);
 
-  const showButtonAdd = data => {
+  const showMealStat = useCallback((data) => {
     if (typeof data !== 'object') return;
 
     const values = Object.values(data);
     const maxValue = values.reduce((a, b) => a + b, 0);
     return maxValue === 0;
-  };
+  }, []);
 
   const dispatch = useDispatch();
 
@@ -54,10 +48,11 @@ export const MealOnMain = () => {
     setNumberOfMeals(() => [...numberOfMeals, '1']);
   };
 
-  const showBtnBreakfast = showButtonAdd(breakfast);
-  const showBtnLunch = showButtonAdd(lunch);
-  const showBtnDinner = showButtonAdd(dinner);
-  const showBtnSnack = showButtonAdd(snack);
+  const showBtnBreakfast = showMealStat(breakfast);
+  const showBtnLunch = showMealStat(lunch);
+  const showBtnDinner = showMealStat(dinner);
+  const showBtnSnack = showMealStat(snack);
+  
 
   return (
     <>

@@ -84,7 +84,7 @@
 	font-weight: 500;
 }
 
-.body_form input[type="number"] {
+.body_input {
 	width: 100vw;
 	max-width: 280px;
 	margin-top: 12px;
@@ -93,19 +93,25 @@
 	border-radius: 12px;
 	background: var(--color-primary-black-2);
 	color: var(--color-primary-grey);
+	-webkit-text-fill-color: var(--color-primary-grey);
 	box-sizing: border-box;
 
 }
+.body_input:-webkit-autofill, .body_input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px var(--color-primary-black-2) inset;
+  -webkit-text-fill-color: var(--color-primary-grey);
+}
+
 
 @media screen and (min-width: 834px) {
-	.body_form input[type="number"]{
+	.body_input {
 		max-width: 360px;
 	}
 
 }
 
 @media screen and (min-width: 1440px) {
-	.body_form input[type="number"]{
+	.body_input {
 		max-width: 192px;
 	}
 }

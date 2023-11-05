@@ -21,11 +21,11 @@ export const selectCaloriesConsuming = createSelector(
   (activity, weight, height, age, gender) => {
     switch (gender) {
       case 'male':
-        const bmrM =
+        let bmrM =
           (88.362 + 13.397 * weight + 4.799 * height - 5.677 * age) * activity;
         return Number(bmrM.toFixed(2));
       case 'female':
-        const bmrW =
+        let bmrW =
           (447.593 + 9.247 * weight + 3.098 * height - 4.33 * age) * activity;
         return Number(bmrW.toFixed(2));
       default:
@@ -34,47 +34,40 @@ export const selectCaloriesConsuming = createSelector(
   }
 );
 
-export const selectLoseFat = createSelector(
+export const selectElementsByGoal = createSelector(
   [selectCaloriesConsuming],
   calories => {
-    const protein = Math.trunc(((calories / 100) * 25) * 100) / 100;
-    const fat = Math.trunc(((calories / 100) * 20) * 100) / 100;
-    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
+    function getGoal(elemenet, goalsName) {
+      let numbersAccordingName = {};
+      if (goalsName === 'Lose fat') {
+        numbersAccordingName = { protein: 25, fat: 20 };
+      } else if (goalsName === 'Maintain') {
+        numbersAccordingName = { protein: 30, fat: 20 };
+      } else if (goalsName === 'Gain Muscle') {
+        numbersAccordingName = { protein: 20, fat: 25 };
+      } else {
+        numbersAccordingName = {};
+      }
+
+      let protein =
+        Math.trunc((elemenet / 100) * numbersAccordingName.protein * 100) / 100;
+      let fat =
+        Math.trunc((elemenet / 100) * numbersAccordingName.fat * 100) / 100;
+      let carbonohidrates =
+        Math.trunc((elemenet - (protein + fat)) * 100) / 100;
+
+      return {
+        protein,
+        fat,
+        carbonohidrates,
+      };
+    }
 
     return {
-      protein,
-      fat,
-      carbonohidrates,
+      loseFatGoal: getGoal(calories, 'Lose fat'),
+      maintainGoal: getGoal(calories, 'Maintain'),
+      gainMusculGoal: getGoal(calories, 'Gain Muscle'),
     };
   }
 );
 
-export const selectMaintain = createSelector(
-  [selectCaloriesConsuming],
-  calories => {
-    const protein = Math.trunc(((calories / 100) * 30) * 100) / 100;
-    const fat = Math.trunc(((calories / 100) * 20) * 100) / 100;
-    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
-
-    return {
-      protein,
-      fat,
-      carbonohidrates,
-    };
-  }
-);
-
-export const selectGainMuscle = createSelector(
-  [selectCaloriesConsuming],
-  calories => {
-    const protein = Math.trunc(((calories / 100) * 20) * 100) / 100;
-    const fat = Math.trunc(((calories / 100) * 25) * 100) / 100;
-    const carbonohidrates = Math.trunc((calories - (protein + fat)) * 100) / 100;
-
-    return {
-      protein,
-      fat,
-      carbonohidrates,
-    };
-  }
-);

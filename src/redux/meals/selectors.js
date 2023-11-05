@@ -29,75 +29,100 @@ export const selectStatisticsForCurrentDay = createSelector(
   }
 );
 
-export const selectStatisticBreakfast = createSelector(
-  [selectStatisticsForCurrentDay],
-  ({ breakfast }) => {
+// export const selectStatisticBreakfast = createSelector(
+//   [selectStatisticsForCurrentDay],
+//   ({ breakfast }) => {
     
 
-    if (!breakfast) {
-      return daysElementPattern;
+//     if (!breakfast) {
+//       return daysElementPattern;
+//     }
+
+//     return breakfast?.reduce((acc, item) => {
+//       if (item) {
+//         return item;
+//       } else {
+//         return acc;
+//       }
+//     }, daysElementPattern);
+//   }
+// );
+
+// export const selectStatisticLunch = createSelector(
+//   [selectStatisticsForCurrentDay],
+//   ({ lunch }) => {
+//     if (!lunch) {
+//       return daysElementPattern;
+//     }
+
+//     return lunch?.reduce((acc, item) => {
+//       if (item) {
+//         return item;
+//       } else {
+//         return acc;
+//       }
+//     }, daysElementPattern);
+//   }
+// );
+
+// export const selectStatisticDinner = createSelector(
+//   [selectStatisticsForCurrentDay],
+//   ({ dinner }) => {
+//     if (!dinner) {
+//       return daysElementPattern;
+//     }
+
+//     return dinner?.reduce((acc, item) => {
+//       if (item) {
+//         return item;
+//       } else {
+//         return acc;
+//       }
+//     }, daysElementPattern);
+//   }
+// );
+
+// export const selectStatisticSnack = createSelector(
+//   [selectStatisticsForCurrentDay],
+//   ({ snack }) => {
+//     if (!snack) {
+//       return daysElementPattern;
+//     }
+
+//     return snack?.reduce((acc, item) => {
+//       if (item) {
+//         return item;
+//       } else {
+//         return acc;
+//       }
+//     }, daysElementPattern);
+//   }
+// );
+
+export const selectStatistictsForDayByMeal = createSelector(
+  [selectStatisticsForCurrentDay], ({ breakfast, lunch, dinner, snack}) => {
+
+    function selectByElement(element) {
+      if (!element) {
+        return daysElementPattern;
+      }
+  
+      return element?.reduce((acc, item) => {
+        if (item) {
+          return item;
+        } else {
+          return acc;
+        }
+      }, daysElementPattern);
     }
 
-    return breakfast?.reduce((acc, item) => {
-      if (item) {
-        return item;
-      } else {
-        return acc;
-      }
-    }, daysElementPattern);
-  }
-);
-
-export const selectStatisticLunch = createSelector(
-  [selectStatisticsForCurrentDay],
-  ({ lunch }) => {
-    if (!lunch) {
-      return daysElementPattern;
+    return {
+      breakfast: selectByElement(breakfast),
+      lunch: selectByElement(lunch),
+      dinner: selectByElement(dinner),
+      snack: selectByElement(snack),
     }
-
-    return lunch?.reduce((acc, item) => {
-      if (item) {
-        return item;
-      } else {
-        return acc;
-      }
-    }, daysElementPattern);
-  }
-);
-
-export const selectStatisticDinner = createSelector(
-  [selectStatisticsForCurrentDay],
-  ({ dinner }) => {
-    if (!dinner) {
-      return daysElementPattern;
-    }
-
-    return dinner?.reduce((acc, item) => {
-      if (item) {
-        return item;
-      } else {
-        return acc;
-      }
-    }, daysElementPattern);
-  }
-);
-
-export const selectStatisticSnack = createSelector(
-  [selectStatisticsForCurrentDay],
-  ({ snack }) => {
-    if (!snack) {
-      return daysElementPattern;
-    }
-
-    return snack?.reduce((acc, item) => {
-      if (item) {
-        return item;
-      } else {
-        return acc;
-      }
-    }, daysElementPattern);
-  }
-);
+  });
 
 export const selectStatisticsForCurrentDayAllElem = createSelector(
   [selectStatisticsForCurrentDay],
@@ -136,72 +161,3 @@ export const selectStatisticsForCurrentDayAllElem = createSelector(
   }
 );
 
-// export const selectStatisticDataForDashboardMonth = createSelector(
-//   [selectUserDashboardStatMonth],
-//   items => {
-//     const data = items.reduce(
-//       (acc, { date, weight, water, breakfast, lunch, dinner, snack }) => {
-//         const calories = sumCalories(
-//           sumCaloriesForMeal(breakfast),
-//           sumCaloriesForMeal(lunch),
-//           sumCaloriesForMeal(dinner),
-//           sumCaloriesForMeal(snack)
-//         );
-//         const dataForDay = {
-//           water,
-//           weight,
-//           date,
-//           calories,
-//         };
-//         acc.push(dataForDay);
-
-//         return acc;
-//       },
-//       []
-//     );
-
-//     function sumCaloriesForMeal(meal) {
-//       return meal.reduce((acc, element) => (acc += element.calories), 0);
-//     }
-//     function sumCalories(firstM, secondM, thirdM, fourthM) {
-//       return firstM + secondM + thirdM + fourthM;
-//     }
-
-//     return data;
-//   }
-// );
-
-// export const selectStatisticDataForDashboardYear = createSelector(
-//   [selectUserDashboardStatYear],
-//   items => {
-//     const data = items.reduce(
-//       (acc, { date, weight, water, breakfast, lunch, dinner, snack }) => {
-//         const calories = sumCalories(
-//           sumCaloriesForMeal(breakfast),
-//           sumCaloriesForMeal(lunch),
-//           sumCaloriesForMeal(dinner),
-//           sumCaloriesForMeal(snack)
-//         );
-//         const dataForDay = {
-//           water,
-//           weight,
-//           date,
-//           calories,
-//         };
-//         acc.push(dataForDay);
-
-//         return acc;
-//       },
-//       []
-//     );
-
-//     function sumCaloriesForMeal(meal) {
-//       return meal.reduce((acc, element) => (acc += element.calories), 0);
-//     }
-//     function sumCalories(firstM, secondM, thirdM, fourthM) {
-//       return firstM + secondM + thirdM + fourthM;
-//     }
-
-//     return data;
-//   }
-// );

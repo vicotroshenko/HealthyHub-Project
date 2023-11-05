@@ -17,6 +17,7 @@ const singup = createAsyncThunk(
     try {
       const response = await axios.post('/api/auth/register', credentials);
       set(response.data.token);
+      console.log(response);
 
       return response.data;
     } catch (error) {

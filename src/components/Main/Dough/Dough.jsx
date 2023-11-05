@@ -11,11 +11,13 @@ export const Dough = ({
   text,
   styles,
 }) => {
-  const percent =
+  const getPercent = () =>
     Math.floor(
       ((currentAmount > dayAmount ? dayAmount : currentAmount) / dayAmount) *
         100
     ) || 0;
+    
+  const percent = getPercent();
 
   const data = {
     datasets: [

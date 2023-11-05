@@ -19,54 +19,23 @@ export const ModalMeal = ({
   const handleMealInform = event => {
     const { title, carbohydrates, protein, fat, calories } = event.target;
     event.preventDefault();
-    const dishes = [{}];
+    let dishes = [{}];
 
-    title.length !== undefined
-      ? title.forEach((item, index) => {
+    function collectData(data){
+      return data.length !== undefined
+      ? data.forEach((item, index) => {
           if (!dishes[index]) {
             dishes.push({});
           }
-          dishes[index].title = item.value;
+          dishes[index][data.name] = item.value;
         })
-      : (dishes[0].title = title.value);
-
-    carbohydrates.length !== undefined
-      ? carbohydrates.forEach((item, index) => {
-          if (!dishes[index]) {
-            dishes.push({});
-          }
-          dishes[index].carbohydrates = item.value;
-        })
-      : (dishes[0].carbohydrates = carbohydrates.value);
-
-    protein.length !== undefined
-      ? protein.forEach((item, index) => {
-          if (!dishes[index]) {
-            dishes.push({});
-          }
-          dishes[index].protein = item.value;
-        })
-      : (dishes[0].protein = protein.value);
-
-    fat.length !== undefined
-      ? fat.forEach((item, index) => {
-          if (!dishes[index]) {
-            dishes.push({});
-          }
-          dishes[index].fat = item.value;
-        })
-      : (dishes[0].fat = fat.value);
-
-    calories.length !== undefined
-      ? calories.forEach((item, index) => {
-          if (!dishes[index]) {
-            dishes.push({});
-          }
-          dishes[index].calories = item.value;
-        })
-      : (dishes[0].calories = calories.value);
-
-    toggle();
+      : (dishes[0][data.name] = data.value);
+    } 
+    collectData(title)
+    collectData(carbohydrates)
+    collectData(protein)
+    collectData(fat)
+    collectData(calories)
     
     for (const dish of dishes) {
       if (change) {
@@ -77,6 +46,7 @@ export const ModalMeal = ({
             dish,
           })
         );
+        toggle();
         return;
       }
 
@@ -84,6 +54,7 @@ export const ModalMeal = ({
         operationsMeal.addToMeal({ dish, name: data.name.toLowerCase() })
       );
     }
+    toggle();
   };
 
   const deletCurrentDish = () => {

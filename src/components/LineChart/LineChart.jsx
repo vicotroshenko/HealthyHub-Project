@@ -48,33 +48,39 @@ export const LineChart = ({
 
   let checkBoolean = period === 'month';
 
-  const statisticObject = checkBoolean
-    ? getStatisticMonth(nameElement.toLowerCase())
-    : {};
-  const statisticForYear = !checkBoolean
-    ? getStatisticYear(nameElement.toLowerCase())
-    : [];
+  const getStatisticForDay = () =>
+    checkBoolean ? getStatisticMonth(nameElement.toLowerCase()) : {};
+  const statisticForDay = getStatisticForDay();
 
-  let avaregeNumbers = null;
-  if (checkBoolean) {
-    avaregeNumbers = Math.floor(getAvarageMonth()[nameElement.toLowerCase()]);
-  } else {
-    avaregeNumbers = getAvarageYear(statisticForYear || [0]);
-  }
+  
+  const getStatisticForYear = () =>
+    !checkBoolean ? getStatisticYear(nameElement.toLowerCase()) : [];
+  const statisticForYear = getStatisticForYear();
+
+
+  const getAvaregeNumbers = () => {
+    if (checkBoolean) {
+      return Math.floor(getAvarageMonth()[nameElement.toLowerCase()]);
+    } else {
+      return getAvarageYear(statisticForYear || [0]);
+    }
+  };
+
+  let avaregeNumbers = getAvaregeNumbers();
 
   const maxNumber = checkBoolean
-    ? Math.floor(Math.max.apply(null, statisticObject.sum))
+    ? Math.floor(Math.max.apply(null, statisticForDay.sum))
     : Math.floor(Math.max.apply(null, statisticForYear));
   const maxNumberIndex = statisticForYear.indexOf(
     Math.max.apply(null, statisticForYear)
   );
 
   const data = {
-    labels: checkBoolean ? statisticObject.period : monthList,
+    labels: checkBoolean ? statisticForDay.period : monthList,
     datasets: [
       {
         label: '',
-        data: checkBoolean ? statisticObject.sum : statisticForYear,
+        data: checkBoolean ? statisticForDay.sum : statisticForYear,
         backgroundColor: 'rgba(192, 75, 91, 0.4)',
         borderColor: '#E3FFA8',
         tension: 0.3,
@@ -115,7 +121,7 @@ export const LineChart = ({
     afterDatasetsDraw(chart, args, pluginOptions) {
       const { ctx } = chart;
       checkBoolean
-        ? point(statisticObject.number, statisticObject.number)
+        ? point(statisticForDay.number, statisticForDay.number)
         : point(maxNumberIndex, maxNumberIndex);
       function point(x, y) {
         ctx.beginPath();
@@ -175,7 +181,7 @@ export const LineChart = ({
           <div className={css.weight_container}>
             <ul className={css.weight_days}>
               {checkBoolean &&
-                statisticObject.period?.map((item, index) => (
+                statisticForDay.period?.map((item, index) => (
                   <li key={`${index}`}>{item}</li>
                 ))}
               {!checkBoolean &&
@@ -187,7 +193,7 @@ export const LineChart = ({
             </ul>
             <ul className={css.weight_num}>
               {checkBoolean &&
-                statisticObject.sum?.map((item, index) => (
+                statisticForDay.sum?.map((item, index) => (
                   <li key={`${index}`}>{item}</li>
                 ))}
               {!checkBoolean &&
@@ -204,7 +210,6 @@ export const LineChart = ({
   );
 };
 
-
 LineChart.propTypes = {
   period: PropTypes.string.isRequired,
   nameElement: PropTypes.string.isRequired,
@@ -212,4 +217,4 @@ LineChart.propTypes = {
   getAvarageMonth: PropTypes.func,
   getAvarageYear: PropTypes.func,
   getStatisticYear: PropTypes.func,
-}
+};

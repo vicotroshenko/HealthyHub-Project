@@ -10,14 +10,16 @@ export const WaterOnMain = () => {
   const [showModal, setShowModal] = useState(false);
   const { waterGoal, water } = useSelector(selectUserData);
 
-  const change = waterGoal - water < 0 ? 0 : waterGoal - water;
-  const percent =
+  const getChange = () => waterGoal - water < 0 ? 0 : waterGoal - water;
+
+  const getPercent = () =>
     Math.floor(((water > waterGoal ? waterGoal : water) / waterGoal) * 100) ||
     0;
 
   const toggle = () => {
     setShowModal(!showModal);
   };
+
 
   return (
     <>
@@ -26,14 +28,14 @@ export const WaterOnMain = () => {
       <div className={css.water_container}>
         <div className={css.water_chart}>
           <p
-            style={percent >= 85 ? { display: 'none' } : { display: 'block' }}
+            style={getPercent() >= 85 ? { display: 'none' } : { display: 'block' }}
             className={css.water_percent}
-          >{`${percent}%`}</p>
-          <div style={{ height: `${percent}%` }} className={css.water_anim}>
+          >{`${getPercent()}%`}</p>
+          <div style={{ height: `${getPercent()}%` }} className={css.water_anim}>
             <p
-              style={percent < 85 ? { display: 'none' } : { display: 'block' }}
+              style={getPercent() < 85 ? { display: 'none' } : { display: 'block' }}
               className={css.water_percent_inner}
-            >{`${percent}%`}</p>
+            >{`${getPercent()}%`}</p>
           </div>
         </div>
 
@@ -44,7 +46,7 @@ export const WaterOnMain = () => {
             <span> ml</span>
           </p>
           <p>
-            left: <span>{change} ml</span>
+            left: <span>{getChange()} ml</span>
           </p>
           <ButtonSubmit size={{ SWidth: 166 }} onClick={toggle}>
             <HiOutlinePlus

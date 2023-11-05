@@ -6,10 +6,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { DiaryMeal } from 'components/Diary/DiaryMeal/DiaryMeal';
 import { useSelector } from 'react-redux';
 import {
-  selectStatisticBreakfast,
-  selectStatisticDinner,
-  selectStatisticLunch,
-  selectStatisticSnack,
+  selectStatistictsForDayByMeal,
   selectUserData,
 } from 'redux/meals/selectors';
 import css from './DiaryMealCollect.module.css';
@@ -17,10 +14,7 @@ import { Link } from 'react-router-dom';
 
 export const DiaryMealCollect = () => {
   const { breakfast, lunch, dinner, snack } = useSelector(selectUserData);
-  const breakfastStat = useSelector(selectStatisticBreakfast);
-  const lunchStat = useSelector(selectStatisticLunch);
-  const dinnerStat = useSelector(selectStatisticDinner);
-  const snackStat = useSelector(selectStatisticSnack);
+  const statistic = useSelector(selectStatistictsForDayByMeal)
 
   return (
     <>
@@ -36,25 +30,25 @@ export const DiaryMealCollect = () => {
           meal={breakfast}
           name={'Breakfast'}
           image={breakfastImage}
-          statistic={breakfastStat}
+          statistic={statistic.breakfast}
         />
         <DiaryMeal
           meal={lunch}
           name={'Lunch'}
           image={lunchImage}
-          statistic={lunchStat}
+          statistic={statistic.lunch}
         />
         <DiaryMeal
           meal={dinner}
           name={'Dinner'}
           image={dinnerImage}
-          statistic={dinnerStat}
+          statistic={statistic.dinner}
         />
         <DiaryMeal
           meal={snack}
           name={'Snack'}
           image={snacktImage}
-          statistic={snackStat}
+          statistic={statistic.snack}
         />
       </div>
     </>
