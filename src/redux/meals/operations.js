@@ -39,7 +39,7 @@ const getUserDay = createAsyncThunk('user/getDay', async (_, thunkAPI) => {
   try {
     const response = await axios.get('/api/user');
 
-    return response.data;
+    return response.data[response.data.length-1];
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

@@ -27,7 +27,7 @@ export const Header = () => {
       if (result.isConfirmed) {
         dispatch(operations.logOut());
         dispatch(logout());
-        navigate('/user/diary');
+        setTimeout(() => navigate('/singin'), 300);
       }
     });
   };
