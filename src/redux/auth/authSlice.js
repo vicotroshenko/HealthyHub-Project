@@ -29,6 +29,9 @@ const authSlice = createSlice({
     },
     deleteError(state, _action) {
       state.isAuthError = false;
+    },
+    directLogOut(state, _action){
+      state.isLoggedIn = false;
     }
   },
   extraReducers: {
@@ -139,4 +142,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { updateUser, deleteError } = authSlice.actions;
+export const { updateUser, deleteError, directLogOut } = authSlice.actions;

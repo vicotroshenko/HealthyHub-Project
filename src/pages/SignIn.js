@@ -3,6 +3,7 @@ import homeImage from '../images/png/home/Illustration.png';
 import { AuthContainer } from 'components/AuthContainer/AuthContainer';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
+import { login } from 'redux/meals/mealsSlice';
 
 
 const SignIn = () => {
@@ -10,6 +11,7 @@ const SignIn = () => {
 
   const handleSingIn = (values, { resetForm }) => {
     dispatch(operations.logIn(values));
+    dispatch(login());
     resetForm();
   };
 

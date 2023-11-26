@@ -39,9 +39,20 @@ const getUserDay = createAsyncThunk('user/getDay', async (_, thunkAPI) => {
   try {
     const response = await axios.get('/api/user');
 
-    return response.data[response.data.length-1];
+    if (!response.data[response.data.length - 1]) {
+      return {
+        date: 'no date',
+        breakfast: [],
+        lunch: [],
+        dinner: [],
+        snack: [],
+        weight: 0,
+        water: 0,
+      };
+    }
+    return response.data[response.data.length - 1];
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.status);
   }
 });
 
@@ -123,7 +134,7 @@ const getStatistic = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.status);
     }
   }
 );

@@ -15,6 +15,7 @@ const initialState = {
   dashboardStatYear: [],
   isLoading: null,
   isLoadError: null,
+  isLoadErrorMessage: null,
 };
 
 const mealsSlice = createSlice({
@@ -35,11 +36,16 @@ const mealsSlice = createSlice({
       state.dashboardStatYear = [];
       state.isLoading = null;
       state.isLoadError = null;
+      state.isLoadErrorMessage = null;
+    },
+    login(state, _action) {
+      state.isLoadErrorMessage = null;
     }
   },
   extraReducers: {
     [operations.addNewDay.pending](state, _action) {
       state.isLoading = true;
+      state.isLoadErrorMessage = null;
     },
     [operations.addNewDay.fulfilled](state, action) {
       state.breakfast = [];
@@ -59,21 +65,23 @@ const mealsSlice = createSlice({
     },
     [operations.getUserDay.pending](state, _action) {
       state.isLoading = true;
+      state.isLoadErrorMessage = null;
     },
-    [operations.getUserDay.fulfilled](state, action) {
-      state.breakfast = action.payload.breakfast;
-      state.lunch = action.payload.lunch;
-      state.dinner = action.payload.dinner;
-      state.snack = action.payload.snack;
-      state.weight = action.payload.weight;
-      state.date = action.payload.date;
-      state.water = action.payload.water;
+    [operations.getUserDay.fulfilled](state, { payload }) {
+      state.breakfast = payload.breakfast;
+      state.lunch = payload.lunch;
+      state.dinner = payload.dinner;
+      state.snack = payload.snack;
+      state.weight = payload.weight;
+      state.date = payload.date;
+      state.water = payload.water;
       state.isLoading = false;
       state.isLoadError = false;
     },
-    [operations.getUserDay.rejected](state, _action) {
+    [operations.getUserDay.rejected](state, action) {
       state.isLoadError = true;
       state.isLoading = false;
+      state.isLoadErrorMessage = action.payload;
     },
 
     [operations.updateWeight.pending](state, _action) {
@@ -132,15 +140,17 @@ const mealsSlice = createSlice({
 
     [operations.getStatistic.pending](state, _action) {
       state.isLoading = true;
+      // state.isLoadErrorMessage = null;
     },
     [operations.getStatistic.fulfilled](state, action) {
       state.statistic = action.payload;
       state.isLoading = false;
       state.isLoadError = false;
     },
-    [operations.getStatistic.rejected](state, _action) {
+    [operations.getStatistic.rejected](state, action) {
       state.isLoadError = true;
       state.isLoading = false;
+      // state.isLoadErrorMessage = action.payload;
     },
     [operations.getStatisticForMonth.pending](state, _action) {
       state.isLoading = true;
@@ -186,4 +196,4 @@ const mealsSlice = createSlice({
 
 export const mealsReducer = mealsSlice.reducer;
 
-export const { logout } = mealsSlice.actions;
+export const { logout, login } = mealsSlice.actions;
