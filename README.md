@@ -1,3 +1,14 @@
+**The first request may take time**. Don't worry, it is because I'm using free deploy on reder.com. Web Services on the free instance type are automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request. This can cause the first response delay.
+
+Also, you can enter to the site use my account that I have created before:
+
+  **email**: user@gmail.com
+  **password**: User11
+
+The **back-end** that I have developed for this app: https://github.com/vicotroshenko/healthyhub-backend;
+
+**Swagger** https://healthyhub-backend.onrender.com/api-docs/;
+
 # HealthyHub-Project 
 The application was developed using the React library. 
 **Application's goal.**
