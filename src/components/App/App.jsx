@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProtectedRout from 'routes/ProtextedRout';
 import { selectAuthInform } from 'redux/auth/selectors';
+import NotFound from 'pages/NotFound';
 
 export const App = () => {
   const { isLoggedIn } = useSelector(selectAuthInform);
@@ -60,6 +61,7 @@ export const App = () => {
         <Route path="/singup/activity" element={<Activity />} />
         <Route path="/singin" element={<SignIn />} />
         <Route path="/home" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="user/recommended"
           element={

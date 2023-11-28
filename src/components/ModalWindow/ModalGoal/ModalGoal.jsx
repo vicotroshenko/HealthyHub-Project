@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectUserGoal } from 'redux/auth/selectors';
 import css from './ModalGoal.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialValues = {
   goal: ['Lose fat'],
@@ -20,8 +22,21 @@ export const ModalGoal = ({ showModal, toggle }) => {
   const [checked, setChecked] = useState(useSelector(selectUserGoal));
   const dispatch = useDispatch();
 
+  const notify = () =>
+    toast.success(`You have changed your target to ${checked}`, {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+    });
+
   const handleGoal = () => {
     dispatch(operations.updateGoal({ goal: checked }));
+    notify();
   };
 
   return (
@@ -100,6 +115,18 @@ export const ModalGoal = ({ showModal, toggle }) => {
           </button>
         </Form>
       </Formik>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </Modal>
   );
 };
@@ -107,4 +134,4 @@ export const ModalGoal = ({ showModal, toggle }) => {
 ModalGoal.propTypes = {
   toggle: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
-}
+};

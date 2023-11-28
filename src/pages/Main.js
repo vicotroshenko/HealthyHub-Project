@@ -1,9 +1,8 @@
 import { Container } from 'components/Container/Container';
 import { MainInformation } from 'components/Main/MainInformation/MainInformation';
 import { MainMealAndRecommendedFood } from 'components/Main/MainMealAndRecommendedFood/MainMealAndRecommendedFood';
-import { Preloader } from 'components/Preloader/Preloader';
 import dateConvertor from 'helpers/dateConvertor';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { directLogOut } from 'redux/auth/authSlice';
@@ -15,15 +14,15 @@ import operationsRecommended from 'redux/recommended/operations';
 
 const Main = () => {
   const { isLoggedIn, user } = useSelector(selectAuthInform);
-  const { date, isLoading, isLoadErrorMessage } = useSelector(selectUserData);
+  const { date, isLoadErrorMessage } = useSelector(selectUserData);
   const { recommendedFood } = useSelector(state => state.recommended);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let updateDataRef = useRef(true);
 
   useEffect(() => {
     const clearLocalStorStatus = isLoadErrorMessage === 401;
-
     if (clearLocalStorStatus) {
       dispatch(directLogOut());
       dispatch(logout());
@@ -37,9 +36,15 @@ const Main = () => {
     const mealDay = dateConvertor(new Date(date));
     const clearLocalStorStatus = isLoadErrorMessage === 401;
 
-    if ((date === null || currentDate === mealDay) && !clearLocalStorStatus) {
+    if (
+      (date === null || currentDate === mealDay) &&
+      !clearLocalStorStatus &&
+      updateDataRef.current
+    ) {
       dispatch(operationsMeal.getUserDay());
+      updateDataRef.current = false;
     }
+
     if (date !== null && currentDate !== mealDay && !clearLocalStorStatus) {
       dispatch(operationsMeal.addNewDay({ weight: user.weight }));
     }
@@ -53,7 +58,6 @@ const Main = () => {
 
   return (
     <Container>
-      {isLoading && <Preloader />}
       <MainInformation />
       <MainMealAndRecommendedFood />
     </Container>

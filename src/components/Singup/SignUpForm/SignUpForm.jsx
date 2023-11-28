@@ -137,7 +137,7 @@ export const SignUpFrom = ({ handleSubmit, getPassword }) => {
                       : css.hidden
                   }
                 >
-                  Enter a valid Password*
+                  Password must contains uppercase, lowercase letters and number. Minimum length is 6 characters.*
                 </span>
                 <span
                   className={showTextSuccess ? css.successMessage : css.hidden}

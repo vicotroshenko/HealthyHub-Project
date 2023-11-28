@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { LineChart } from 'components/LineChart/LineChart';
 import css from './StatisticShow.module.css';
-import { useEffect, useState } from 'react';
-import operationsMeal from 'redux/meals/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   selectUserDashboardStatMonth,
   selectUserDashboardStatYear,
@@ -11,7 +10,6 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { ReactComponent as ArrowDown } from '../../images/svg/header/arrow-down.svg';
 import { Link } from 'react-router-dom';
-import { selectAuthInform } from 'redux/auth/selectors';
 
 export const StatisticShow = ({ containerRef }) => {
   const [period, setPeriod] = useState('month');
@@ -19,18 +17,10 @@ export const StatisticShow = ({ containerRef }) => {
 
   const statisticMonth = useSelector(selectUserDashboardStatMonth);
   const statisticYear = useSelector(selectUserDashboardStatYear);
-  const { isLoggedIn } = useSelector(selectAuthInform);
+
   const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
-  const dispatch = useDispatch();
   const nameOfMonth = new Date().toLocaleString('en-us', { month: 'long' });
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(operationsMeal.getStatisticForMonth({ month, year }));
-      dispatch(operationsMeal.getStatisticForYear({ year }));
-    }
-  }, [dispatch, month, year, isLoggedIn]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -87,8 +77,15 @@ export const StatisticShow = ({ containerRef }) => {
 
     return data;
   };
-  const collectedStatForMonth = handleStatisticDataForDashboard(statisticMonth);
-  const collectedStatForYear = handleStatisticDataForDashboard(statisticYear);
+
+  const collectedStatForMonth = useMemo(
+    () => handleStatisticDataForDashboard(statisticMonth),
+    [statisticMonth]
+  );
+  const collectedStatForYear = useMemo(
+    () => handleStatisticDataForDashboard(statisticYear),
+    [statisticYear]
+  );
 
   const findAvaregeValueByMonth = () => {
     const avarege = collectedStatForMonth.reduce(
@@ -179,7 +176,6 @@ export const StatisticShow = ({ containerRef }) => {
     const { name } = e.target;
     setPeriod(name);
   };
-
 
   return (
     <>
@@ -276,4 +272,4 @@ export const StatisticShow = ({ containerRef }) => {
 
 StatisticShow.propTypes = {
   containerRef: PropTypes.object.isRequired,
-}
+};

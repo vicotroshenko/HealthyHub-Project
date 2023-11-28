@@ -44,6 +44,7 @@ const mealsSlice = createSlice({
   },
   extraReducers: {
     [operations.addNewDay.pending](state, _action) {
+      state.isLoadError = false;
       state.isLoading = true;
       state.isLoadErrorMessage = null;
     },
@@ -59,11 +60,13 @@ const mealsSlice = createSlice({
       state.isLoading = false;
       state.isLoadError = false;
     },
-    [operations.addNewDay.rejected](state, _action) {
+    [operations.addNewDay.rejected](state, action) {
       state.isLoadError = true;
       state.isLoading = false;
+      state.isLoadErrorMessage = action.payload;
     },
     [operations.getUserDay.pending](state, _action) {
+      state.isLoadError = false;
       state.isLoading = true;
       state.isLoadErrorMessage = null;
     },

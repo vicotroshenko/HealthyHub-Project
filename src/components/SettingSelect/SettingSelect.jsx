@@ -2,9 +2,8 @@ import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import css from './SettingSelect.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthInform, selectUserSettings } from 'redux/auth/selectors';
+import { selectUserSettings } from 'redux/auth/selectors';
 import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
-import { useEffect } from 'react';
 import operations from 'redux/auth/operations';
 import operationsMeal from 'redux/meals/operations';
 import { SettingSVG } from 'components/SVG/SettingSVG/SettingSVG';
@@ -24,7 +23,6 @@ export const SettingSelect = () => {
 
   const { activity, age, avatarURL, gender, height, name, weight } =
     useSelector(selectUserSettings);
-  const { isLoggedIn } = useSelector(selectAuthInform);
 
   const initialValues = {
     name,
@@ -34,12 +32,6 @@ export const SettingSelect = () => {
     weight,
     activity: activity.toString(),
   };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(operations.getCurrentUser());
-    }
-  }, [dispatch, isLoggedIn]);
 
   const handleSubmitSetting = values => {
     values.activity = Number(values.activity);

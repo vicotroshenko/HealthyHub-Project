@@ -8,8 +8,9 @@ import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
 import { deleteError } from 'redux/auth/authSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = yup.object().shape({
   email: yup.string().email(),
@@ -29,18 +30,20 @@ export const SignInFrom = ({ handleSubmit }) => {
   const dispatch = useDispatch();
 
   const error = useSelector(state => state.auth.isAuthError);
-
+  const notify = () =>
+    toast.error("Your entered data is incorect", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+    });
 
   if(error){
-    Swal.fire({
-      position: 'top',
-      icon: 'error',
-      title: 'Your entered data is incorect',
-      showConfirmButton: false,
-      timer: 3500, 
-      background: "#0F0F0F",
-      color: "white",
-    })
+    notify();
     dispatch(deleteError())
   }
 
@@ -111,6 +114,18 @@ export const SignInFrom = ({ handleSubmit }) => {
           </div>
         </Form>
       </Formik>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
 
       <div className={css.sing_up_box}>
         <span>If you don't have an account yet</span>

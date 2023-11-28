@@ -23,7 +23,7 @@ const addNewDay = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.status);
     }
   }
 );
