@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+
 const SingUp = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -38,5 +39,6 @@ const SingUp = () => {
     </>
   );
 };
+
 
 export default SingUp;
