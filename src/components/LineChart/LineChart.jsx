@@ -65,15 +65,17 @@ export const LineChart = ({
       return getAvarageYear(statisticForYear || [0]);
     }
   };
-
+  
   let avaregeNumbers = getAvaregeNumbers();
 
   const maxNumber = checkBoolean
     ? Math.floor(Math.max.apply(null, statisticForDay.sum))
     : Math.floor(Math.max.apply(null, statisticForYear));
+
   const maxNumberIndex = statisticForYear.indexOf(
     Math.max.apply(null, statisticForYear)
   );
+
 
   const data = {
     labels: checkBoolean ? statisticForDay.period : monthList,

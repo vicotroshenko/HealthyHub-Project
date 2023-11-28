@@ -38,7 +38,11 @@ const authSlice = createSlice({
     [operations.singup.pending](state, _action) {
       state.isLoading = true;
     },
-    [operations.singup.fulfilled](state, _action) {
+    [operations.singup.fulfilled](state, action) {
+      state.user = action.payload.data;
+      state.token = action.payload.token;
+      state.user.password = null;
+      state.isLoggedIn = true;
       state.isLoading = false;
       state.isAuthError = false;
     },

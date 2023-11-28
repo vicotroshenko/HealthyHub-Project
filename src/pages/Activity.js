@@ -17,7 +17,7 @@ const Activity = () => {
 
     dispatch(operations.singup(data));
     resetForm();
-    navigate('/singin');
+    navigate('/');
   };
 
   return (

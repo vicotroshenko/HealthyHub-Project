@@ -31,7 +31,6 @@ export const SignUpFrom = ({ handleSubmit, getPassword }) => {
   const passwordFieldRef = useRef();
 
   const handleOnChange = passwordIn => {
-    console.log(passwordIn);
     getPassword(passwordIn);
     setPassword(passwordIn);
     if (
