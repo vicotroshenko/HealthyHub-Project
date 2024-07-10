@@ -1,151 +1,149 @@
-.water_title{
-	font-size: 22px;
-	line-height: 1.45;
-	font-weight: 400;
-	color: var(--color-primary-white);
+.water_title {
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--color-primary-white);
 }
 
-
 .water_container {
-	display: flex;
-	align-items: center;
-	column-gap: 20px;
-	width: 100vw;
-	max-width: 300px;
-	height: 224px;
-	padding: 16px 22px 16px 12px;
-	border-radius: 12px;
-	background: var(--color-primary-black-2);
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  width: 100vw;
+  max-width: 300px;
+  height: 224px;
+  padding: 16px 22px 16px 12px;
+  border-radius: 12px;
+  background: var(--color-primary-black-2);
 }
 
 @media screen and (min-width: 834px) {
-	.water_container {
-		column-gap: 40px;
-		max-width: 380px;
-		height: 240px;
-		padding: 24px 22px 24px 12px;
-	}
+  .water_container {
+    column-gap: 40px;
+    max-width: 380px;
+    height: 240px;
+    padding: 24px 22px 24px 12px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.water_container {
-		max-width: 444px;
-		padding: 24px 68px 24px 40px;
-	}
+  .water_container {
+    max-width: 444px;
+    padding: 24px 68px 24px 40px;
+  }
 }
 
-
 .water_chart {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	width: 80px;
-	height: 192px;
-	padding: 8px;
-	border-radius: 20px;
-	border: 1px solid var(--secondary-color-grey-1);
-	background: var(--color-primary-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 80px;
+  height: 192px;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid var(--secondary-color-grey-1);
+  background: var(--color-primary-black);
 }
 
 .water_chart div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 64px;
-	border-radius: 20px;
-	background: var(--color-primary-violet);
-	box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.12), 0px 4px 8px 0px rgba(0, 0, 0, 0.12) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  border-radius: 20px;
+  background: var(--color-primary-violet);
+  box-shadow:
+    0px 4px 8px 0px rgba(255, 255, 255, 0.12),
+    0px 4px 8px 0px rgba(0, 0, 0, 0.12) inset;
 }
 
-.water_percent, .water_percent_inner {
-	font-size: 16px;
-	line-height: 1.37;
-	font-weight: 600;
-	color: var(--color-primary-violet);
-	text-align: center;
+.water_percent,
+.water_percent_inner {
+  font-size: 16px;
+  line-height: 1.37;
+  font-weight: 600;
+  color: var(--color-primary-violet);
+  text-align: center;
 }
 
 .water_percent_inner {
-	color: var(--color-primary-black);
+  color: var(--color-primary-black);
 }
 
 .water_anim {
-	transition: height 250ms linear;
+  transition: height 250ms linear;
 }
 
-.water_info{
-	color: var(--color-primary-white);
+.water_info {
+  color: var(--color-primary-white);
 }
 
 .water_info h3 {
-	font-size: 16px;
-	line-height: 1.34;
-	font-weight: 500;
+  font-size: 16px;
+  line-height: 1.34;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 834px) {
-	.water_info{
-		height: 126px;
-	}
-	.water_info h3 {
-		font-size: 18px;
-	}
-	.water_info > p {
-		display: inline-block;
-	}
+  .water_info {
+    height: 126px;
+  }
+  .water_info h3 {
+    font-size: 18px;
+  }
+  .water_info > p {
+    display: inline-block;
+  }
 }
-
-
 
 .water_amount {
-	margin-top: 12px;
+  margin-top: 12px;
 
-	font-size: 28px;
-	line-height: 1.21;
-	font-weight: 500;
+  font-size: 28px;
+  line-height: 1.21;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 834px) {
-	.water_amount {
-		margin-top: 12px;
+  .water_amount {
+    margin-top: 12px;
 
-		font-size: 32px;
-		line-height: 1.18;
-	}
+    font-size: 32px;
+    line-height: 1.18;
+  }
 }
 
 .water_amount span {
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 400;
-	color: var(--color-primary-grey);
-	vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 400;
+  color: var(--color-primary-grey);
+  vertical-align: middle;
 }
 
 .water_amount ~ p {
-
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 834px) {
-	.water_amount ~ p {
-		display: inline-block;
-		margin-top: 0;
-		margin-left: 40px;
-		height: 28px;
+  .water_amount ~ p {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 40px;
+    height: 28px;
 
-		vertical-align: bottom;
-	}
+    vertical-align: bottom;
+  }
 }
 
 .water_amount ~ p > span {
-	font-weight: 500;
-	color: var(--color-primary-grey);
+  font-weight: 500;
+  color: var(--color-primary-grey);
 }
 
 .water_info button {
-	margin-top: 12px;
+  margin-top: 12px;
 }

@@ -1,25 +1,27 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
-import breakfastImage from '../../../images/png/main/breakfast_image.png';
-import lunchImage from '../../../images/png/main/lunch_image.png';
-import dinnerImage from '../../../images/png/main/dinner_image.png';
-import snacktImage from '../../../images/png/main/snack_image.png';
-import { ModalMeal } from 'components/ModalWindow/ModalMeal/ModalMeal';
-import {
-  selectStatistictsForDayByMeal,
-} from 'redux/meals/selectors';
-import css from './MealOnMain.module.css';
-import operationsMeal from 'redux/meals/operations';
 import { NavLink } from 'react-router-dom';
 import { selectAuthInform } from 'redux/auth/selectors';
+import operationsMeal from 'redux/meals/operations';
+import { selectStatistictsForDayByMeal } from 'redux/meals/selectors';
+
+import { ModalMeal } from 'components/ModalWindow/ModalMeal/ModalMeal';
+
+import breakfastImage from '../../../images/png/main/breakfast_image.png';
+import dinnerImage from '../../../images/png/main/dinner_image.png';
+import lunchImage from '../../../images/png/main/lunch_image.png';
+import snacktImage from '../../../images/png/main/snack_image.png';
+import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
+import css from './MealOnMain.module.css';
 
 export const MealOnMain = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
   const [numberOfMeals, setNumberOfMeals] = useState(['1']);
 
-  const { breakfast, lunch, dinner, snack } = useSelector(selectStatistictsForDayByMeal)
+  const { breakfast, lunch, dinner, snack } = useSelector(
+    selectStatistictsForDayByMeal
+  );
   const { isLoggedIn } = useSelector(selectAuthInform);
 
   const showMealStat = useCallback((data) => {
@@ -38,7 +40,7 @@ export const MealOnMain = () => {
     }
   }, [dispatch, isLoggedIn, showModal]);
 
-  const toggle = data => {
+  const toggle = (data) => {
     setShowModal(!showModal);
     setModalData(data);
     setNumberOfMeals(['1']);
@@ -52,7 +54,6 @@ export const MealOnMain = () => {
   const showBtnLunch = showMealStat(lunch);
   const showBtnDinner = showMealStat(dinner);
   const showBtnSnack = showMealStat(snack);
-  
 
   return (
     <>
@@ -66,14 +67,23 @@ export const MealOnMain = () => {
       <div>
         <div className={css.namebox}>
           <h2>Diary</h2>
-          <NavLink to={'user/diary'} data-name="link">
+          <NavLink
+            to={'user/diary'}
+            data-name="link"
+          >
             See more
           </NavLink>
         </div>
         <ul className={css.list}>
-          <li className={css.item} data-hovername="breakfast">
+          <li
+            className={css.item}
+            data-hovername="breakfast"
+          >
             <div className={css.title_container}>
-              <img src={breakfastImage} alt="breakfast logo" />
+              <img
+                src={breakfastImage}
+                alt="breakfast logo"
+              />
               <h3 className={css.sub_title}>Breakfast</h3>
             </div>
 
@@ -100,9 +110,15 @@ export const MealOnMain = () => {
             </button>
           </li>
 
-          <li className={css.item} data-hovername="lunch">
+          <li
+            className={css.item}
+            data-hovername="lunch"
+          >
             <div className={css.title_container}>
-              <img src={lunchImage} alt="lunch logo" />
+              <img
+                src={lunchImage}
+                alt="lunch logo"
+              />
               <h3 className={css.sub_title}>Lunch</h3>
             </div>
             <div className={showBtnLunch ? css.hidden : css.meal_info}>
@@ -126,9 +142,15 @@ export const MealOnMain = () => {
             </button>
           </li>
 
-          <li className={css.item} data-hovername="dinner">
+          <li
+            className={css.item}
+            data-hovername="dinner"
+          >
             <div className={css.title_container}>
-              <img src={dinnerImage} alt="dinner logo" />
+              <img
+                src={dinnerImage}
+                alt="dinner logo"
+              />
               <h3 className={css.sub_title}>Dinner</h3>
             </div>
             <div className={showBtnDinner ? css.hidden : css.meal_info}>
@@ -152,9 +174,15 @@ export const MealOnMain = () => {
             </button>
           </li>
 
-          <li className={css.item} data-hovername="snack">
+          <li
+            className={css.item}
+            data-hovername="snack"
+          >
             <div className={css.title_container}>
-              <img src={snacktImage} alt="snack logo" />
+              <img
+                src={snacktImage}
+                alt="snack logo"
+              />
               <h3 className={css.sub_title}>Dinner</h3>
             </div>
             <div className={showBtnSnack ? css.hidden : css.meal_info}>

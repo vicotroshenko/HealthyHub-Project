@@ -8,14 +8,16 @@ const daysElementPattern = {
   protein: 0,
 };
 
-export const selectUserData = state => state.user;
-export const selectUserStatistic = state => state.user.statistic;
-export const selectUserDashboardStatMonth = state => state.user.dashboardStatMonth;
-export const selectUserDashboardStatYear = state => state.user.dashboardStatYear;
+export const selectUserData = (state) => state.user;
+export const selectUserStatistic = (state) => state.user.statistic;
+export const selectUserDashboardStatMonth = (state) =>
+  state.user.dashboardStatMonth;
+export const selectUserDashboardStatYear = (state) =>
+  state.user.dashboardStatYear;
 
 export const selectStatisticsForCurrentDay = createSelector(
   [selectUserStatistic],
-  statistic => {
+  (statistic) => {
     const statisticForCurrentDay = statistic?.reduce((acc, item) => {
       const date = dateConvertor(new Date(item.date));
       const dateCurrent = dateConvertor(new Date());
@@ -30,13 +32,13 @@ export const selectStatisticsForCurrentDay = createSelector(
 );
 
 export const selectStatistictsForDayByMeal = createSelector(
-  [selectStatisticsForCurrentDay], ({ breakfast, lunch, dinner, snack}) => {
-
+  [selectStatisticsForCurrentDay],
+  ({ breakfast, lunch, dinner, snack }) => {
     function selectByElement(element) {
       if (!element) {
         return daysElementPattern;
       }
-  
+
       return element?.reduce((acc, item) => {
         if (item) {
           return item;
@@ -51,8 +53,9 @@ export const selectStatistictsForDayByMeal = createSelector(
       lunch: selectByElement(lunch),
       dinner: selectByElement(dinner),
       snack: selectByElement(snack),
-    }
-  });
+    };
+  }
+);
 
 export const selectStatisticsForCurrentDayAllElem = createSelector(
   [selectStatisticsForCurrentDay],
@@ -90,4 +93,3 @@ export const selectStatisticsForCurrentDayAllElem = createSelector(
     };
   }
 );
-

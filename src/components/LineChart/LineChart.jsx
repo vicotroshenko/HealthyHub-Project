@@ -1,17 +1,19 @@
-import PropTypes from 'prop-types';
 import {
-  Chart as ChartJS,
-  LineElement,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LineElement,
   LinearScale,
   PointElement,
-  Legend,
-  Tooltip,
   Title,
+  Tooltip,
 } from 'chart.js';
+import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
-import css from './LineChart.module.css';
+
 import { DragElement } from 'components/DragElement/DragElement';
+
+import css from './LineChart.module.css';
 
 ChartJS.register(
   LineElement,
@@ -52,11 +54,9 @@ export const LineChart = ({
     checkBoolean ? getStatisticMonth(nameElement.toLowerCase()) : {};
   const statisticForDay = getStatisticForDay();
 
-  
   const getStatisticForYear = () =>
     !checkBoolean ? getStatisticYear(nameElement.toLowerCase()) : [];
   const statisticForYear = getStatisticForYear();
-
 
   const getAvaregeNumbers = () => {
     if (checkBoolean) {
@@ -65,7 +65,7 @@ export const LineChart = ({
       return getAvarageYear(statisticForYear || [0]);
     }
   };
-  
+
   let avaregeNumbers = getAvaregeNumbers();
 
   const maxNumber = checkBoolean
@@ -75,7 +75,6 @@ export const LineChart = ({
   const maxNumberIndex = statisticForYear.indexOf(
     Math.max.apply(null, statisticForYear)
   );
-
 
   const data = {
     labels: checkBoolean ? statisticForDay.period : monthList,
@@ -188,7 +187,10 @@ export const LineChart = ({
                 ))}
               {!checkBoolean &&
                 monthList?.map((item, index) => (
-                  <li style={{ width: 58 }} key={`${index}`}>
+                  <li
+                    style={{ width: 58 }}
+                    key={`${index}`}
+                  >
                     {item}
                   </li>
                 ))}
@@ -200,7 +202,10 @@ export const LineChart = ({
                 ))}
               {!checkBoolean &&
                 statisticForYear?.map((item, index) => (
-                  <li style={{ width: 58 }} key={`${index}`}>
+                  <li
+                    style={{ width: 58 }}
+                    key={`${index}`}
+                  >
                     {Math.floor(item)}
                   </li>
                 ))}

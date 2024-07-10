@@ -1,12 +1,14 @@
 import { Field, Form, Formik } from 'formik';
-import * as yup from 'yup';
-import css from './SettingSelect.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserSettings } from 'redux/auth/selectors';
-import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
 import operations from 'redux/auth/operations';
+import { selectUserSettings } from 'redux/auth/selectors';
 import operationsMeal from 'redux/meals/operations';
+import * as yup from 'yup';
+
 import { SettingSVG } from 'components/SVG/SettingSVG/SettingSVG';
+
+import { ReactComponent as DownloadPic } from '../../images/svg/setting/direct-inbox.svg';
+import css from './SettingSelect.module.css';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -33,7 +35,7 @@ export const SettingSelect = () => {
     activity: activity.toString(),
   };
 
-  const handleSubmitSetting = values => {
+  const handleSubmitSetting = (values) => {
     values.activity = Number(values.activity);
 
     dispatch(operations.updateSetting(values));
@@ -41,7 +43,7 @@ export const SettingSelect = () => {
     dispatch(operationsMeal.updateWeight({ weight: values.weight }));
   };
 
-  const handleFileUpload = event => {
+  const handleFileUpload = (event) => {
     const file = event.currentTarget.files[0];
     const pathFile = event.target.value;
 
@@ -55,7 +57,7 @@ export const SettingSelect = () => {
   return (
     <div className={css.container}>
       <div className={css.container_main_image}>
-        <SettingSVG/>
+        <SettingSVG />
       </div>
       <div className={css.form_container}>
         <Formik
@@ -68,20 +70,33 @@ export const SettingSelect = () => {
               <h1>Profile setting</h1>
 
               <div className={css.btn_container_up}>
-                <button type="button" className={css.btn_cancel}>
+                <button
+                  type="button"
+                  className={css.btn_cancel}
+                >
                   Cancel
                 </button>
-                <button type="submit" className={css.btn_save}>
+                <button
+                  type="submit"
+                  className={css.btn_save}
+                >
                   Save
                 </button>
               </div>
             </div>
-            <div role="group" className={css.setting_form}>
+            <div
+              role="group"
+              className={css.setting_form}
+            >
               <div className={css.setting_up}>
                 <label>
                   {' '}
                   Your name
-                  <Field type="text" name="name" className={css.input_field} />
+                  <Field
+                    type="text"
+                    name="name"
+                    className={css.input_field}
+                  />
                 </label>
 
                 <label className={css.avart_item_label}>
@@ -227,10 +242,16 @@ export const SettingSelect = () => {
                 </label>
               </div>
               <div className={css.btn_container_bottom}>
-                <button type="submit" className={css.btn_save}>
+                <button
+                  type="submit"
+                  className={css.btn_save}
+                >
                   Save
                 </button>
-                <button type="button" className={css.btn_cancel}>
+                <button
+                  type="button"
+                  className={css.btn_cancel}
+                >
                   Cancel
                 </button>
               </div>

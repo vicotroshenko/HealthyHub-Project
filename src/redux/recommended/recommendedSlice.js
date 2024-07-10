@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import operations from './operations';
 
 const initialState = {
-	recommendedFood: [],
-	isLoading: false,
-	isLoadError: false,
+  recommendedFood: [],
+  isLoading: false,
+  isLoadError: false,
 };
-
 
 const recommendedSlice = createSlice({
   name: 'recommended',
@@ -24,7 +24,7 @@ const recommendedSlice = createSlice({
       state.isLoadError = true;
       state.isLoading = false;
     },
-	}
+  },
 });
 
 export const recommendedReducer = recommendedSlice.reducer;

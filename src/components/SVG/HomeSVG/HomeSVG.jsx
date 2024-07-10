@@ -330,7 +330,11 @@ export const HomeSVG = () => {
       </g>
       <defs>
         <clipPath id="clip0_41_1662">
-          <rect width="592" height="588" fill="white" />
+          <rect
+            width="592"
+            height="588"
+            fill="white"
+          />
         </clipPath>
       </defs>
     </svg>

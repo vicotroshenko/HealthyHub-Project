@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectUserData } from 'redux/meals/selectors';
 import { selectCaloriesConsuming } from 'redux/auth/selectors';
-import css from './GoalsOnMain.module.css';
-import { BubbleSVG } from 'components/SVG/BubbleSVG/BubbleSVG';
+import { selectUserData } from 'redux/meals/selectors';
+
 import { BottleSVG } from 'components/SVG/BottleSVG/BottleSVG';
+import { BubbleSVG } from 'components/SVG/BubbleSVG/BubbleSVG';
+
+import css from './GoalsOnMain.module.css';
 
 export const GoalsOnMain = () => {
   const { waterGoal } = useSelector(selectUserData);

@@ -8,8 +8,8 @@ export const useBreakpoints = () => {
   const isLaptop = useMediaQuery({ query: '(min-width: 1440px)' });
 
   return {
-		isMobile,
-		isTablet,
-		isLaptop,
+    isMobile,
+    isTablet,
+    isLaptop,
   };
 };

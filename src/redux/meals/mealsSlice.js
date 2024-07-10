@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import operations from './operations';
 
 const initialState = {
@@ -40,7 +41,7 @@ const mealsSlice = createSlice({
     },
     login(state, _action) {
       state.isLoadErrorMessage = null;
-    }
+    },
   },
   extraReducers: {
     [operations.addNewDay.pending](state, _action) {
@@ -185,7 +186,7 @@ const mealsSlice = createSlice({
     },
     [operations.deleteDishFromCurrentDay.fulfilled](state, action) {
       state[action.payload.name] = state[action.payload.name].filter(
-        item => item._id === action.payload.id
+        (item) => item._id === action.payload.id
       );
       state.isLoading = false;
       state.isLoadError = false;

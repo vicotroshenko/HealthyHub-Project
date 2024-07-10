@@ -435,7 +435,11 @@ export const SettingSVG = () => {
       </g>
       <defs>
         <clipPath id="clip0_65_3746">
-          <rect width="536" height="528" fill="white" />
+          <rect
+            width="536"
+            height="528"
+            fill="white"
+          />
         </clipPath>
       </defs>
     </svg>

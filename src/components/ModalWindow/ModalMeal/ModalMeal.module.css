@@ -1,89 +1,88 @@
 .modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-	max-width: 300px;
-	padding: 16px 12px 40px 12px;
-	background-color: #0F0F0F;
-	border-radius: 12px;
-	box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 300px;
+  padding: 16px 12px 40px 12px;
+  background-color: #0f0f0f;
+  border-radius: 12px;
+  box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
 
-	pointer-events: auto;
+  pointer-events: auto;
 }
 
 @media screen and (min-width: 834px) {
-	.modal {
-		max-width: 676px;
-		padding: 24px;
-		height: 408px;
-		padding: 24px;
-	}
+  .modal {
+    max-width: 676px;
+    padding: 24px;
+    height: 408px;
+    padding: 24px;
+  }
 }
 
 .name_container {
-	display: flex;
-	align-items: center;
-	column-gap: 12px;
-	width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  width: 100%;
 }
 
 .name_container h2 {
-	font-size: 18px;
-	line-height: 1.44;
-	font-weight: 400;
+  font-size: 18px;
+  line-height: 1.44;
+  font-weight: 400;
 }
 
 .title_page {
-	display: block;
-	margin-bottom: 24px;
+  display: block;
+  margin-bottom: 24px;
 }
 
 .name_image_container {
-	display: block;
-	width: 32px;
-	height: 32px;
+  display: block;
+  width: 32px;
+  height: 32px;
 }
 
 .scroll_container {
-	height: 216px;
-	width: 100%;
-	overflow-y: auto;
+  height: 216px;
+  width: 100%;
+  overflow-y: auto;
 }
 
 .form_container {
-	width: 100%;
-	max-height: 556px;
-	padding-bottom: 16px;
+  width: 100%;
+  max-height: 556px;
+  padding-bottom: 16px;
 }
 
 .inner_form {
-	width: 100%;
-	padding: 16px 0 0 0;
+  width: 100%;
+  padding: 16px 0 0 0;
 }
 
-.inner_form>label~label {
-	display: inline-block;
-	width: 100%;
-	margin-top: 16px;
+.inner_form > label ~ label {
+  display: inline-block;
+  width: 100%;
+  margin-top: 16px;
 }
 
 @media screen and (min-width: 834px) {
-	.inner_form {
-		display: flex;
-		align-items: center;
-		column-gap: 12px;
-	}
+  .inner_form {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+  }
 
-	.inner_form>label~label {
-		margin-top: 0;
-	}
+  .inner_form > label ~ label {
+    margin-top: 0;
+  }
 }
 
-
-.form_container>div {
-	width: 100%;
+.form_container > div {
+  width: 100%;
 }
 
 .title,
@@ -91,128 +90,128 @@
 .protein,
 .fat,
 .calories {
-	width: 100%;
-	max-width: 276px;
-	padding: 8px 10px;
-	border-radius: 12px;
-	border: 1px solid var(--color-primary-green-lite);
-	background: var(--color-primary-black-2);
+  width: 100%;
+  max-width: 276px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--color-primary-green-lite);
+  background: var(--color-primary-black-2);
 
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 400;
-	color: var(--color-primary-grey);
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 400;
+  color: var(--color-primary-grey);
 }
 
-
 .add_more {
-	display: flex;
-	align-items: center;
-	column-gap: 6px;
-	margin-top: 24px;
-	margin-bottom: 40px;
-	border: none;
-	background-color: transparent;
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  border: none;
+  background-color: transparent;
 
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 1.43;
-	color: var(--color-primary-green-lite);
-	cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  color: var(--color-primary-green-lite);
+  cursor: pointer;
 
-	transition: all 250ms linear;
+  transition: all 250ms linear;
 }
 
 .add_more:hover {
-	text-decoration: underline;
-	color: var(--secondary-color-yellow);
+  text-decoration: underline;
+  color: var(--secondary-color-yellow);
 }
 
 .btn_container {
-	margin-top: 16px;
+  margin-top: 16px;
 }
 
 @media screen and (min-width: 834px) {
-	.btn_container {
-		display: flex;
-		flex-direction: row-reverse;
-		align-items: center;
-	}
+  .btn_container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 
-	.add_more {
-		margin-bottom: 0;
-	}
+  .add_more {
+    margin-bottom: 0;
+  }
 }
 
 .button_cancel {
-	display: block;
-	width: 100%;
-	max-width: 276px;
-	padding: 8px 10px;
-	margin-top: 16px;
-	margin-right: 12px;
-	border: none;
-	background-color: transparent;
+  display: block;
+  width: 100%;
+  max-width: 276px;
+  padding: 8px 10px;
+  margin-top: 16px;
+  margin-right: 12px;
+  border: none;
+  background-color: transparent;
 
-	font-weight: 400;
-	line-height: 1.43;
-	color: var(--color-primary-grey);
+  font-weight: 400;
+  line-height: 1.43;
+  color: var(--color-primary-grey);
 
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .button_cancel:hover,
 .button_cancel:focus {
-	border-radius: 12px;
-	color: var(--secondary-color-yellow);
-	box-shadow: 0 1px 1px rgba(255, 243, 183, 0.12), 0 2px 2px rgba(255, 243, 183,0.12);
+  border-radius: 12px;
+  color: var(--secondary-color-yellow);
+  box-shadow:
+    0 1px 1px rgba(255, 243, 183, 0.12),
+    0 2px 2px rgba(255, 243, 183, 0.12);
 }
 
 @media screen and (min-width: 834px) {
-	.button_cancel {
-		max-width: 192px;
-		margin-top: 0;
-	}
+  .button_cancel {
+    max-width: 192px;
+    margin-top: 0;
+  }
 
-	.title {
-		width: 100vw;
-		max-width: 255px;
-	}
+  .title {
+    width: 100vw;
+    max-width: 255px;
+  }
 
-	.carbohydrates {
-		width: 100%;
-		max-width: 100px;
-	}
+  .carbohydrates {
+    width: 100%;
+    max-width: 100px;
+  }
 
-	.protein {
-		width: 100%;
-		max-width: 86px;
-	}
+  .protein {
+    width: 100%;
+    max-width: 86px;
+  }
 
-	.fat {
-		width: 100%;
-		max-width: 61px;
-	}
+  .fat {
+    width: 100%;
+    max-width: 61px;
+  }
 
-	.calories {
-		width: 100%;
-		max-width: 78px;
-	}
+  .calories {
+    width: 100%;
+    max-width: 78px;
+  }
 }
 
-.inner_form~.inner_form {
-	animation: show-new-form 250ms linear;
+.inner_form ~ .inner_form {
+  animation: show-new-form 250ms linear;
 }
 
 @keyframes show-new-form {
-	0% {
-		opacity: 0.4;
-		transform: translateY(-50px);
-	}
+  0% {
+    opacity: 0.4;
+    transform: translateY(-50px);
+  }
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-

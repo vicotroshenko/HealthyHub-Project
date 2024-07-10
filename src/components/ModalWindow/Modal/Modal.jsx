@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
-import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+
 import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ children, toggle, styles, visible = false }) => {
   useEffect(() => {
-    const handleKeyDown = event => {
+    const handleKeyDown = (event) => {
       if (event.code === 'Escape') {
         toggle();
       }
@@ -18,7 +19,7 @@ export const Modal = ({ children, toggle, styles, visible = false }) => {
     };
   }, [toggle]);
 
-  const handleBackdropClick = event => {
+  const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       toggle();
     }
@@ -37,9 +38,8 @@ export const Modal = ({ children, toggle, styles, visible = false }) => {
   );
 };
 
-
 Modal.propTypes = {
   toggle: PropTypes.func.isRequired,
   styles: PropTypes.string.isRequired,
   visible: PropTypes.bool.isRequired,
-}
+};

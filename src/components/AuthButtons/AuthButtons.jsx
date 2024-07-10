@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 import css from './AuthButtons.module.css';
 
 export const AuthButtons = () => {
@@ -9,10 +10,18 @@ export const AuthButtons = () => {
         The service will help you set goals and follow them.
       </p>
       <div className={css.buttons_container}>
-        <NavLink to={'/singin'} className={css.button_sing_in} type="button">
+        <NavLink
+          to={'/singin'}
+          className={css.button_sing_in}
+          type="button"
+        >
           Sign in
         </NavLink>
-        <NavLink to={'/singup'} className={css.button_sing_up} type="button">
+        <NavLink
+          to={'/singup'}
+          className={css.button_sing_up}
+          type="button"
+        >
           Sign up
         </NavLink>
       </div>

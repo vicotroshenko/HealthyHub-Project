@@ -1,7 +1,9 @@
+import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from 'chart.js';
 import PropTypes from 'prop-types';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
-import css from './Dough.module.css';
 import { Doughnut } from 'react-chartjs-2';
+
+import css from './Dough.module.css';
+
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 export const Dough = ({
@@ -16,7 +18,7 @@ export const Dough = ({
       ((currentAmount > dayAmount ? dayAmount : currentAmount) / dayAmount) *
         100
     ) || 0;
-    
+
   const percent = getPercent();
 
   const data = {
@@ -71,7 +73,6 @@ export const Dough = ({
   );
 };
 
-
 Dough.propTypes = {
   image: PropTypes.string,
   dayAmount: PropTypes.number,
@@ -79,4 +80,4 @@ Dough.propTypes = {
   color: PropTypes.string,
   text: PropTypes.object,
   styles: PropTypes.object,
-}
+};

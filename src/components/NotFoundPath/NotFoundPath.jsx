@@ -1,9 +1,10 @@
-import { Container } from 'components/Container/Container';
-import styles from './NotFoundPath.module.css';
 import { NavLink } from 'react-router-dom';
 
-const NotFoundPath = () => {
+import { Container } from 'components/Container/Container';
 
+import styles from './NotFoundPath.module.css';
+
+const NotFoundPath = () => {
   return (
     <Container>
       <div className={styles.recket_box}>
@@ -15,8 +16,15 @@ const NotFoundPath = () => {
           xmlns="http://www.w3.org/2000/svg"
           className={styles.picture}
         >
-          <rect width="1123" height="837" fill="#050505" />
-          <g id="sky" filter="url(#filter0_d)">
+          <rect
+            width="1123"
+            height="837"
+            fill="#050505"
+          />
+          <g
+            id="sky"
+            filter="url(#filter0_d)"
+          >
             <rect
               id="background"
               x="30"
@@ -125,7 +133,10 @@ const NotFoundPath = () => {
                   d="M685.931 674.368H662.211L666.441 645.558H681.701L685.931 674.368Z"
                   fill="#535461"
                 />
-                <g id="Group" opacity="0.1">
+                <g
+                  id="Group"
+                  opacity="0.1"
+                >
                   <path
                     id="Vector_20"
                     opacity="0.1"
@@ -143,7 +154,10 @@ const NotFoundPath = () => {
                   d="M607.981 674.368H584.261L588.491 645.558H603.741L607.981 674.368Z"
                   fill="#535461"
                 />
-                <g id="Group_2" opacity="0.1">
+                <g
+                  id="Group_2"
+                  opacity="0.1"
+                >
                   <path
                     id="Vector_23"
                     opacity="0.1"
@@ -173,7 +187,10 @@ const NotFoundPath = () => {
                   d="M633.401 396.448L651.191 396.538V418.478H633.401V396.448Z"
                   fill="#535461"
                 />
-                <g id="Group_3" opacity="0.1">
+                <g
+                  id="Group_3"
+                  opacity="0.1"
+                >
                   <path
                     id="Vector_28"
                     opacity="0.1"
@@ -181,7 +198,10 @@ const NotFoundPath = () => {
                     fill="black"
                   />
                 </g>
-                <g id="Group_4" opacity="0.1">
+                <g
+                  id="Group_4"
+                  opacity="0.1"
+                >
                   <path
                     id="Vector_29"
                     opacity="0.1"
@@ -244,7 +264,10 @@ const NotFoundPath = () => {
               filterUnits="userSpaceOnUse"
               colorInterpolationFilters="sRGB"
             >
-              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feFlood
+                floodOpacity="0"
+                result="BackgroundImageFix"
+              />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -277,8 +300,14 @@ const NotFoundPath = () => {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#E0E0E0" />
-              <stop offset="0.31" stopColor="#FCCC63" />
-              <stop offset="0.77" stopColor="#F55F44" />
+              <stop
+                offset="0.31"
+                stopColor="#FCCC63"
+              />
+              <stop
+                offset="0.77"
+                stopColor="#F55F44"
+              />
             </linearGradient>
             <linearGradient
               id="paint1_linear"
@@ -289,8 +318,14 @@ const NotFoundPath = () => {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#E0E0E0" />
-              <stop offset="0.31" stopColor="#FCCC63" />
-              <stop offset="0.77" stopColor="#F55F44" />
+              <stop
+                offset="0.31"
+                stopColor="#FCCC63"
+              />
+              <stop
+                offset="0.77"
+                stopColor="#F55F44"
+              />
             </linearGradient>
             <linearGradient
               id="paint2_linear"
@@ -301,8 +336,14 @@ const NotFoundPath = () => {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#E0E0E0" />
-              <stop offset="0.31" stopColor="#FCCC63" />
-              <stop offset="0.77" stopColor="#F55F44" />
+              <stop
+                offset="0.31"
+                stopColor="#FCCC63"
+              />
+              <stop
+                offset="0.77"
+                stopColor="#F55F44"
+              />
             </linearGradient>
             <linearGradient
               id="paint3_linear"
@@ -313,8 +354,14 @@ const NotFoundPath = () => {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#E0E0E0" />
-              <stop offset="0.31" stopColor="#FCCC63" />
-              <stop offset="0.77" stopColor="#F55F44" />
+              <stop
+                offset="0.31"
+                stopColor="#FCCC63"
+              />
+              <stop
+                offset="0.77"
+                stopColor="#F55F44"
+              />
             </linearGradient>
           </defs>
         </svg>
@@ -324,7 +371,7 @@ const NotFoundPath = () => {
           <h3>
             Page Not Found - lets take you{' '}
             <NavLink
-              to={"/"}
+              to={'/'}
               className={styles.backlink}
             >
               back home

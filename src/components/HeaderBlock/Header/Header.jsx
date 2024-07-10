@@ -1,12 +1,14 @@
-import { AuthHeaderContain } from 'components/HeaderBlock/AuthHeaderContain/AuthHeaderContain';
-import { UserHeaderContain } from 'components/HeaderBlock/UserHeaderContain/UserHeaderContain';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 import operations from 'redux/auth/operations';
 import { selectAuthInform } from 'redux/auth/selectors';
-import css from './Header.module.css';
-import { useNavigate } from 'react-router-dom';
 import { logout } from 'redux/meals/mealsSlice';
+import Swal from 'sweetalert2';
+
+import { AuthHeaderContain } from 'components/HeaderBlock/AuthHeaderContain/AuthHeaderContain';
+import { UserHeaderContain } from 'components/HeaderBlock/UserHeaderContain/UserHeaderContain';
+
+import css from './Header.module.css';
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -23,7 +25,7 @@ export const Header = () => {
       confirmButtonText: 'Yes, log out!',
       background: '#0F0F0F',
       color: 'white',
-    }).then(result => {
+    }).then((result) => {
       if (result.isConfirmed) {
         dispatch(operations.logOut());
         dispatch(logout());

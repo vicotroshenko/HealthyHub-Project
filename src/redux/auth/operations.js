@@ -1,9 +1,9 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://healthyhub-backend.onrender.com/';
 
-const set = token => {
+const set = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 

@@ -1,140 +1,139 @@
-
 @media screen and (min-width: 834px) {
-	.buttons {
-		text-align: center;
-	}
+  .buttons {
+    text-align: center;
+  }
 }
 @media screen and (min-width: 834px) {
-	.buttons {
-		text-align: left;
-	}
+  .buttons {
+    text-align: left;
+  }
 }
 .buttons h1 {
-	margin-top: 24px; 
-	font-size: 24px;
-	line-height: 1.25;
-	font-weight: 500;
-	color: var(--color-primary-white);
+  margin-top: 24px;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--color-primary-white);
 }
 
 @media screen and (min-width: 834px) {
-	.buttons h1 {
-		margin-top: 80px; 
-		font-size: 30px;
-		line-height: 1.2;
-	}
-
+  .buttons h1 {
+    margin-top: 80px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.buttons h1 {
-		margin-top: 0; 
-	}
+  .buttons h1 {
+    margin-top: 0;
+  }
 }
 
 .buttons_desc {
-	margin-top: 16px; 
-	font-size: 18px;
-	line-height: 1.33;
-	color: var(--color-primary-grey);
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  color: var(--color-primary-grey);
 }
 
 @media screen and (min-width: 834px) {
-	.buttons_desc {
-		font-size: 22px;
-		line-height: 1.45;
-	}
+  .buttons_desc {
+    font-size: 22px;
+    line-height: 1.45;
+  }
 }
 
-.buttons_container{
-	display: flex;
-	justify-content: center;
-	column-gap: 16px;
-	max-width: 300px;
-	padding-top: 24px;
+.buttons_container {
+  display: flex;
+  justify-content: center;
+  column-gap: 16px;
+  max-width: 300px;
+  padding-top: 24px;
 }
 
 @media screen and (min-width: 834px) {
-	.buttons_container {
-		max-width: 444px;
-	}
+  .buttons_container {
+    max-width: 444px;
+  }
 }
 
 .button_sing_in {
-	padding: 8px 40px;
-	border-bottom: 1px solid transparent;
-	border-right: 4px solid transparent;
-	border-radius: 12px;
-	background: var(--color-primary-green-lite);
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-black-2);
-	text-align: center;
+  padding: 8px 40px;
+  border-bottom: 1px solid transparent;
+  border-right: 4px solid transparent;
+  border-radius: 12px;
+  background: var(--color-primary-green-lite);
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 500;
+  color: var(--color-primary-black-2);
+  text-align: center;
 }
 
 @media screen and (min-width: 834px) {
-	.button_sing_in {
-		padding: 8px 75px;
-	}
+  .button_sing_in {
+    padding: 8px 75px;
+  }
 }
 
 .button_sing_up {
-	padding: 8px 40px;
-	border-radius: 12px;
-	background-color: transparent;
-	border: none;
-	font-size: 14px;
-	line-height: 1.43;
-	font-weight: 500;
-	color: var(--color-primary-white);
-	text-align: center;
+  padding: 8px 40px;
+  border-radius: 12px;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 500;
+  color: var(--color-primary-white);
+  text-align: center;
 }
 
 .button_sing_up:hover,
 .button_sing_up:focus {
-	border-radius: 12px;
-	color: var(--secondary-color-yellow);
-	box-shadow: 0 1px 1px rgba(255, 243, 183, 0.12), 0 2px 2px rgba(255, 243, 183,0.12);
+  border-radius: 12px;
+  color: var(--secondary-color-yellow);
+  box-shadow:
+    0 1px 1px rgba(255, 243, 183, 0.12),
+    0 2px 2px rgba(255, 243, 183, 0.12);
 }
 
 .button_sing_in:hover {
-	border: none;
-	box-shadow: rgba(255, 255, 255, 0.24) 0px 5px 8px;
-	font-size: 15px;
+  border: none;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 5px 8px;
+  font-size: 15px;
 }
 .list {
-	display: grid;
-	grid-template-columns: repeat( auto-fill, 300px);
-	grid-row-gap: 16px;
-	margin-top: 40px;
-	font-size: 14px;
-	line-height: 1.43;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-row-gap: 16px;
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 1.43;
 }
 
 @media screen and (min-width: 834px) {
-	.list {
-		grid-template-columns: 1fr 1fr;
-		margin-top: 80px;
-		text-align: left;
-	}
+  .list {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 80px;
+    text-align: left;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.list {
-		grid-template-columns: 1fr;
-	}
+  .list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .list li {
-	list-style: none;
+  list-style: none;
 }
 
 .list li::before {
-	content: "\2022"; 
-  display: inline-block; 
-	width: 1em;
+  content: '\2022';
+  display: inline-block;
+  width: 1em;
   margin-left: -1em;
-	color: var(--color-primary-green-lite);
+  color: var(--color-primary-green-lite);
 }
-

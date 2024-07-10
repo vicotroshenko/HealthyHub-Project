@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
-import { LineChart } from 'components/LineChart/LineChart';
-import css from './StatisticShow.module.css';
 import { useEffect, useMemo, useState } from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   selectUserDashboardStatMonth,
   selectUserDashboardStatYear,
 } from 'redux/meals/selectors';
-import { BsArrowLeft } from 'react-icons/bs';
+
+import { LineChart } from 'components/LineChart/LineChart';
+
 import { ReactComponent as ArrowDown } from '../../images/svg/header/arrow-down.svg';
-import { Link } from 'react-router-dom';
+import css from './StatisticShow.module.css';
 
 export const StatisticShow = ({ containerRef }) => {
   const [period, setPeriod] = useState('month');
@@ -37,12 +39,12 @@ export const StatisticShow = ({ containerRef }) => {
     };
   }, [containerRef]);
 
-  const toggle = e => {
+  const toggle = (e) => {
     if (e.target.name === 'drop button') setVissible(!vissible);
     return;
   };
 
-  const handleStatisticDataForDashboard = statElement => {
+  const handleStatisticDataForDashboard = (statElement) => {
     if (!Array.isArray(statElement)) {
       return;
     }
@@ -106,7 +108,7 @@ export const StatisticShow = ({ containerRef }) => {
     return avarege;
   };
 
-  const findAvaregeValueByYear = element => {
+  const findAvaregeValueByYear = (element) => {
     if (!Array.isArray(element)) {
       return;
     }
@@ -124,7 +126,7 @@ export const StatisticShow = ({ containerRef }) => {
     return avaredge;
   };
 
-  const getStatFromMonth = element => {
+  const getStatFromMonth = (element) => {
     if (typeof element !== 'string') {
       return;
     }
@@ -147,7 +149,7 @@ export const StatisticShow = ({ containerRef }) => {
     return { period: dayInMonthArray, sum: elementForDays, number };
   };
 
-  const getStatFromYear = element => {
+  const getStatFromYear = (element) => {
     if (typeof element !== 'string') {
       return;
     }
@@ -159,7 +161,7 @@ export const StatisticShow = ({ containerRef }) => {
       count.push(0);
     }
 
-    collectedStatForYear.forEach(item => {
+    collectedStatForYear.forEach((item) => {
       const date = new Date(new Date(item.date)).getMonth();
       elementStat[date] += item[element];
       count[date] += 1;
@@ -172,7 +174,7 @@ export const StatisticShow = ({ containerRef }) => {
     return elementStat;
   };
 
-  const handleSelect = e => {
+  const handleSelect = (e) => {
     const { name } = e.target;
     setPeriod(name);
   };
@@ -182,7 +184,10 @@ export const StatisticShow = ({ containerRef }) => {
       <div className={css.select_menu_container}>
         <div>
           <div className={css.drop_container}>
-            <Link to={'/'} data-name="link">
+            <Link
+              to={'/'}
+              data-name="link"
+            >
               {' '}
               <BsArrowLeft
                 style={{ width: 24, height: 24, verticalAlign: 'middle' }}

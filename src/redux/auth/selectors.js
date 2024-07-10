@@ -1,14 +1,14 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectUserSettings = state => state.auth.user;
-export const selectUserGoal = state => state.auth.user.goal;
-export const selectAuthInform = state => state.auth;
+export const selectUserSettings = (state) => state.auth.user;
+export const selectUserGoal = (state) => state.auth.user.goal;
+export const selectAuthInform = (state) => state.auth;
 
-const selectUserActivity = state => state.auth.user.activity;
-const selectUserWeight = state => state.auth.user.weight;
-const selectUserHeight = state => state.auth.user.height;
-const selectUserAge = state => state.auth.user.age;
-const selectUserGender = state => state.auth.user.gender;
+const selectUserActivity = (state) => state.auth.user.activity;
+const selectUserWeight = (state) => state.auth.user.weight;
+const selectUserHeight = (state) => state.auth.user.height;
+const selectUserAge = (state) => state.auth.user.age;
+const selectUserGender = (state) => state.auth.user.gender;
 
 export const selectCaloriesConsuming = createSelector(
   [
@@ -36,7 +36,7 @@ export const selectCaloriesConsuming = createSelector(
 
 export const selectElementsByGoal = createSelector(
   [selectCaloriesConsuming],
-  calories => {
+  (calories) => {
     function getGoal(elemenet, goalsName) {
       let numbersAccordingName = {};
       if (goalsName === 'Lose fat') {
@@ -70,4 +70,3 @@ export const selectElementsByGoal = createSelector(
     };
   }
 );
-

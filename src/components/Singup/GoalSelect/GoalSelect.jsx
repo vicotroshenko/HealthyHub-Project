@@ -1,18 +1,19 @@
-import PropTypes from 'prop-types';
 import { Field, Form, Formik } from 'formik';
-import * as yup from 'yup';
-import css from './GoalSelect.module.css';
-import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
-import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectUserSettings } from 'redux/auth/selectors';
+import * as yup from 'yup';
+
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+
+import css from './GoalSelect.module.css';
 
 const schema = yup.object().shape({
   goal: yup.string().required(),
 });
 
 export const GoalSelect = ({ handleSubmit }) => {
-
   const { goal } = useSelector(selectUserSettings);
 
   return (
@@ -27,13 +28,26 @@ export const GoalSelect = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form style={{ width: '100%' }}>
-          <div role="group" className={css.goal_form}>
+          <div
+            role="group"
+            className={css.goal_form}
+          >
             <label>
-              <Field type="radio" id="lostfat" name="goal" value="Lose fat" />
+              <Field
+                type="radio"
+                id="lostfat"
+                name="goal"
+                value="Lose fat"
+              />
               <span>Lose Fat</span>
             </label>
             <label>
-              <Field type="radio" id="maintain" name="goal" value="Maintain" />
+              <Field
+                type="radio"
+                id="maintain"
+                name="goal"
+                value="Maintain"
+              />
               <span>Maintain</span>
             </label>
             <label>
@@ -53,11 +67,11 @@ export const GoalSelect = ({ handleSubmit }) => {
           </div>
         </Form>
       </Formik>
-      <ProgressStepperBasic activeStep={1}/>
+      <ProgressStepperBasic activeStep={1} />
     </div>
   );
 };
 
 GoalSelect.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-}
+};

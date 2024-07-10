@@ -1,6 +1,6 @@
+import { useBreakpoints } from 'hooks/useBreakpoints';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useBreakpoints } from 'hooks/useBreakpoints';
 
 export const ButtonSubmit = ({
   children = '',
@@ -78,10 +78,9 @@ export const ButtonSubmit = ({
   );
 };
 
-
 ButtonSubmit.propTypes = {
   size: PropTypes.object,
   onClick: PropTypes.func,
   onSubmit: PropTypes.func,
   name: PropTypes.string,
-}
+};

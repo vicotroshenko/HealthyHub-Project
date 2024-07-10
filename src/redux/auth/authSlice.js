@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import operations from './operations';
 
 const initialState = {
@@ -30,9 +31,9 @@ const authSlice = createSlice({
     deleteError(state, _action) {
       state.isAuthError = false;
     },
-    directLogOut(state, _action){
+    directLogOut(state, _action) {
       state.isLoggedIn = false;
-    }
+    },
   },
   extraReducers: {
     [operations.singup.pending](state, _action) {

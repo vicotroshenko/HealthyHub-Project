@@ -1,124 +1,123 @@
 .goal {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	width: 100%;
-	max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 300px;
 }
 
 @media screen and (min-width: 834px) {
-	.goal {
-		align-items: center;
-		justify-content: center;
-		max-width: 444px;
-	}
+  .goal {
+    align-items: center;
+    justify-content: center;
+    max-width: 444px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.goal {
-		justify-content: flex-start;
-	}
+  .goal {
+    justify-content: flex-start;
+  }
 }
 
 .goal h1 {
-	margin-top: 24px;
-	font-size: 24px;
-	line-height: 1.25;
-	font-weight: 500;
-	color: var(--color-primary-white);
+  margin-top: 24px;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--color-primary-white);
 }
 
 @media screen and (min-width: 834px) {
-	.goal h1 {
-		margin-top: 60px;
-		font-size: 30px;
-		line-height: 1.2;
-		text-align: center;
-	}
+  .goal h1 {
+    margin-top: 60px;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+  }
 }
 
 .goal p {
-	margin-top: 16px;
-	font-size: 18px;
-	line-height: 1.33;
-	font-weight: 400;
-	color: var(--color-primary-grey);
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: 400;
+  color: var(--color-primary-grey);
 }
 
 @media screen and (min-width: 834px) {
-	.goal p {
-		max-width: 444px;
-		font-size: 22px;
-		line-height: 1.45;
-		text-align: center;
-	}
+  .goal p {
+    max-width: 444px;
+    font-size: 22px;
+    line-height: 1.45;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.goal p {
-		text-align: left;
-	}
+  .goal p {
+    text-align: left;
+  }
 }
 
 .goal_form {
-	display: grid;
-	grid-template-columns: 1fr;
-	row-gap: 24px;
-	width: 100%;
-	margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
+  width: 100%;
+  margin-top: 24px;
 }
 
 @media screen and (min-width: 834px) {
-	.goal_form {
-		grid-template-columns: 148px 148px 148px;
-		margin-top: 60px;
-	}
+  .goal_form {
+    grid-template-columns: 148px 148px 148px;
+    margin-top: 60px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	.goal_form {
-		grid-template-columns: 1fr;
-	}
+  .goal_form {
+    grid-template-columns: 1fr;
+  }
 }
-
 
 .goal_form label {
-	font-size: 14px;
-	line-height: 1.43;
-	color: var(--color-primary-white);
-	cursor: pointer;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--color-primary-white);
+  cursor: pointer;
 }
 
-.goal_form label>input {
-	width: 13px;
-	height: 13px;
-	margin-right: 18px;
-	border: 1px solid var(--color-primary-white);
-	border-radius: 50%;
-	outline: none;
-	cursor: pointer;
+.goal_form label > input {
+  width: 13px;
+  height: 13px;
+  margin-right: 18px;
+  border: 1px solid var(--color-primary-white);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
 
-	-webkit-appearance: none;
-	appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 
-	transition: 0.2s all linear;
+  transition: 0.2s all linear;
 }
 
-.goal_form label>input:checked {
-	border: 2px solid var(--color-primary-black);
-	outline: 1px solid var(--color-primary-white);
-	background-color: var(--color-primary-green-lite);
+.goal_form label > input:checked {
+  border: 2px solid var(--color-primary-black);
+  outline: 1px solid var(--color-primary-white);
+  background-color: var(--color-primary-green-lite);
 }
 
 .goat_btn_container {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
 }
 
 @media screen and (min-width: 1440px) {
-	.goat_btn_container {
-		justify-content: flex-start;
-	}
+  .goat_btn_container {
+    justify-content: flex-start;
+  }
 }

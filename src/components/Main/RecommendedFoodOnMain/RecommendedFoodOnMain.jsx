@@ -1,12 +1,13 @@
-import css from './RecommendedFoodOnMain.module.css';
-import { BsArrowRight } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useRef } from 'react';
+import { BsArrowRight } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import css from './RecommendedFoodOnMain.module.css';
 
 export const RecommendedFoodOnMain = () => {
   const recommendedFood = useSelector(
-    state => state.recommended.recommendedFood
+    (state) => state.recommended.recommendedFood
   );
   let recFod = useRef([...recommendedFood]);
 
@@ -31,7 +32,10 @@ export const RecommendedFoodOnMain = () => {
       <h2 className={css.rec_food_title}>Recommended food</h2>
       <ul className={css.list}>
         {shuffleFood.map((item, index) => (
-          <li key={index} className={css.item}>
+          <li
+            key={index}
+            className={css.item}
+          >
             <div className={css.image_container}>
               {/* <img src={item.img} alt={item.name}/> */}
             </div>

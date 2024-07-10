@@ -1,14 +1,15 @@
-import { useSelector } from 'react-redux';
-import css from './RecomendedFoodView.module.css';
-import { useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
-import operationsRecommended from 'redux/recommended/operations';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { selectAuthInform } from 'redux/auth/selectors';
+import operationsRecommended from 'redux/recommended/operations';
+
+import css from './RecomendedFoodView.module.css';
 
 export const RecommendedFoodView = () => {
   const dispatch = useDispatch();
   const recommendedFood = useSelector(
-    state => state.recommended.recommendedFood
+    (state) => state.recommended.recommendedFood
   );
   const { isLoggedIn } = useSelector(selectAuthInform);
   let recFod = useRef([...recommendedFood]);
@@ -41,9 +42,15 @@ export const RecommendedFoodView = () => {
     <div>
       <ul className={css.list}>
         {shuffledFood.map((item, index) => (
-          <li key={index} className={css.item}>
+          <li
+            key={index}
+            className={css.item}
+          >
             <div className={css.image_container}>
-              <img src={item.img} alt={item.name} />
+              <img
+                src={item.img}
+                alt={item.name}
+              />
             </div>
             <div className={css.desc_container}>
               <h3 className={css.sub_title}>{item.name}</h3>

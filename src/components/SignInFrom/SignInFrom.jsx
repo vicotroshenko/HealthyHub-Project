@@ -1,16 +1,18 @@
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
-import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
-import css from './SignInFrom.module.css';
+import { useRef, useState } from 'react';
 import { BsFillEyeFill } from 'react-icons/bs';
 import { BsFillEyeSlashFill } from 'react-icons/bs';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
-import { Link } from 'react-router-dom';
-import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteError } from 'redux/auth/authSlice';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { deleteError } from 'redux/auth/authSlice';
+import * as yup from 'yup';
+
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+
+import css from './SignInFrom.module.css';
 
 const schema = yup.object().shape({
   email: yup.string().email(),
@@ -22,17 +24,16 @@ const initialValues = {
   password: '',
 };
 
-
 export const SignInFrom = ({ handleSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const passwordFieldRef = useRef();
   const dispatch = useDispatch();
 
-  const error = useSelector(state => state.auth.isAuthError);
+  const error = useSelector((state) => state.auth.isAuthError);
   const notify = () =>
-    toast.error("Your entered data is incorect", {
-      position: "bottom-center",
+    toast.error('Your entered data is incorect', {
+      position: 'bottom-center',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -42,9 +43,9 @@ export const SignInFrom = ({ handleSubmit }) => {
       theme: 'dark',
     });
 
-  if(error){
+  if (error) {
     notify();
-    dispatch(deleteError())
+    dispatch(deleteError());
   }
 
   const toggleShowPassword = () => {
@@ -70,7 +71,10 @@ export const SignInFrom = ({ handleSubmit }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={css.sign_in_form}>
+          <div
+            role="group"
+            className={css.sign_in_form}
+          >
             <label htmlFor="email">
               <Field
                 type="email"
@@ -79,11 +83,14 @@ export const SignInFrom = ({ handleSubmit }) => {
                 className={css.sign_in_input}
               />
               <ErrorMessage name="email">
-                {msg => <p className={css.error}>{msg}</p>}
+                {(msg) => <p className={css.error}>{msg}</p>}
               </ErrorMessage>
             </label>
             <div className={css.passwordContainer}>
-              <label htmlFor="password" ref={passwordFieldRef}>
+              <label
+                htmlFor="password"
+                ref={passwordFieldRef}
+              >
                 <Field
                   type="password"
                   name="password"
@@ -91,7 +98,7 @@ export const SignInFrom = ({ handleSubmit }) => {
                   className={css.sign_in_input}
                 />
                 <ErrorMessage name="password">
-                  {msg => <p className={css.error}>{msg}</p>}
+                  {(msg) => <p className={css.error}>{msg}</p>}
                 </ErrorMessage>
               </label>
               <label>
@@ -135,7 +142,6 @@ export const SignInFrom = ({ handleSubmit }) => {
   );
 };
 
-
 SignInFrom.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-}
+};

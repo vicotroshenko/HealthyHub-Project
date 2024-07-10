@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
-import * as React from 'react';
 import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import * as React from 'react';
+
 import { useBreakpoints } from '../../hooks/useBreakpoints';
 
 export const ProgressStepperBasic = ({ activeStep }) => {
@@ -78,5 +79,4 @@ export const ProgressStepperBasic = ({ activeStep }) => {
 
 ProgressStepperBasic.propTypes = {
   activeStep: PropTypes.number.isRequired,
-
-}
+};

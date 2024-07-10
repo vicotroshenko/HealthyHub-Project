@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
-import css from './Container.module.css';
 import { selectUserData } from 'redux/meals/selectors';
+
 import { Preloader } from 'components/Preloader/Preloader';
+
+import css from './Container.module.css';
 
 export const Container = ({ children }) => {
   const { isLoading } = useSelector(selectUserData);
-  
+
   return (
     <>
       {isLoading && <Preloader />}

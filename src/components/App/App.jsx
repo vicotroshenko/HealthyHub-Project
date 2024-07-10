@@ -1,22 +1,23 @@
-import SharedLayout from 'components/SharedLayout/SharedLayout';
 import Activity from 'pages/Activity';
 import Age from 'pages/Age';
 import BodyParameters from 'pages/BodyParameters';
+import Diary from 'pages/Diary';
 import Goal from 'pages/Goal';
 import Home from 'pages/Home';
 import Main from 'pages/Main';
+import NotFound from 'pages/NotFound';
 import RecommendedFood from 'pages/RecommendedFood';
 import Setting from 'pages/Setting';
 import SignIn from 'pages/SignIn';
 import SingUp from 'pages/SingUp';
-import Diary from 'pages/Diary';
 import Statistic from 'pages/Statistic';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import ProtectedRout from 'routes/ProtextedRout';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { selectAuthInform } from 'redux/auth/selectors';
-import NotFound from 'pages/NotFound';
+import ProtectedRout from 'routes/ProtextedRout';
+
+import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 export const App = () => {
   const { isLoggedIn } = useSelector(selectAuthInform);
@@ -45,7 +46,10 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
+      <Route
+        path="/"
+        element={<SharedLayout />}
+      >
         <Route
           index
           element={
@@ -54,14 +58,38 @@ export const App = () => {
             </ProtectedRout>
           }
         />
-        <Route path="/singup" element={<SingUp />} />
-        <Route path="/singup/goal" element={<Goal />} />
-        <Route path="/singup/age" element={<Age />} />
-        <Route path="/singup/body-parameters" element={<BodyParameters />} />
-        <Route path="/singup/activity" element={<Activity />} />
-        <Route path="/singin" element={<SignIn />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/singup"
+          element={<SingUp />}
+        />
+        <Route
+          path="/singup/goal"
+          element={<Goal />}
+        />
+        <Route
+          path="/singup/age"
+          element={<Age />}
+        />
+        <Route
+          path="/singup/body-parameters"
+          element={<BodyParameters />}
+        />
+        <Route
+          path="/singup/activity"
+          element={<Activity />}
+        />
+        <Route
+          path="/singin"
+          element={<SignIn />}
+        />
+        <Route
+          path="/home"
+          element={<Home />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
         <Route
           path="user/recommended"
           element={

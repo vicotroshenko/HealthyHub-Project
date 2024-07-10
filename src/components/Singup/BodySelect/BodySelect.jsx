@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
 import { Field, Form, Formik } from 'formik';
-import css from './BodySelect.module.css';
-import * as yup from 'yup';
-import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
-import { NavLink } from 'react-router-dom';
-import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { selectUserSettings } from 'redux/auth/selectors';
+import * as yup from 'yup';
+
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { ProgressStepperBasic } from 'components/ProgressStepperBasic/ProgressStepperBasic';
+
+import css from './BodySelect.module.css';
 
 const schema = yup.object().shape({
   height: yup.number().max(300).required(),
@@ -14,9 +16,7 @@ const schema = yup.object().shape({
 });
 
 export const BodySelect = ({ handleSubmit }) => {
-
   const { height, weight } = useSelector(selectUserSettings);
-
 
   return (
     <div className={css.body}>
@@ -24,36 +24,56 @@ export const BodySelect = ({ handleSubmit }) => {
       <p>Enter your parameters for correct performance tracking</p>
       <Formik
         initialValues={{
-          height: height || "",
-          weight: weight || "",
+          height: height || '',
+          weight: weight || '',
         }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
         <Form>
-          <div role="group" className={css.body_form}>
+          <div
+            role="group"
+            className={css.body_form}
+          >
             <label>
               Height
-              <Field type="number" name="height" max="300" className={css.body_input} />
+              <Field
+                type="number"
+                name="height"
+                max="300"
+                className={css.body_input}
+              />
             </label>
 
             <label>
               Weight
-              <Field type="number" name="weight" max="350" className={css.body_input}/>
+              <Field
+                type="number"
+                name="weight"
+                max="350"
+                className={css.body_input}
+              />
             </label>
 
             <div className={css.body_button_container}>
-              <ButtonSubmit size={{SWidth: 280, MWidth: 380, LWidth: 212,}}>Next</ButtonSubmit>
-              <NavLink to={"/singup/age"} className={css.back_link}>Back</NavLink>
+              <ButtonSubmit size={{ SWidth: 280, MWidth: 380, LWidth: 212 }}>
+                Next
+              </ButtonSubmit>
+              <NavLink
+                to={'/singup/age'}
+                className={css.back_link}
+              >
+                Back
+              </NavLink>
             </div>
           </div>
         </Form>
       </Formik>
-      <ProgressStepperBasic activeStep={3}/>
+      <ProgressStepperBasic activeStep={3} />
     </div>
   );
 };
 
 BodySelect.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-}
+};

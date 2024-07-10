@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-
 :root {
-  --color-primary-white: #FFF;
+  --color-primary-white: #fff;
   --color-primary-black: #050505;
-  --color-primary-violet: #B6C3FF;
-  --color-primary-black-2: #0F0F0F;
-  --color-primary-lite-green: #45FFBC;
-  --color-primary-grey: #B6B6B6;
-  --color-primary-green-lite: #E3FFA8;
+  --color-primary-violet: #b6c3ff;
+  --color-primary-black-2: #0f0f0f;
+  --color-primary-lite-green: #45ffbc;
+  --color-primary-grey: #b6b6b6;
+  --color-primary-green-lite: #e3ffa8;
   --secondary-color-grey-1: #292928;
-  --secondary-color-pink: #FFC4F7;
+  --secondary-color-pink: #ffc4f7;
   --secondary-color-yellow: rgb(255, 243, 183);
 }
 
@@ -38,29 +37,38 @@ img {
   display: block;
 }
 
-p, ul, li, h1, h2, h3, h4, h5, button {
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+button {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-input[type="number"], input[type="text"], input[type="email"], input[type="password"]  {
+input[type='number'],
+input[type='text'],
+input[type='email'],
+input[type='password'] {
   transition: all 250ms linear;
 }
 
-input[type="number"]:hover,
-input[type="text"]:hover,
-input[type="email"]:hover,
-input[type="password"]:hover
- {
+input[type='number']:hover,
+input[type='text']:hover,
+input[type='email']:hover,
+input[type='password']:hover {
   border: 1px solid var(--color-primary-green-lite);
   outline: 1px solid var(--color-primary-green-lite);
 }
 
-input[type="number"]:focus,
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus
- {
+input[type='number']:focus,
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus {
   border: 1px solid var(--color-primary-green-lite);
   outline: 1px solid var(--color-primary-green-lite);
 }
@@ -73,16 +81,14 @@ label:focus {
   color: var(--color-primary-green-lite);
 }
 
-
-[data-name="link"]{
+[data-name='link'] {
   transition: all 250ms linear;
 }
 
-[data-name="link"]:hover {
+[data-name='link']:hover {
   color: var(--secondary-color-yellow);
   text-decoration: underline;
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -90,7 +96,6 @@ label:focus {
 
 ::-webkit-scrollbar-track {
   background-color: var(--color-primary-black-2);
-
 }
 
 ::-webkit-scrollbar-thumb {

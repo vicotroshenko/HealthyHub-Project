@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import { Modal } from 'components/ModalWindow/Modal/Modal';
-import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
 import { useDispatch } from 'react-redux';
 import operationsMeal from 'redux/meals/operations';
-import css from './ModalMeal.module.css';
+
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { Modal } from 'components/ModalWindow/Modal/Modal';
+
+import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
+import css from './ModalMeal.module.css';
 
 export const ModalMeal = ({
   showModal = false,
@@ -16,27 +18,27 @@ export const ModalMeal = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handleMealInform = event => {
+  const handleMealInform = (event) => {
     const { title, carbohydrates, protein, fat, calories } = event.target;
     event.preventDefault();
     let dishes = [{}];
 
-    function collectData(data){
+    function collectData(data) {
       return data.length !== undefined
-      ? data.forEach((item, index) => {
-          if (!dishes[index]) {
-            dishes.push({});
-          }
-          dishes[index][data.name] = item.value;
-        })
-      : (dishes[0][data.name] = data.value);
-    } 
-    collectData(title)
-    collectData(carbohydrates)
-    collectData(protein)
-    collectData(fat)
-    collectData(calories)
-    
+        ? data.forEach((item, index) => {
+            if (!dishes[index]) {
+              dishes.push({});
+            }
+            dishes[index][data.name] = item.value;
+          })
+        : (dishes[0][data.name] = data.value);
+    }
+    collectData(title);
+    collectData(carbohydrates);
+    collectData(protein);
+    collectData(fat);
+    collectData(calories);
+
     for (const dish of dishes) {
       if (change) {
         dispatch(
@@ -68,20 +70,36 @@ export const ModalMeal = ({
   };
 
   return (
-    <Modal toggle={toggle} styles={css.modal} visible={showModal}>
+    <Modal
+      toggle={toggle}
+      styles={css.modal}
+      visible={showModal}
+    >
       <h1 className={css.title_page}>Record your meal</h1>
       <div className={css.name_container}>
         <div className={css.name_image_container}>
-          <img src={data?.image} alt={data?.name} />
+          <img
+            src={data?.image}
+            alt={data?.name}
+          />
         </div>
         <h2>{data?.name}</h2>
       </div>
 
-      <form className={css.form_container} onSubmit={handleMealInform}>
-        <div role="group" style={{ width: '100%' }}>
+      <form
+        className={css.form_container}
+        onSubmit={handleMealInform}
+      >
+        <div
+          role="group"
+          style={{ width: '100%' }}
+        >
           <div className={css.scroll_container}>
             {numberColection.map((item, index) => (
-              <div key={index} className={css.inner_form}>
+              <div
+                key={index}
+                className={css.inner_form}
+              >
                 <label>
                   <input
                     type="text"
@@ -172,7 +190,6 @@ export const ModalMeal = ({
   );
 };
 
-
 ModalMeal.propTypes = {
   toggle: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
@@ -180,4 +197,4 @@ ModalMeal.propTypes = {
   numberColection: PropTypes.array.isRequired,
   addColection: PropTypes.func.isRequired,
   change: PropTypes.object,
-}
+};

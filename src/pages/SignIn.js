@@ -1,10 +1,11 @@
-import { SignInFrom } from 'components/SignInFrom/SignInFrom';
-import homeImage from '../images/png/home/Illustration.png';
-import { AuthContainer } from 'components/AuthContainer/AuthContainer';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { login } from 'redux/meals/mealsSlice';
 
+import { AuthContainer } from 'components/AuthContainer/AuthContainer';
+import { SignInFrom } from 'components/SignInFrom/SignInFrom';
+
+import homeImage from '../images/png/home/Illustration.png';
 
 const SignIn = () => {
   const dispatch = useDispatch();

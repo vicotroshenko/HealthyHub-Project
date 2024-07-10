@@ -3,7 +3,12 @@ import css from './Preloader.module.css';
 export const Preloader = () => {
   return (
     <div className={css.preloader_container}>
-      <svg className={css.bike} viewBox="0 0 48 30" width="48px" height="30px">
+      <svg
+        className={css.bike}
+        viewBox="0 0 48 30"
+        width="48px"
+        height="30px"
+      >
         <g
           fill="none"
           stroke="currentColor"
@@ -22,7 +27,10 @@ export const Preloader = () => {
               strokeDasharray="31.416 31.416"
               strokeDashoffset="-23.562"
             >
-              <circle className={css.bike__spokes} r="5" />
+              <circle
+                className={css.bike__spokes}
+                r="5"
+              />
               <circle
                 className={css.bike__spokes}
                 r="5"
@@ -37,7 +45,10 @@ export const Preloader = () => {
               strokeDashoffset="-21.991"
               transform="rotate(67.5,0,0)"
             >
-              <circle className={css.bike__pedals} r="4" />
+              <circle
+                className={css.bike__pedals}
+                r="4"
+              />
               <circle
                 className={css.bike__pedals}
                 r="4"
@@ -56,7 +67,10 @@ export const Preloader = () => {
               strokeDasharray="31.416 31.416"
               strokeDashoffset="-23.562"
             >
-              <circle className={css.bike__spokes} r="5" />
+              <circle
+                className={css.bike__spokes}
+                r="5"
+              />
               <circle
                 className={css.bike__spokes}
                 r="5"

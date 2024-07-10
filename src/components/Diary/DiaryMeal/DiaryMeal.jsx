@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
-import css from './DiaryMeal.module.css';
-import { BiEditAlt } from 'react-icons/bi';
-import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
 import { useEffect, useState } from 'react';
-import { ModalMeal } from 'components/ModalWindow/ModalMeal/ModalMeal';
+import { BiEditAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/meals/operations';
+
+import { ModalMeal } from 'components/ModalWindow/ModalMeal/ModalMeal';
+
+import { ReactComponent as Plus } from '../../../images/svg/main-page/add.svg';
+import css from './DiaryMeal.module.css';
 
 export const DiaryMeal = ({ meal, name, image, statistic }) => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +16,7 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
   const [changeDish, setChangeDish] = useState(null);
 
   const dispatch = useDispatch();
-  const { isLoading } = useSelector(state => state.user);
+  const { isLoading } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (isLoading) {
@@ -32,7 +34,7 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
     setNumberOfMeals(() => [...numberOfMeals, '1']);
   };
 
-  const handleEdit = editItem => {
+  const handleEdit = (editItem) => {
     setChangeDish(editItem);
     toggle();
   };
@@ -50,7 +52,10 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
         <div>
           <div className={css.meal_image}>
             <div className={css.meal_image_wrapper}>
-              <img src={image} alt={name} />
+              <img
+                src={image}
+                alt={name}
+              />
             </div>
             <h2>{name}</h2>
           </div>
@@ -69,7 +74,10 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
 
         <ul className={css.diary_meal_container}>
           {meal.map((item, index) => (
-            <li key={item._id} className={css.dish_container}>
+            <li
+              key={item._id}
+              className={css.dish_container}
+            >
               <p>{index + 1}</p>
               <div className={css.wrapper}>
                 <div>
@@ -102,7 +110,11 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
           ))}
           <li className={css.dish_container}>
             <p>{meal.length + 1}</p>
-            <button type="button" onClick={toggle} className={css.button_add}>
+            <button
+              type="button"
+              onClick={toggle}
+              className={css.button_add}
+            >
               <Plus />
               Record your meal
             </button>
@@ -128,10 +140,9 @@ export const DiaryMeal = ({ meal, name, image, statistic }) => {
   );
 };
 
-
 DiaryMeal.propTypes = {
   meal: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   statistic: PropTypes.object.isRequired,
-}
+};

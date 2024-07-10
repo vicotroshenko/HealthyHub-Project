@@ -1,7 +1,8 @@
-import css from './AuthHeaderContain.module.css';
-import userPatternIcon from '../../../images/png/header/profile-circle.png';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+
+import userPatternIcon from '../../../images/png/header/profile-circle.png';
+import css from './AuthHeaderContain.module.css';
 
 export const AuthHeaderContain = () => {
   const { pathname } = useLocation();
@@ -9,7 +10,10 @@ export const AuthHeaderContain = () => {
   return (
     <>
       <div className={css.header_logo}>
-        <NavLink to={'/home'} className={css.header_logo_link}>
+        <NavLink
+          to={'/home'}
+          className={css.header_logo_link}
+        >
           HealthyHub
         </NavLink>
       </div>

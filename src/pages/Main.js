@@ -1,6 +1,3 @@
-import { Container } from 'components/Container/Container';
-import { MainInformation } from 'components/Main/MainInformation/MainInformation';
-import { MainMealAndRecommendedFood } from 'components/Main/MainMealAndRecommendedFood/MainMealAndRecommendedFood';
 import dateConvertor from 'helpers/dateConvertor';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,10 +9,14 @@ import operationsMeal from 'redux/meals/operations';
 import { selectUserData } from 'redux/meals/selectors';
 import operationsRecommended from 'redux/recommended/operations';
 
+import { Container } from 'components/Container/Container';
+import { MainInformation } from 'components/Main/MainInformation/MainInformation';
+import { MainMealAndRecommendedFood } from 'components/Main/MainMealAndRecommendedFood/MainMealAndRecommendedFood';
+
 const Main = () => {
   const { isLoggedIn, user } = useSelector(selectAuthInform);
   const { date, isLoadErrorMessage } = useSelector(selectUserData);
-  const { recommendedFood } = useSelector(state => state.recommended);
+  const { recommendedFood } = useSelector((state) => state.recommended);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

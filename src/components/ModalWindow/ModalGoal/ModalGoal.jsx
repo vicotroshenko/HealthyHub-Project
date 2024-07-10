@@ -1,18 +1,20 @@
+import { Field, Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
-import loseFatIcon from '../../../images/png/header/goal-lose-fat.png';
-import maintainIcon from '../../../images/png/header/goal-maintain.png';
-import gainMuscleIcon from '../../../images/png/header/goal-gain-muscle.png';
-import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
-import { Modal } from 'components/ModalWindow/Modal/Modal';
-import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
-import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import operations from 'redux/auth/operations';
-import { selectUserGoal } from 'redux/auth/selectors';
-import css from './ModalGoal.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import operations from 'redux/auth/operations';
+import { selectUserGoal } from 'redux/auth/selectors';
+
+import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { Modal } from 'components/ModalWindow/Modal/Modal';
+
+import gainMuscleIcon from '../../../images/png/header/goal-gain-muscle.png';
+import loseFatIcon from '../../../images/png/header/goal-lose-fat.png';
+import maintainIcon from '../../../images/png/header/goal-maintain.png';
+import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
+import css from './ModalGoal.module.css';
 
 const initialValues = {
   goal: ['Lose fat'],
@@ -40,15 +42,26 @@ export const ModalGoal = ({ showModal, toggle }) => {
   };
 
   return (
-    <Modal toggle={toggle} styles={css.modal} visible={showModal}>
-      <button type="button" onClick={toggle} className={css.close_button}>
+    <Modal
+      toggle={toggle}
+      styles={css.modal}
+      visible={showModal}
+    >
+      <button
+        type="button"
+        onClick={toggle}
+        className={css.close_button}
+      >
         <CloseIcon />
       </button>
       <h1 className={css.modal_title}>Target selection</h1>
       <p className={css.modal_desc}>
         The service will adjust your calorie intake to your goal
       </p>
-      <Formik initialValues={initialValues} onSubmit={handleGoal}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleGoal}
+      >
         <Form className={css.checkbox}>
           <label
             style={
@@ -65,7 +78,10 @@ export const ModalGoal = ({ showModal, toggle }) => {
               checked={checked === 'Lose fat'}
             />
             <div className={css.new_checkbox}>
-              <img src={loseFatIcon} alt="goal check lose fat" />
+              <img
+                src={loseFatIcon}
+                alt="goal check lose fat"
+              />
             </div>
             Lose Fat
           </label>
@@ -84,7 +100,10 @@ export const ModalGoal = ({ showModal, toggle }) => {
               checked={checked === 'Maintain'}
             />
             <div className={css.new_checkbox}>
-              <img src={maintainIcon} alt="goal check maintain" />
+              <img
+                src={maintainIcon}
+                alt="goal check maintain"
+              />
             </div>
             Maintain
           </label>
@@ -103,14 +122,21 @@ export const ModalGoal = ({ showModal, toggle }) => {
               checked={checked === 'Gain Muscle'}
             />
             <div className={css.new_checkbox}>
-              <img src={gainMuscleIcon} alt="goal check gain muscle" />
+              <img
+                src={gainMuscleIcon}
+                alt="goal check gain muscle"
+              />
             </div>
             Gain muscle
           </label>
           <ButtonSubmit size={{ SWidth: 280, MWidth: 166 }}>
             <span>Confirm</span>
           </ButtonSubmit>
-          <button type="button" onClick={toggle} className={css.cancel_btn}>
+          <button
+            type="button"
+            onClick={toggle}
+            className={css.cancel_btn}
+          >
             Cancel
           </button>
         </Form>

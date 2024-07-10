@@ -1,11 +1,12 @@
-import { AuthContainer } from 'components/AuthContainer/AuthContainer';
-import { SignUpFrom } from 'components/Singup/SignUpForm/SignUpForm';
-import homeImage from '../images/png/home/Illustration.png';
-import { updateUser } from 'redux/auth/authSlice';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { updateUser } from 'redux/auth/authSlice';
 
+import { AuthContainer } from 'components/AuthContainer/AuthContainer';
+import { SignUpFrom } from 'components/Singup/SignUpForm/SignUpForm';
+
+import homeImage from '../images/png/home/Illustration.png';
 
 const SingUp = () => {
   const [password, setPassword] = useState('');
@@ -27,18 +28,20 @@ const SingUp = () => {
     navigate('/singup/goal');
   };
 
-  const getPassword = value => setPassword(value);
-  const searchNumber = string =>
-    string.split('').some(element => !isNaN(Number(element)));
+  const getPassword = (value) => setPassword(value);
+  const searchNumber = (string) =>
+    string.split('').some((element) => !isNaN(Number(element)));
 
   return (
     <>
       <AuthContainer image={homeImage}>
-        <SignUpFrom handleSubmit={handleSingUp} getPassword={getPassword} />
+        <SignUpFrom
+          handleSubmit={handleSingUp}
+          getPassword={getPassword}
+        />
       </AuthContainer>
     </>
   );
 };
-
 
 export default SingUp;

@@ -1,8 +1,9 @@
-import { SettingSelect } from 'components/SettingSelect/SettingSelect';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { selectAuthInform } from 'redux/auth/selectors';
+
+import { SettingSelect } from 'components/SettingSelect/SettingSelect';
 
 const Setting = () => {
   const { isLoggedIn } = useSelector(selectAuthInform);

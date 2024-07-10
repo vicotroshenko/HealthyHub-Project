@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { Modal } from 'components/ModalWindow/Modal/Modal';
-import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
 import { Field, Form, Formik } from 'formik';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
 import operationsMeal from 'redux/meals/operations';
-import css from './ModalWeight.module.css';
+
 import { ButtonSubmit } from 'components/ButtonPrimery/ButtonPrimery';
+import { Modal } from 'components/ModalWindow/Modal/Modal';
+
+import { ReactComponent as CloseIcon } from '../../../images/svg/modal/close-circle.svg';
+import css from './ModalWeight.module.css';
 
 const initialValues = {
   weight: '',
@@ -15,14 +17,21 @@ const initialValues = {
 export const ModalWeight = ({ showModal, toggle }) => {
   const dispatch = useDispatch();
 
-  const handelWeight = values => {
+  const handelWeight = (values) => {
     dispatch(operations.updateWeight(values));
-    dispatch(operationsMeal.updateWeight(values))
+    dispatch(operationsMeal.updateWeight(values));
   };
 
   return (
-    <Modal toggle={toggle} styles={css.modal} visible={showModal}>
-      <button onClick={toggle} className={css.close_button}>
+    <Modal
+      toggle={toggle}
+      styles={css.modal}
+      visible={showModal}
+    >
+      <button
+        onClick={toggle}
+        className={css.close_button}
+      >
         <CloseIcon />
       </button>
       <h1 className={css.modal_title}>Enter your current weight</h1>
@@ -30,7 +39,10 @@ export const ModalWeight = ({ showModal, toggle }) => {
       <p className={css.modal_day}>
         Today <span></span>
       </p>
-      <Formik initialValues={initialValues} onSubmit={handelWeight}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handelWeight}
+      >
         <Form className={css.modal_form}>
           <label>
             <Field
@@ -45,7 +57,11 @@ export const ModalWeight = ({ showModal, toggle }) => {
           <ButtonSubmit size={{ SWidth: 280, MWidth: 166 }}>
             <span>Confirm</span>
           </ButtonSubmit>
-          <button type="button" onClick={toggle} className={css.cancel_btn}>
+          <button
+            type="button"
+            onClick={toggle}
+            className={css.cancel_btn}
+          >
             Cancel
           </button>
         </Form>
@@ -57,4 +73,4 @@ export const ModalWeight = ({ showModal, toggle }) => {
 ModalWeight.propTypes = {
   toggle: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
-}
+};

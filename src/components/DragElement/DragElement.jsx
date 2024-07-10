@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import css from './DragElement.module.css';
 
 export const DragElement = ({ children }) => {
@@ -18,20 +19,20 @@ export const DragElement = ({ children }) => {
     const box = dragRef.current;
     const container = containerRef.current;
 
-    const onMouseDown = e => {
+    const onMouseDown = (e) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
       coords.current.startY = e.clientY;
     };
 
-    const onMouseUp = e => {
+    const onMouseUp = (e) => {
       isClicked.current = false;
 
       coords.current.lastX = box.offsetLeft;
       coords.current.lastY = box.offsetTop;
     };
 
-    const onMouseMove = e => {
+    const onMouseMove = (e) => {
       if (!isClicked.current) return;
 
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
@@ -60,8 +61,14 @@ export const DragElement = ({ children }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={css.container}>
-      <div ref={dragRef} className={css.drag_element}>
+    <div
+      ref={containerRef}
+      className={css.container}
+    >
+      <div
+        ref={dragRef}
+        className={css.drag_element}
+      >
         {children}
       </div>
     </div>

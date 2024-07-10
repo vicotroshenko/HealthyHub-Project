@@ -1,4 +1,4 @@
-import css from "./BottleSVG.module.css";
+import css from './BottleSVG.module.css';
 
 export const BottleSVG = () => {
   return (
@@ -22,7 +22,7 @@ export const BottleSVG = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-				className={css.water}
+        className={css.water}
       />
       <path
         d="M60 53.3333V50"

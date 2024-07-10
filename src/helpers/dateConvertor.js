@@ -1,4 +1,4 @@
-const dateConvertor = date => {
+const dateConvertor = (date) => {
   if (!date) {
     return null;
   }
